@@ -98,4 +98,45 @@ console.log(convertLength(5, 'km', 'ft'));
 
 console.log(convertLength(5, 'lbs', 'lbs'));
 
+// solving question from youtube to have and learn more about Javascript.
+console.log('youtube practice question');
+
+
+let  a = [1, 2, 3, 4];
+
+a.forEach (function (val){
+  console.log(val + 2);
+});
+
+
+a.forEach (function(val){
+  console.log('Hello ' + val);
+});
+
+
+a.forEach( function (val) {
+  if (val <= 2 ) {
+    console.log(val);
+  }
+});
+
+
+console.log('Gaaaap');
+
+let sum = 0;
+a.forEach(function (val) {
+  sum = (sum + val);
+})
+
+console.log(sum);
+
+console.log('gaaaaaaap');
+
+
+a.forEach(function(val){
+  if(typeof val === 'number') {
+    sum = sum + val;
+  }
+})
+console.log(sum);
 
