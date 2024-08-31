@@ -178,3 +178,138 @@ console.log('........................');
  });
 
  console.log (h);
+
+
+console.log ('......................................................');
+
+console.log('solving some question : map, filter, and reduce question');
+
+/* Exercises for map
+
+Double the Numbers:
+
+Given an array of numbers, return a new array where each number is doubled.*/
+
+let numbers = [1, 2, 3, 4];
+// Expected output: [2, 4, 6, 8]
+
+let doubleTheNumber = numbers.map((value) => {
+  return value * 2;
+});
+
+console.log(doubleTheNumber);
+
+/*Convert to Uppercase:
+
+Given an array of strings, return a new array where each string is in uppercase. */
+
+let words = ["apple", "banana", "cherry"];
+// Expected output: ["APPLE", "BANANA", "CHERRY"]
+
+let convertToUppercase = words.map((value) => {
+  return value.toUpperCase();
+})
+
+console.log(convertToUppercase);
+
+
+/*Add 10 to Each Number:
+
+Given an array of numbers, return a new array where each number has 10 added to it.*/
+
+let number = [5, 10, 15];
+// Expected output: [15, 20, 25]
+
+let addTenToEachNumber = number.map((value) => {
+  return value + 10;
+});
+
+console.log(addTenToEachNumber);
+console.log('...............................')
+
+/*Exercises for filter
+
+Filter Out Odd Numbers:
+
+Given an array of numbers, return a new array that only includes the even numbers.*/
+
+let num = [1, 2, 3, 4, 5, 6];
+// Expected output: [2, 4, 6]
+
+let filterOutOddNumbers = num.filter((value) => {
+  return value % 2 === 0;
+});
+
+console.log(filterOutOddNumbers);
+
+/* Filter Short Words:
+
+Given an array of strings, return a new 
+array that only includes strings with 4 or more characters.
+ */
+
+let word = ["cat", "lion", "dog", "elephant"];
+// Expected output: ["lion", "elephant"]
+
+let filterShortWords = word.filter((value) => {
+  return value.length >= 4;
+});
+
+console.log(filterShortWords);
+
+/* Filter Numbers Greater Than 10:
+
+Given an array of numbers, return a new array 
+that only includes numbers greater than 10.*/
+
+let numb = [5, 12, 8, 21, 14];
+// Expected output: [12, 21, 14]
+
+let filterNumberGreaterThanTen = numb.filter((value) => {
+  return value > 10;
+});
+
+console.log(filterNumberGreaterThanTen);
+
+console.log('...............................');
+
+/*Exercises for reduce
+Sum All Numbers:
+
+Given an array of numbers, use reduce to return the sum of all the numbers. */ 
+
+let numbe = [1, 2, 3, 4];
+// Expected output: 10
+
+let sumOfAllNumbers = numbe.reduce((index, value) => {
+
+  return index + value;
+}, 0);
+
+console.log(sumOfAllNumbers);
+
+/*Multiply All Numbers:
+
+Given an array of numbers, use reduce to return the product of all the numbers.*/
+
+let nu = [2, 3, 4];
+// Expected output: 24
+
+let multiplyAllNumbers = nu. reduce ((accumulator,value) => {
+  return accumulator * value;
+},1);
+
+console.log(multiplyAllNumbers);
+
+/*Concatenate All Strings:
+
+Given an array of strings, use reduce to concatenate (join) them all into one single string.*/ 
+
+let new_Words = ["Hello", "world", "!"];
+
+
+let concatenateAllStrings = new_Words.reduce((accumulator, value) => {
+  return accumulator + value;
+}, ""); 
+
+console.log(concatenateAllStrings); 
