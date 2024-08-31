@@ -141,4 +141,40 @@ a.forEach(function(val){
 console.log(sum);
 
 console.log('....................................');
+// array map method. 
 
+let arr = [45, 23, 21]
+
+
+let n = arr.map((value)=> {
+  return value + 1;
+})
+ 
+console.log(n)
+
+console.log('......................................');
+
+
+// Array Filter method. 
+
+let arr2 = [45, 23, 21, 0, 3, 5];
+
+let p = arr2.filter((value) =>{
+  
+  return value < 10;
+
+});
+
+console.log(p);
+
+console.log('........................');
+
+// reduce in array 
+
+ let arr3 = [1, 2, 3,  ];
+
+ let h = arr3.reduce((h1, h2) => {
+  return h1 * h2
+ });
+
+ console.log (h);
