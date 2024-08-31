@@ -140,3 +140,5 @@ a.forEach(function(val){
 })
 console.log(sum);
 
+console.log('....................................');
+
