@@ -14,11 +14,11 @@ const scissorsButton = document.querySelector('[data-js="scissors-btn"]');
 const getComputerMove = () => {
   let randomValue = Math.floor(Math.random() * 3);
   if (randomValue === 0) {
-    return 'stone';
+    return 'STONE 🪨';
   } else if (randomValue === 1) {
-    return 'paper';
+    return 'PAPPERS 📰';
   } else {
-    return 'scissors';
+    return 'SCISSORS ✂️';
   }
 };
 
@@ -28,29 +28,34 @@ const gameResult = (playerMove) => {
 
   let result;
   if (computerMove === playerMove) {
-    result = 'TIE';
+    result = 'TIE  ⚡ ⚡ ⚡ ⚡';
   } else if (
-    (playerMove === 'stone' && computerMove === 'scissors') ||
-    (playerMove === 'scissors' && computerMove === 'paper') ||
-    (playerMove === 'paper' && computerMove === 'stone')
+    (playerMove === 'STONE 🪨' && computerMove === 'SCISSORS ✂️') ||
+    (playerMove === 'SCISSORS ✂️' && computerMove === 'PAPPERS 📰') ||
+    (playerMove === 'PAPPERS 📰' && computerMove === 'STONE 🪨')
   ) {
-    result = 'YOU WIN';
+    result = 'YOU WIN  😍 👍👍👍 🤩 😎';
   } else {
-    result = 'YOU LOSE';
+    result = 'YOU LOSE  😞 😞 😞';
   }
 
-  alert(`Your move is ${playerMove} and computer's move is ${computerMove}. Result: ${result}`);
+  alert(`Your Move is ${playerMove}            
+Computer's Move is ${computerMove}
+
+    ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+
+    Result: ${result}`);
 };
 
 // Adding Event Listeners
 stoneButton.addEventListener('click', () => {
-  gameResult('stone'); 
+  gameResult('STONE 🪨'); 
 });
 
 paperButton.addEventListener('click', () => {
-  gameResult('paper'); 
+  gameResult('PAPPERS 📰'); 
 });
 
 scissorsButton.addEventListener('click', () => {
-  gameResult('scissors'); 
+  gameResult('SCISSORS ✂️'); 
 });
