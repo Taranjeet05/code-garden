@@ -16,7 +16,7 @@ const getComputerMove = () => {
   if (randomValue === 0) {
     return 'STONE 🪨';
   } else if (randomValue === 1) {
-    return 'PAPPERS 📰';
+    return 'PAPPER 📰';
   } else {
     return 'SCISSORS ✂️';
   }
@@ -31,8 +31,8 @@ const gameResult = (playerMove) => {
     result = 'TIE  ⚡ ⚡ ⚡ ⚡';
   } else if (
     (playerMove === 'STONE 🪨' && computerMove === 'SCISSORS ✂️') ||
-    (playerMove === 'SCISSORS ✂️' && computerMove === 'PAPPERS 📰') ||
-    (playerMove === 'PAPPERS 📰' && computerMove === 'STONE 🪨')
+    (playerMove === 'SCISSORS ✂️' && computerMove === 'PAPPER 📰') ||
+    (playerMove === 'PAPPER 📰' && computerMove === 'STONE 🪨')
   ) {
     result = 'YOU WIN  😍 👍👍👍 🤩 😎';
   } else {
@@ -53,7 +53,7 @@ stoneButton.addEventListener('click', () => {
 });
 
 paperButton.addEventListener('click', () => {
-  gameResult('PAPPERS 📰'); 
+  gameResult('PAPPER 📰'); 
 });
 
 scissorsButton.addEventListener('click', () => {
