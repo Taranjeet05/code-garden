@@ -12,18 +12,23 @@
 }
 
 #main {
-
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  height: 40vh;
+  width: 100vw;
 }
 
 .header {
 background-color: var(--primary-color);
-height: 5vh;
+height: 8vh;
 width: 100%;
 display: flex;
 justify-content: space-around;
 align-items: center;
 font-size: 1.5rem;
-
 }
 
 .span {
@@ -43,7 +48,7 @@ background-color: blueviolet;
 }
 
 .section {
-
+ 
 }
 
 .stone-section{
@@ -59,6 +64,10 @@ background-color: rgb(177, 25, 25);
 }
 
 .button {
+height: 5vh;
+width: 15vw;
+font-size: 1.4rem;
+border-radius: 5px;
 
 }
 
