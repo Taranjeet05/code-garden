@@ -381,3 +381,26 @@ let carWithProperties = {
 let {model, year} = carWithProperties;
 console.log(model);
 console.log(year);
+
+
+
+// codewars Task _
+
+
+function top3(products, amounts, prices) {
+  // Step 1: Calculate revenue for each product
+  let revenues = products.map((product, index) => {
+    return { 
+      product: product,               // product name
+      revenue: amounts[index] * prices[index]  // revenue (amount * price)
+    };
+  });
+
+  // Step 2: Sort the products by revenue (biggest first)
+  revenues.sort((a, b) => b.revenue - a.revenue);
+
+  // Step 3: Get the top 3 product names
+  return revenues.slice(0, 3).map(item => item.product);
+}
+
+console.log(top3(["Cell Phones", "Vacuum Cleaner", "Computer", "Autos", "Gold", "Fishing Rods", "Lego", " Speakers"], [5, 25, 2, 7, 10, 3, 2, 24], [51, 225, 22, 47, 510, 83, 82, 124]), );
