@@ -406,3 +406,14 @@ function top3(products, amounts, prices) {
 
   return revenues.slice(0, 3).map(item => item.product);
 }
+
+
+// short version 
+
+function top3(products, amounts, prices) {
+  return products
+    .map((product, i) => ({ product, revenue: amounts[i] * prices[i], i }))
+    .sort((a, b) => b.revenue - a.revenue || a.i - b.i)
+    .slice(0, 3)
+    .map(item => item.product);
+}
