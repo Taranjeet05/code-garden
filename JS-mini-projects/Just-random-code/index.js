@@ -442,3 +442,19 @@ function fakeBin(x){
 
   return x.split('').map((digit) => digit < 5 ? '0' : '1').join('');
  }
+
+
+ console.log('.............');
+
+ // Basic Mathematical operations 
+
+ function basicOp(operation, value1, value2){
+  //Code
+  switch (operation) {
+      case '+' : return value1 + value2;
+      case '-' : return value1 - value2;
+      case '/' : return value1 / value2;
+      case '*' : return value1 * value2;
+      default  : return 'Invalid operations!!!';
+  }
+}
