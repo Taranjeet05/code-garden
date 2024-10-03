@@ -435,3 +435,28 @@ function fakeBin(x){
   }
 }
 
+console.log(':::...............:::');
+
+function guessGifts(wishlist, presents) {
+  let guessedGifts = [];
+
+  
+  presents.forEach(present => {
+    
+    wishlist.forEach(item => {
+
+      if (
+        item.size === present.size &&
+        item.clatters === present.clatters &&
+        item.weight === present.weight
+      ) {
+        // Avoid adding duplicates
+        if (!guessedGifts.includes(item.name)) {
+          guessedGifts.push(item.name);
+        }
+      }
+    });
+  });
+
+  return guessedGifts;
+}
