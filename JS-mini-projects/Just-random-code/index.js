@@ -460,3 +460,8 @@ function guessGifts(wishlist, presents) {
 
   return guessedGifts;
 }
+
+
+/* plan to use this thing for writing random javascript
+   code to practice on specific areas like writing
+   loops and etc. */
