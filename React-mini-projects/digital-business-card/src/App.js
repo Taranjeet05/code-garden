@@ -6,10 +6,12 @@ import Interests from './components/Interests';
 function App() {
   return (
   <>
-  <Info />
-  <About />
-  <Interests />
-  <Footer />
+  <div className='overall-div'> 
+    <Info />
+    <About />
+    <Interests />
+    <Footer />
+  </div>
   </>
   );
 }
