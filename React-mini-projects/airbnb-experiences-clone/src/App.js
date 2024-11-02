@@ -10,8 +10,8 @@ function App() {
       <Card
         key={item.id} 
         img={item.coverImg}
-        rating={item.rating}
-        reviewCount={item.reviewCount}
+        rating={item.stats.rating}
+        reviewCount={item.stats.reviewCount}
         location={item.location}
         title={item.title}
         price={item.price}
@@ -23,7 +23,10 @@ function App() {
     <div>
       <Navbar />
       <Hero />
+      <section className='cards-list'>
       {cards}
+      </section>
+      
     </div>
   );
 }

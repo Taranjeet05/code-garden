@@ -13,7 +13,7 @@ const Card = ({img, rating, reviewCount, location, title, price}) => {
         <span className='grey'>({reviewCount}) • </span>
         <span>{location}</span>
       </div>
-      <p>{title}</p>
+      <p className='card--title'>{title}</p>
       <p><span className='bold'>From ${price}</span> / person</p>
     </div>
   )
