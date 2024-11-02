@@ -63,6 +63,71 @@ const data = [
     },
     location: "online",
     openSpots: 7
+  },
+  {
+    id: 6,
+    title: "Guided Wildlife Safari",
+    description: "Join us for an exciting wildlife safari and discover nature's wonders.",
+    price: 100,
+    coverImg: "https://plus.unsplash.com/premium_photo-1661866819978-7393e9d985bc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    stats: {
+      rating: 4.9,
+      reviewCount: 120
+    },
+    location: "in-person",
+    openSpots: 8
+  },
+  {
+    id: 7,
+    title: "Virtual Reality Gaming Experience",
+    description: "Dive into the world of virtual reality with this immersive gaming session.",
+    price: 65,
+    coverImg: "https://plus.unsplash.com/premium_photo-1683134105531-42032fc66937?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    stats: {
+      rating: 4.8,
+      reviewCount: 95
+    },
+    location: "online",
+    openSpots: 15
+  },
+  {
+    id: 8,
+    title: "Creative Writing Workshop",
+    description: "Enhance your writing skills in a fun and engaging workshop.",
+    price: 35,
+    coverImg: "https://plus.unsplash.com/premium_photo-1684444605542-93725082d214?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    stats: {
+      rating: 4.5,
+      reviewCount: 40
+    },
+    location: "online",
+    openSpots: 20
+  },
+  {
+    id: 9,
+    title: "Karaoke Night",
+    description: "Join us for a fun-filled karaoke night with friends and family.",
+    price: 20,
+    coverImg: "https://plus.unsplash.com/premium_photo-1681841324775-880c54ffd0c1?q=80&w=1126&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    stats: {
+      rating: 4.3,
+      reviewCount: 75
+    },
+    location: "in-person",
+    openSpots: 12
+  },
+  {
+    id: 10,
+    title: "Home Gardening Basics",
+    description: "Learn how to start your own home garden with tips from experts.",
+    price: 55,
+    coverImg: "https://plus.unsplash.com/premium_photo-1678836292816-fdf0ac484cf1?q=80&w=1103&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    stats: {
+      rating: 4.6,
+      reviewCount: 90
+    },
+    location: "in-person",
+    openSpots: 3
   }
 ];
 
