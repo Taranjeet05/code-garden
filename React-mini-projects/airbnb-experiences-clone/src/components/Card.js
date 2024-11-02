@@ -1,21 +1,23 @@
 import React from 'react'
-import Image from '../assets/images/image 12.png'
 import Star from '../assets/images/Star 1.png'
 
-const Card = () => {
+const Card = ({img, rating, reviewCount, location, title, price}) => {
+
+
   return (
     <div className='card'>
-      <img src={Image} alt='Katie.png' className='card--image'/>
+      <img src={img} alt={title} className='card--image'/>
       <div className='card--stats'>
         <img className='card--star' src={Star} alt='star-img' />
-        <span className='grey'>5.0</span>
-        <span className='grey'>(6) • </span>
-        <span>USA</span>
+        <span className='grey'>{rating}</span>
+        <span className='grey'>({reviewCount}) • </span>
+        <span>{location}</span>
       </div>
-      <p>Life Lessons with Katie Zaferes</p>
-      <p><span className='bold'>From $136</span> / person</p>
+      <p>{title}</p>
+      <p><span className='bold'>From ${price}</span> / person</p>
     </div>
   )
 }
 
 export default Card
+
