@@ -16,3 +16,55 @@ header {
 header > h1 {
   color: white;
 }
+
+.card {
+  display: flex;
+  margin: 60px;
+  background-color: antiquewhite;
+}
+
+.img--div {
+  background-color: azure;
+
+  
+}
+
+.img--div > img {
+  width: 300px;
+  height: 504px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card--info {
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 50%;
+  background-color:aliceblue ;
+}
+
+
+.card--location {
+font-size: 15px;
+font-weight: bold;
+}
+
+.map--url {
+  color:black;
+  margin-left: 20px;
+
+}
+
+.card--info > h2 {
+  font-size: 38px;
+  margin-top: 8px;
+  margin-bottom: 25px;
+}
+
+.trip--date {
+  font-weight: bold;
+}
+
+.card--info > p {
+  margin-top: 15px;
+}
