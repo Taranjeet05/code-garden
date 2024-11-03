@@ -8,7 +8,7 @@ function App() {
   const Cards = data.map (item => {
     return (
       <Card
-      key={item}
+      key={item.id}
       {...item} 
       />
     )
