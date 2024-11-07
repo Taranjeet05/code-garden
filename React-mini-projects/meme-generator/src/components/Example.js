@@ -1,20 +1,22 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState } from 'react';
 
 const Example = () => {
 
-  const [thingArray, setThingArray] = useState(['Thing 1']);
+  const [indiansArray, setIndiansArray] = useState([`Vande Mataram`]);
 
-  function addItems() {
-    setThingArray(prevArray => [...prevArray, `Thing ${prevArray.length + 1 }`])
+  function addList() {
+    setIndiansArray(prevArray => [...prevArray, `Vande Mataram.. ${prevArray.length + 1}`]);
   }
+
+  const Element = indiansArray.map(list=> (
+    <p key={list} >{list} </p>
+  ))
 
   return (
     <>
-      <button onClick={addItems} >click and Add Item</button>
-      {thingArray.map(thing => (<p key={thing}>
-        {thing}
-      </p>))}
+      <button onClick={addList} >Click me to add more...</button>
+      {Element}
     </>
   )
 }
