@@ -33,3 +33,25 @@ const elements = pokemon.map((elem)=>{
 
 console.log(elements);
 
+// Task 1 :: codewar
+
+function twoSum(numbers, target) {
+  const numMap = {}; 
+  
+  for (let i = 0; i < numbers.length; i++) { 
+      const currentNum = numbers[i];         
+      const complement = target - currentNum; 
+      
+   
+      if (complement in numMap) {
+         
+          return [numMap[complement], i];
+      }
+      
+   
+      numMap[currentNum] = i;
+  }
+  
+ 
+  return [];
+}
