@@ -55,3 +55,12 @@ function twoSum(numbers, target) {
  
   return [];
 }
+
+//Task 2 :: codewar
+
+function gooseFilter(birds) {
+  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  
+  
+  return birds.filter(bird => !geese.includes(bird));
+}
