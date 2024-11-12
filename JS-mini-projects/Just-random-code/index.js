@@ -107,3 +107,23 @@ function cakes(recipe, available) {
   return maxCakes;
 }
 
+//Task 5 :: codewar
+function top3(products, amounts, prices) {
+  
+  let revenues = products.map((product, index) => {
+    return { 
+      product: product,             
+      revenue: amounts[index] * prices[index],  
+      index: index                    
+    };
+  });
+
+  revenues.sort((a, b) => {
+    if (b.revenue === a.revenue) {
+      return a.index - b.index;  
+    }
+    return b.revenue - a.revenue;  
+  });
+
+  return revenues.slice(0, 3).map(item => item.product);
+}
