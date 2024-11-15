@@ -1,7 +1,5 @@
-
 const TurnIndicater = () => {
 
-  //const [turnIndicater, setTurnIndicater] = useState('Player x')
 
   return (
     <>
