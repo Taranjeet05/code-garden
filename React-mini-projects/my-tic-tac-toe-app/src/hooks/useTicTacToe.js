@@ -34,7 +34,7 @@ const useTicTacToe = () => {
         if(board[index] || isGameOver) return;
 
         const updateBoard = [...board];
-        updateBoard === currentPlayer; 
+        updateBoard[index] === currentPlayer; 
         setBoard(updateBoard);
 
         if(checkWinner(updateBoard)) {
@@ -52,7 +52,7 @@ const useTicTacToe = () => {
                 ...prevScores, 
                 tie : prevScores.tie + 1,
             }));
-            setIsGameOver(false);
+            setIsGameOver(true);
         } else {
             setCurrentPlayer(currentPlayer === 'x' ? 'o' : 'x');
         }
