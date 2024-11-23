@@ -127,3 +127,19 @@ function top3(products, amounts, prices) {
 
   return revenues.slice(0, 3).map(item => item.product);
 }
+
+//Task 6 :: codewar
+
+function comp(array1, array2) {
+  // If either array is null, return false
+  if (!array1 || !array2) return false;
+
+  // Check if the lengths of the array are same or not 
+  if (array1.length !== array2.length) return false;
+
+  // Sort array and compare with each other 
+  const sortedSquares = array1.map(num => num ** 2).sort((a, b) => a - b);
+  const sortedArray2 = array2.sort((a, b) => a - b);
+
+  return sortedSquares.every((value, index) => value === sortedArray2[index]);
+}
