@@ -11,10 +11,19 @@ const Meme = () => {
 
   // Fetch memes data from the API
   useEffect(() => {
-    fetch('https://api.imgflip.com/get_memes')
-      .then((res) => res.json()) 
-      .then((data) => setAllMemeImages(data.data.memes))
-      .catch((error) => console.error('Error fetching memes:', error)); 
+
+    const fetchMemeData = async () => {
+
+      try {
+        const response = await fetch('https://api.imgflip.com/get_memes');
+        const data = await response.json();
+        setAllMemeImages(data.data.memes)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchMemeData();
+      
   }, []); 
 
   // Get a random meme image
