@@ -72,8 +72,12 @@ form > button {
   width: 90%;
   pointer-events: none;
   padding: 5px; 
-  background: rgba(0, 0, 0, 0.5); 
   border-radius: 5px; 
+  background: transparent; /* Default transparent background */
+}
+
+.meme-text.show-background {
+  background: rgba(0, 0, 0, 0.5); /* Show background color when text is present */
 }
 
 .meme-text.top {

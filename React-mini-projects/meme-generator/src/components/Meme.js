@@ -61,8 +61,12 @@ const Meme = () => {
 
       <div className="meme">
         <img className="meme--image" src={meme.randomImage} alt="meme-img" />
-        <h2 className="meme-text top">{meme.topText}</h2>
-        <h2 className="meme-text bottom">{meme.bottomText}</h2>
+        <h2 className={`meme-text top ${meme.topText && 'show-background'}`}>
+          {meme.topText}
+        </h2>
+        <h2 className={`meme-text bottom ${meme.bottomText && 'show-background'}`}>
+          {meme.bottomText}
+        </h2>
       </div>
     </main>
   );
