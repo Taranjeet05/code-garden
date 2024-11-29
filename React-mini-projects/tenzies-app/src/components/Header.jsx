@@ -2,7 +2,11 @@
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <>
+    <div>
+      <h1 className="text-3xl font-bold ">Tenzies</h1>
+    </div>
+    </>
   )
 }
 
