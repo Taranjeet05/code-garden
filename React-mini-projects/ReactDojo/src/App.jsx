@@ -1,12 +1,12 @@
 import './App.css'
+import Accordion from './components/accordion'
 
 function App() {
 
   return (
     <>
-    <h1 className="text-4xl font-bold underline">
-    Hello world!
-  </h1>  
+    {/* Accordion */}
+    <Accordion />
     </>
   )
 }
