@@ -11,28 +11,32 @@ const Accordion = () => {
   }
 
   return (
-    <div className="accordion-wrapper">
-      <div className="accordion">
+    <div className="flex h-screen w-screen justify-center items-center flex-col gap-5">
+      {/* Wrapper styles */}
+      <div className="w-[500px]">
+        {/* Accordion styles */}
         {data && data.length > 0 ? (
           data.map((dataItem) => (
             <div
               key={dataItem.id}
-              className="accordion-item"
+              className="bg-[#614101] mb-2 p-4"
               onClick={() => handleSingleSelection(dataItem.id)}
             >
-              <div className="accordion-title">
+              <div className="text-white flex justify-between items-center cursor-pointer">
+                {/* Title styles */}
                 <h2>{dataItem.question}</h2>
                 <span>{selected === dataItem.id ? "-" : "+"}</span>
               </div>
               {selected === dataItem.id && (
-                <div className="accordion-content">
+                <div className="text-white">
+                  {/* Content styles */}
                   <p>{dataItem.answer}</p>
                 </div>
               )}
             </div>
           ))
         ) : (
-          <div className="no-data">No Data Found ...</div>
+          <div className="text-center text-white">No Data Found ...</div>
         )}
       </div>
     </div>
