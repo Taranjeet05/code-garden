@@ -7,31 +7,35 @@ const Accordion = () => {
 
   function handleSingleSelection(getCurrentId) {
     console.log(getCurrentId);
-    setSelected(getCurrentId); 
+    setSelected(getCurrentId);
   }
 
   return (
-    <>
-      <div>
-        <div>
-          {data && data.length > 0 ? (
-            data.map((dataItem) => (
-              <div
-                key={dataItem.id} 
-                onClick={() => handleSingleSelection(dataItem.id)} 
-              >
+    <div className="accordion-wrapper">
+      <div className="accordion">
+        {data && data.length > 0 ? (
+          data.map((dataItem) => (
+            <div
+              key={dataItem.id}
+              className="accordion-item"
+              onClick={() => handleSingleSelection(dataItem.id)}
+            >
+              <div className="accordion-title">
                 <h2>{dataItem.question}</h2>
                 <span>{selected === dataItem.id ? "-" : "+"}</span>
-                {/* display the answer if selected */}
-                {selected === dataItem.id && <p>{dataItem.answer}</p>}
               </div>
-            ))
-          ) : (
-            <div>No Data Found ...</div>
-          )}
-        </div>
+              {selected === dataItem.id && (
+                <div className="accordion-content">
+                  <p>{dataItem.answer}</p>
+                </div>
+              )}
+            </div>
+          ))
+        ) : (
+          <div className="no-data">No Data Found ...</div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
