@@ -6,8 +6,7 @@ const Accordion = () => {
   const [selected, setSelected] = useState(null);
 
   function handleSingleSelection(getCurrentId) {
-    console.log(getCurrentId);
-    setSelected(getCurrentId);
+    setSelected(getCurrentId === selected ? null : getCurrentId);
   }
 
   return (
