@@ -1,4 +1,4 @@
-import { useState, } from "react";
+import { useState } from "react";
 
 const RandomColor = () => {
   const [typeOfColor, setTypeOfColor] = useState("HEX");
@@ -9,7 +9,6 @@ const RandomColor = () => {
   }
 
   function handleCreateRandomHexColor() {
-    
     const hex = [1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
     let hexColor = "#";
 
@@ -27,6 +26,11 @@ const RandomColor = () => {
     setColor(`rgb(${r},${g}, ${b})`);
   }
 
+  function handleCopyColor() {
+    navigator.clipboard.writeText(color);
+    alert("Color copied to clipboard!");
+  }
+  
 
   return (
     <div
@@ -64,8 +68,10 @@ const RandomColor = () => {
           {/* Placeholder for color type */}
           {typeOfColor === "HEX" ? "HEX Color" : "RGB Color"}
         </h3>
-        <h1 className="text-6xl font-bold">
-          {/* Placeholder for color value */}
+        <h1
+          className="text-6xl font-bold cursor-pointer"
+          onClick={handleCopyColor}
+        >
           {color}
         </h1>
       </div>
