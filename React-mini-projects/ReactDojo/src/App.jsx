@@ -11,7 +11,7 @@ function App() {
       {/*Random-Color */}
       {/* <RandomColor /> /*}
       {/*Star-Rating*/}
-      <StarRating />
+      <StarRating noOfStars={5} starSize={60} />
     </>
   );
 }
