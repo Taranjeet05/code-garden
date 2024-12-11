@@ -1,10 +1,26 @@
+import PropTypes from "prop-types";
 
-const ImageSlider = () => {
+const ImageSlider = ({ url, limit = 5, page = 1 }) => {
   return (
     <>
-      <h1 className="text-2xl">Hello From ImageSlider Component</h1>
+      <div className="flex items-center justify-center h-screen w-screen">
+        <div className="text-5xl">Image Slider</div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ImageSlider
+// Prop validation
+ImageSlider.propTypes = {
+  url: PropTypes.string.isRequired,
+  limit: PropTypes.number, 
+  page: PropTypes.number, 
+};
+
+// Default props (if not provided)
+ImageSlider.defaultProps = {
+  limit: 5, 
+  page: 1,  
+};
+
+export default ImageSlider;
