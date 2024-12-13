@@ -9,6 +9,12 @@ const [products, setProducts] = useState([]);
 const [count, setCount] = useState(0);
 
 
+// useeffect 
+useEffect(() => {
+  fetchProducts();
+}, [count]);
+
+
   return (
     <>
       <div className=""></div>
