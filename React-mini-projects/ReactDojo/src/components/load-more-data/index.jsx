@@ -80,6 +80,3 @@ const LoadMoreData = () => {
 };
 
 export default LoadMoreData;
-
-// this is the website where we can get dummy products for this project
-// dummyjson.com/docs/products 
