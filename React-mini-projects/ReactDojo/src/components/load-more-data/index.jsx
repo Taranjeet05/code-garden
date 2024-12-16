@@ -45,24 +45,39 @@ const LoadMoreData = () => {
 
   return (
     <>
-      <div className="load-more-container">
-      <div className="product-container">
-        {products && products.length
-          ? products.map((item) => (
-              <div className="product" key={item.id}>
-                <img src={item.thumbnail} alt={item.title} />
-                <p>{item.title}</p>
-              </div>
-            ))
-          : null}
-      </div>
-      <div className="button-container">
-        <button disabled={disableButton} onClick={() => setCount(count + 1)}>
-          Load More Products
-        </button>
-        {disableButton ? <p>You have reached to 100 products</p> : null}
-      </div>
-    </div>
+      <div className="flex flex-col gap-5">
+  <div className="grid grid-cols-4 gap-2">
+    {products && products.length
+      ? products.map((item) => (
+          <div
+            key={item.id}
+            className="p-5 border border-gray-300 flex flex-col gap-2"
+          >
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              className="w-[200px] h-[200px] object-cover"
+            />
+            <p>{item.title}</p>
+          </div>
+        ))
+      : null}
+  </div>
+  <div className="flex flex-col items-center gap-2">
+    <button
+      disabled={disableButton}
+      onClick={() => setCount(count + 1)}
+      className={`px-4 py-2 border rounded ${
+        disableButton
+          ? "bg-gray-300 cursor-not-allowed"
+          : "bg-blue-500 text-white hover:bg-blue-600"
+      }`}
+    >
+      Load More Products
+    </button>
+    {disableButton && <p className="text-gray-500">You have reached 100 products</p>}
+  </div>
+</div>
     </>
   );
 };
