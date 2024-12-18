@@ -169,3 +169,10 @@ function isPalindrome(str) {
 console.log(isPalindrome("racecar")); // Output: true
 console.log(isPalindrome("hello")); // Output: false
 console.log(isPalindrome("A man a plan a canal Panama")); // Output: true
+
+/*Problem:
+Write a function findLargestNumber 
+that takes an array of numbers as input and returns the largest number in the array. */
+
+findLargestNumber([3, 5, 7, 2, 8]); // Output: 8
+findLargestNumber([-1, -5, -3, -4]); // Output: -1
