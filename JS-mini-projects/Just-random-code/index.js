@@ -146,3 +146,16 @@ function findLongestWord(str) {
 // Test the function
 console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // Output: "jumps"
 console.log(findLongestWord("JavaScript is awesome")); // Output: "JavaScript"
+
+/*
+Here’s another JavaScript question for you:
+
+Problem:
+Write a function isPalindrome that takes a string as input and checks 
+whether it is a palindrome. A palindrome is a word, phrase, or sequence that 
+reads the same backward as forward (ignoring spaces, capitalization, and punctuation). */
+
+
+isPalindrome("racecar"); // Output: true
+isPalindrome("hello");   // Output: false
+isPalindrome("A man a plan a canal Panama"); // Output: true
