@@ -155,7 +155,17 @@ Write a function isPalindrome that takes a string as input and checks
 whether it is a palindrome. A palindrome is a word, phrase, or sequence that 
 reads the same backward as forward (ignoring spaces, capitalization, and punctuation). */
 
+function isPalindrome(str) {
+  // Remove all non-alphanumeric characters and convert to lowercase
+  const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
-isPalindrome("racecar"); // Output: true
-isPalindrome("hello");   // Output: false
-isPalindrome("A man a plan a canal Panama"); // Output: true
+  // Check if the cleaned string is equal to its reverse
+  const reversedStr = cleanedStr.split("").reverse().join("");
+
+  return cleanedStr === reversedStr;
+}
+
+// Test the function
+console.log(isPalindrome("racecar")); // Output: true
+console.log(isPalindrome("hello")); // Output: false
+console.log(isPalindrome("A man a plan a canal Panama")); // Output: true
