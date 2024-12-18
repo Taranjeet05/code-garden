@@ -174,5 +174,11 @@ console.log(isPalindrome("A man a plan a canal Panama")); // Output: true
 Write a function findLargestNumber 
 that takes an array of numbers as input and returns the largest number in the array. */
 
-findLargestNumber([3, 5, 7, 2, 8]); // Output: 8
-findLargestNumber([-1, -5, -3, -4]); // Output: -1
+function findLargestNumber(arr) {
+  // Use Math.max.apply(null, arr) to find the largest number
+  return Math.max.apply(null, arr);
+}
+
+// Test the function
+console.log(findLargestNumber([3, 5, 7, 2, 8])); // Output: 8
+console.log(findLargestNumber([-1, -5, -3, -4])); // Output: -1
