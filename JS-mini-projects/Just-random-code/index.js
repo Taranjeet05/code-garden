@@ -131,9 +131,18 @@ input and returns the longest word in that string. If
 there are multiple words of the same maximum length, 
 return the first one. */
 
+function findLongestWord(str) {
+  // Split the string into an array of words
+  const words = str.split(" ");
 
-findLongestWord("The quick brown fox jumps over the lazy dog");
-// Output: "jumps"
+  // Find the longest word using reduce
+  const longestWord = words.reduce((longest, currentWord) => {
+    return currentWord.length > longest.length ? currentWord : longest;
+  }, "");
 
-findLongestWord("JavaScript is awesome");
-// Output: "JavaScript"
+  return longestWord;
+}
+
+// Test the function
+console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // Output: "jumps"
+console.log(findLongestWord("JavaScript is awesome")); // Output: "JavaScript"
