@@ -182,3 +182,12 @@ function findLargestNumber(arr) {
 // Test the function
 console.log(findLargestNumber([3, 5, 7, 2, 8])); // Output: 8
 console.log(findLargestNumber([-1, -5, -3, -4])); // Output: -1
+
+/* Problem:
+Write a function getUniqueCharacters that takes a string as input and returns a 
+string containing only the characters that appear 
+exactly once in the input string, in the order they appeared. */
+
+getUniqueCharacters("swiss"); // Output: "w"
+getUniqueCharacters("programming"); // Output: "progamin"
+getUniqueCharacters("abacabad"); // Output: "c"
