@@ -188,6 +188,26 @@ Write a function getUniqueCharacters that takes a string as input and returns a
 string containing only the characters that appear 
 exactly once in the input string, in the order they appeared. */
 
-getUniqueCharacters("swiss"); // Output: "w"
-getUniqueCharacters("programming"); // Output: "progamin"
-getUniqueCharacters("abacabad"); // Output: "c"
+function getUniqueCharacters(str) {
+  const charCount = {}; // Object to store the frequency of each character
+
+  // Count occurrences of each character
+  for (const char of str) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  // Filter out characters that appear more than once
+  let result = "";
+  for (const char of str) {
+    if (charCount[char] === 1) {
+      result += char;
+    }
+  }
+
+  return result;
+}
+
+// Test the function
+console.log(getUniqueCharacters("swiss")); // Output: "w"
+console.log(getUniqueCharacters("programming")); // Output: "progamin"
+console.log(getUniqueCharacters("abacabad")); // Output: "c"
