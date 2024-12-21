@@ -211,3 +211,11 @@ function getUniqueCharacters(str) {
 console.log(getUniqueCharacters("swiss")); // Output: "w"
 console.log(getUniqueCharacters("programming")); // Output: "progamin"
 console.log(getUniqueCharacters("abacabad")); // Output: "c"
+
+/* Problem:
+Write a function longestSubstringWithoutRepeating that takes a string as 
+input and returns the length of the longest substring without repeating characters. */
+
+longestSubstringWithoutRepeating("abcabcbb"); // Output: 3 (substring: "abc")
+longestSubstringWithoutRepeating("bbbbb");   // Output: 1 (substring: "b")
+longestSubstringWithoutRepeating("pwwkew");  // Output: 3 (substring: "wke")
