@@ -216,6 +216,29 @@ console.log(getUniqueCharacters("abacabad")); // Output: "c"
 Write a function longestSubstringWithoutRepeating that takes a string as 
 input and returns the length of the longest substring without repeating characters. */
 
-longestSubstringWithoutRepeating("abcabcbb"); // Output: 3 (substring: "abc")
-longestSubstringWithoutRepeating("bbbbb");   // Output: 1 (substring: "b")
-longestSubstringWithoutRepeating("pwwkew");  // Output: 3 (substring: "wke")
+function longestSubstringWithoutRepeating(s) {
+  let seen = new Map(); // Map to store characters and their last seen index
+  let maxLength = 0; // Variable to track the maximum length
+  let start = 0; // Start index of the current substring
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+    if (seen.has(char) && seen.get(char) >= start) {
+      // Update the start to exclude the last occurrence of the character
+      start = seen.get(char) + 1;
+    }
+    // Update the last seen index of the character
+    seen.set(char, i);
+    // Update maxLength with the length of the current substring
+    maxLength = Math.max(maxLength, i - start + 1);
+  }
+
+  return maxLength;
+}
+
+// Test the function
+console.log(longestSubstringWithoutRepeating("abcabcbb")); // Output: 3
+console.log(longestSubstringWithoutRepeating("bbbbb"));   // Output: 1
+console.log(longestSubstringWithoutRepeating("pwwkew"));  // Output: 3
+console.log(longestSubstringWithoutRepeating(""));        // Output: 0
+
