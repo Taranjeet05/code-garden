@@ -242,3 +242,16 @@ console.log(longestSubstringWithoutRepeating("bbbbb"));   // Output: 1
 console.log(longestSubstringWithoutRepeating("pwwkew"));  // Output: 3
 console.log(longestSubstringWithoutRepeating(""));        // Output: 0
 
+/* 
+Here's a JavaScript problem to solve:
+
+Problem: Palindrome Checker
+Write a function isPalindrome that takes a string as input and returns true if the string is a palindrome (reads the same forward and backward) and false otherwise.
+
+Requirements:
+Ignore case and non-alphanumeric characters.
+Treat an empty string as a valid palindrome. */
+
+isPalindrome("A man, a plan, a canal: Panama"); // true
+isPalindrome("race a car"); // false
+isPalindrome(" "); // true
