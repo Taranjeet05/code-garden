@@ -252,6 +252,14 @@ Requirements:
 Ignore case and non-alphanumeric characters.
 Treat an empty string as a valid palindrome. */
 
-isPalindrome("A man, a plan, a canal: Panama"); // true
-isPalindrome("race a car"); // false
-isPalindrome(" "); // true
+function isPalindrome(s) {
+  // Remove non-alphanumeric characters and convert to lowercase
+  const cleanedString = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  // Compare the cleaned string with its reverse
+  return cleanedString === cleanedString.split("").reverse().join("");
+}
+
+// Test cases
+console.log(isPalindrome("A man, a plan, a canal: Panama")); // true
+console.log(isPalindrome("race a car")); // false
+console.log(isPalindrome(" ")); // true
