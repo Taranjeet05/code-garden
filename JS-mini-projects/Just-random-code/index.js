@@ -263,3 +263,19 @@ function isPalindrome(s) {
 console.log(isPalindrome("A man, a plan, a canal: Panama")); // true
 console.log(isPalindrome("race a car")); // false
 console.log(isPalindrome(" ")); // true
+
+/* The Challenge: Async Closures and Object Behavior
+You are given the following code. Your task is to modify only the doSomething function so that the result array contains the correct values after all iterations complete. */
+
+function doSomething(i) {
+  // Modify this function
+}
+
+const result = [];
+for (var i = 0; i < 5; i++) {
+  doSomething(i);
+}
+
+setTimeout(() => {
+  console.log(result); // Expected output: [0, 1, 2, 3, 4]
+}, 1000);
