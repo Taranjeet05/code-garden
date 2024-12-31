@@ -282,3 +282,16 @@ for (var i = 0; i < 5; i++) {
 setTimeout(() => {
   console.log(result); // Expected output: [0, 1, 2, 3, 4]
 }, 1000);
+
+/* 
+Here's another challenging JavaScript question:
+
+The Challenge: Deep Flatten an Array
+Write a function deepFlatten that takes a nested array of arbitrary depth and returns a single, flattened array.
+
+For example: */
+
+const input = [1, [2, [3, [4, [5]]]]];
+
+console.log(deepFlatten(input));
+// Expected output: [1, 2, 3, 4, 5]
