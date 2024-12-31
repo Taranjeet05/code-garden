@@ -291,7 +291,22 @@ Write a function deepFlatten that takes a nested array of arbitrary depth and re
 
 For example: */
 
-const input = [1, [2, [3, [4, [5]]]]];
+function deepFlatten(arr) {
+  const result = [];
+  
+  function flatten(item) {
+    if (Array.isArray(item)) {
+      item.forEach(flatten);
+    } else {
+      result.push(item);
+    }
+  }
+  
+  flatten(arr);
+  return result;
+}
 
-console.log(deepFlatten(input));
-// Expected output: [1, 2, 3, 4, 5]
+// Example usage:
+const input = [1, [2, [3, [4, [5]]]]];
+console.log(deepFlatten(input)); 
+// Output: [1, 2, 3, 4, 5]
