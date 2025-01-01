@@ -39,6 +39,9 @@ const RandomColor = () => {
         background: color,
       }}
     >
+      <div>
+        <h1 className="text-white font-bold text-6xl mb-28">Color Blast</h1>
+      </div>
       <div className="flex gap-4">
         <button
           className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
