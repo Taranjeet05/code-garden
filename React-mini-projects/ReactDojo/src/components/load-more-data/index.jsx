@@ -4,25 +4,29 @@ const LoadMoreData = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
+  const [hasMore, setHasMore] = useState(true); 
+  const [error, setError] = useState(null);
 
   async function fetchProducts() {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://dummyjson.com/products?limit=10&skip=${
-          count === 0 ? 0 : count * 10
-        }`
+        `https://dummyjson.com/products?limit=10&skip=${count * 10}`
       );
-
       const result = await response.json();
 
       if (result && result.products && result.products.length) {
-        setProducts(result.products);
-        setLoading(false);
+        setProducts(result.products); 
+        setHasMore(result.products.length === 10); 
+      } else {
+        setHasMore(false); 
       }
-    } catch (e) {
-      console.error(e);
+
       setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      setError("Failed to load products, please try again later.");
+      console.error(e);
     }
   }
 
@@ -30,43 +34,60 @@ const LoadMoreData = () => {
     fetchProducts();
   }, [count]);
 
-  const disableButton = count >= 10; // Adjusted to 10 * 10 = 100 products
-
-  if (loading) {
-    return <div>Loading data! Please wait.</div>;
+  if (loading && count === 0) {
+    return <div>Loading... Please wait...</div>;
   }
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="grid grid-cols-4 gap-2">
-        {products.map((item) => (
-          <div
-            key={item.id}
-            className="p-5 border border-gray-300 flex flex-col gap-2"
+    <div className="bg-gradient-to-r from-green-400 to-teal-500 flex flex-col items-center justify-center p-6">
+      <div className="mb-8">
+        <h1 className="text-6xl font-extrabold text-white text-center shadow-md">
+          FetchMore
+        </h1>
+      </div>
+
+      {/* Error Message */}
+      {error && <div className="text-red-500 text-center mb-4">{error}</div>}
+
+      {/* Product Container - Flex Layout */}
+      <div className="flex flex-wrap gap-6 justify-center w-full">
+        {products.length > 0 ? (
+          products.map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 lg:w-1/5 p-4 border border-gray-300 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            >
+              <img
+                src={item.images[0]}
+                alt={item.title}
+                className="w-full h-56 object-cover rounded-lg"
+              />
+              <p className="mt-4 text-center font-semibold text-gray-800 text-lg">
+                {item.title}
+              </p>
+            </div>
+          ))
+        ) : (
+          <div className="text-center text-gray-500">No products available</div>
+        )}
+      </div>
+
+      {/* Load More Button */}
+      {hasMore ? (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => setCount(count + 1)}
+            disabled={loading}
+            className={`bg-blue-600 py-4 px-8 rounded-xl text-white font-medium text-lg shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            <img
-              src={item.thumbnail}
-              alt={item.title}
-              className="w-[200px] h-[200px] object-cover"
-            />
-            <p>{item.title}</p>
-          </div>
-        ))}
-      </div>
-      <div className="flex flex-col items-center gap-2">
-        <button
-          disabled={disableButton}
-          onClick={() => setCount(count + 1)}
-          className={`px-4 py-2 border rounded ${
-            disableButton
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-500 text-white hover:bg-blue-600"
-          }`}
-        >
-          Load More Products
-        </button>
-        {disableButton && <p className="text-gray-500">You have reached 100 products</p>}
-      </div>
+            {loading ? "Loading..." : "Load More Data"}
+          </button>
+        </div>
+      ) : (
+        <div className="text-center mt-4 text-gray-500">No more data to load</div>
+      )}
     </div>
   );
 };
