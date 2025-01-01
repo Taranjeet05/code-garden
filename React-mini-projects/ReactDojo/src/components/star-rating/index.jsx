@@ -19,7 +19,9 @@ const StarRating = ({ noOfStars = 5, starSize = 60 }) => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-teal-50">
+    <div className="flex flex-col gap-28 justify-center items-center h-screen bg-teal-50">
+      <h1 className="font-bold text-5xl">Star Rating</h1>
+      <div className="flex"> 
       {[...Array(noOfStars)].map((_, index) => {
         const currentIndex = index + 1; // Adjust index to start from 1
         return (
@@ -37,6 +39,8 @@ const StarRating = ({ noOfStars = 5, starSize = 60 }) => {
           />
         );
       })}
+      </div>
+      
     </div>
   );
 };
