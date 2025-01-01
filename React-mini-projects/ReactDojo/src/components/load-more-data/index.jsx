@@ -1,39 +1,36 @@
 import { useState, useEffect } from "react";
 
 const LoadMoreData = () => {
-  // State variables for managing the component state
-  const [loading, setLoading] = useState(false); 
-  const [products, setProducts] = useState([]); 
-  const [count, setCount] = useState(0); 
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(0);
 
-  // Function to fetch products from the API
   async function fetchProducts() {
     try {
-      setLoading(true); 
+      setLoading(true);
       const response = await fetch(
-        `https://dummyjson.com/products?limit=20&skip=${
-          count === 0 ? 0 : count * 20
-        }` 
+        `https://dummyjson.com/products?limit=10&skip=${
+          count === 0 ? 0 : count * 10
+        }`
       );
 
-      const result = await response.json(); 
+      const result = await response.json();
 
       if (result && result.products && result.products.length) {
-        setProducts(result.products); 
-        setLoading(false); 
+        setProducts(result.products);
+        setLoading(false);
       }
     } catch (e) {
-      console.error(e); 
-      setLoading(false); 
+      console.error(e);
+      setLoading(false);
     }
   }
 
-  // useEffect hook to trigger product fetching whenever the count state changes
   useEffect(() => {
     fetchProducts();
-  }, [count]); 
-  // Determine if the Load More button should be disabled based on the total products fetched
-  const disableButton = count >= 5; // 5 * 20 products = 100 products
+  }, [count]);
+
+  const disableButton = count >= 10; // Adjusted to 10 * 10 = 100 products
 
   if (loading) {
     return <div>Loading data! Please wait.</div>;
@@ -42,7 +39,6 @@ const LoadMoreData = () => {
   return (
     <div className="flex flex-col gap-5">
       <div className="grid grid-cols-4 gap-2">
-        {/* Map over the products array and display each product */}
         {products.map((item) => (
           <div
             key={item.id}
@@ -58,9 +54,8 @@ const LoadMoreData = () => {
         ))}
       </div>
       <div className="flex flex-col items-center gap-2">
-        {/* Button to load more products */}
         <button
-          disabled={disableButton} 
+          disabled={disableButton}
           onClick={() => setCount(count + 1)}
           className={`px-4 py-2 border rounded ${
             disableButton
@@ -70,7 +65,6 @@ const LoadMoreData = () => {
         >
           Load More Products
         </button>
-        {/* Display message when button is disabled */}
         {disableButton && <p className="text-gray-500">You have reached 100 products</p>}
       </div>
     </div>
