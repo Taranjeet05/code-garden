@@ -28,7 +28,8 @@ const Accordion = () => {
   }
   
   return (
-    <div className="flex h-screen w-screen justify-center items-center flex-col gap-5">
+    <div className="flex h-screen w-screen justify-center items-center flex-col gap-5 bg-stone-50">
+      <h1 className="text-6xl font-bold mb-28">Accordify</h1>
       {/* Wrapper styles */}
       <button
         className="px-5 py-2 bg-[#614101] text-white font-bold text-xl cursor-pointer hover:bg-[#513E00]"
