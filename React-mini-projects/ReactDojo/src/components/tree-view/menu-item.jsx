@@ -1,8 +1,19 @@
+import PropTypes from "prop-types";
 
-const MenuItem = () => {
+const MenuItem = ({ item }) => {
   return (
-    <div>MenuItem</div>
-  )
-}
+    <li>
+      <p>{item.label}</p>
+    </li>
+  );
+};
 
-export default MenuItem
+MenuItem.propTypes = {
+  item: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired,
+    children: PropTypes.array, // Nested menu items
+  }).isRequired,
+};
+
+export default MenuItem;

@@ -1,9 +1,27 @@
+import PropTypes from "prop-types";
+import MenuList from "./menu-list";
 
-
-const TreeView  = () => {
+const TreeView = ({ menu = [] }) => {
   return (
-    <div> TreeView </div>
-  )
-}
+    <div>
+      <div>
+        <h1>Tree View</h1>
+      </div>
+      <div>
+        <MenuList list={menu} />
+      </div>
+    </div>
+  );
+};
 
-export default TreeView 
+TreeView.propTypes = {
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+      children: PropTypes.array, // Nested menu items
+    })
+  ),
+};
+
+export default TreeView;

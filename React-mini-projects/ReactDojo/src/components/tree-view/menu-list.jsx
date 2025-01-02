@@ -1,8 +1,26 @@
+import PropTypes from "prop-types";
+import MenuItem from "./menu-item";
 
-const MenuList = () => {
+const MenuList = ({ list = [] }) => {
   return (
-    <div>MenuList</div>
-  )
-}
+    <ul>
+      {list && list.length
+        ? list.map((listItem, index) => (
+            <MenuItem key={index} item={listItem} />
+          ))
+        : null}
+    </ul>
+  );
+};
 
-export default MenuList
+MenuList.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+      children: PropTypes.array, // Nested menu items
+    })
+  ),
+};
+
+export default MenuList;
