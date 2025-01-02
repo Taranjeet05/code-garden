@@ -17,7 +17,9 @@ const MenuItem = ({ item }) => {
       <div>
         <p>{item.label}</p>
         {item && item.children && item.children.length ? (
-          <span onClick={() => handleToggleChildren(item.label)}>+</span>
+          <span onClick={() => handleToggleChildren(item.label)}>
+            {displayCurrentChildren[item.label] ? "-" : "+"}
+          </span>
         ) : null}
       </div>
       {item &&
