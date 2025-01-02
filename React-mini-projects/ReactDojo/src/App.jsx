@@ -4,7 +4,7 @@ import LoadMoreData from "./components/load-more-data";
 import Accordion from "./components/accordion";
 import RandomColor from "./components/random-color";
 import StarRating from "./components/star-rating";
-import TreeView from './components/tree-view/index'
+import TreeView from "./components/tree-view/index";
 import menus from "./components/tree-view/data";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         limit={"10"}
       />
       <LoadMoreData />
-      <TreeView menu={menus} />
+      <TreeView menu={menus || []} />
     </>
   );
 }
