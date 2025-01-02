@@ -3,13 +3,9 @@ import MenuList from "./menu-list";
 
 const TreeView = ({ menu = [] }) => {
   return (
-    <div>
-      <div>
-        <h1>Tree View</h1>
-      </div>
-      <div>
-        <MenuList list={menu} />
-      </div>
+    <div className="min-h-screen w-[350px] bg-[#00476E] text-white p-4">
+      <h1 className="text-3xl font-bold mb-4 mt-7">Tree View</h1>
+      <MenuList list={menu} />
     </div>
   );
 };

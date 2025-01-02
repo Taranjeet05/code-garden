@@ -14,11 +14,14 @@ const MenuItem = ({ item }) => {
   }
 
   return (
-    <li>
-      <div>
-        <p>{item.label}</p>
+    <li className="mb-2">
+      <div className="flex items-center gap-3 cursor-pointer">
+        <p className="text-lg">{item.label}</p>
         {item && item.children && item.children.length ? (
-          <span onClick={() => handleToggleChildren(item.label)}>
+          <span
+            onClick={() => handleToggleChildren(item.label)}
+            className="text-xl"
+          >
             {displayCurrentChildren[item.label] ? <FaMinus /> : <FaPlus />}
           </span>
         ) : null}
