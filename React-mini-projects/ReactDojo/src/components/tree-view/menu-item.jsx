@@ -1,13 +1,19 @@
 import PropTypes from "prop-types";
 import MenuList from "./menu-list";
+import { useState } from "react";
 
 const MenuItem = ({ item }) => {
+  const [displayCurrentChildren, setDisplayCurrentChildren] = useState({});
+
   return (
     <li>
-      <p>{item.label}</p>
-      {item && item.children && item.children.length > 0 ?
-      <MenuList list={item.children} />
-      : null}
+      <div>
+        <p>{item.label}</p>
+        {item && item.children && item.children.length ? <span>+</span> : null}
+      </div>
+      {item && item.children && item.children.length > 0 ? (
+        <MenuList list={item.children} />
+      ) : null}
     </li>
   );
 };
