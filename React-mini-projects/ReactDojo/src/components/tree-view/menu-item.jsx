@@ -20,7 +20,10 @@ const MenuItem = ({ item }) => {
           <span onClick={() => handleToggleChildren(item.label)}>+</span>
         ) : null}
       </div>
-      {item && item.children && item.children.length > 0 ? (
+      {item &&
+      item.children &&
+      item.children.length > 0 &&
+      displayCurrentChildren[item.label] ? (
         <MenuList list={item.children} />
       ) : null}
     </li>
