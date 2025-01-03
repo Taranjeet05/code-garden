@@ -407,25 +407,19 @@ Otherwise, return the number itself as a string.
   */
 
 function fizzBuzz(n) {
-  // Write your solution here
+  const result = [];
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push("FizzBuzz");
+    } else if (i % 3 === 0) {
+      result.push("Fizz");
+    } else if (i % 5 === 0) {
+      result.push("Buzz");
+    } else {
+      result.push(i.toString());
+    }
+  }
+  return result;
 }
 
-/* output Example */
-
-[
-  "1",
-  "2",
-  "Fizz",
-  "4",
-  "Buzz",
-  "Fizz",
-  "7",
-  "8",
-  "Fizz",
-  "Buzz",
-  "11",
-  "Fizz",
-  "13",
-  "14",
-  "FizzBuzz",
-];
+console.log(fizzBuzz(15)); // Output: ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]
