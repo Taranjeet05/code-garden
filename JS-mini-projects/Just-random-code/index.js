@@ -325,6 +325,59 @@ You cannot pass through walls (1).
 The function should handle mazes of any size.
 Avoid revisiting cells to prevent infinite loops.
  */
+function canReachEnd(maze) {
+  const rows = maze.length;
+  const cols = maze[0].length;
+  const directions = [
+    [0, 1], // Right
+    [1, 0], // Down
+    [0, -1], // Left
+    [-1, 0], // Up
+  ];
+
+  let start = null;
+
+  // Find the starting point 'S'
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (maze[i][j] === "S") {
+        start = [i, j];
+        break;
+      }
+    }
+    if (start) break;
+  }
+
+  const isValid = (x, y) =>
+    x >= 0 &&
+    y >= 0 &&
+    x < rows &&
+    y < cols &&
+    (maze[x][y] === 0 || maze[x][y] === "E");
+
+  const dfs = (x, y, visited) => {
+    if (maze[x][y] === "E") return true;
+
+    visited[x][y] = true;
+
+    for (let [dx, dy] of directions) {
+      const newX = x + dx;
+      const newY = y + dy;
+
+      if (isValid(newX, newY) && !visited[newX][newY]) {
+        if (dfs(newX, newY, visited)) return true;
+      }
+    }
+
+    return false;
+  };
+
+  if (!start) return false;
+
+  const visited = Array.from({ length: rows }, () => Array(cols).fill(false));
+
+  return dfs(start[0], start[1], visited);
+}
 
 const maze = [
   ["S", 0, 1, 0],
