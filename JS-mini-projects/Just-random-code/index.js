@@ -396,3 +396,36 @@ const maze2 = [
 ];
 
 console.log(canReachEnd(maze2)); // Output: false
+
+/* Problem: FizzBuzz with a Twist
+Write a function that takes a number n and returns an array of strings. The rules are:
+
+If a number is divisible by 3, return "Fizz".
+If a number is divisible by 5, return "Buzz".
+If a number is divisible by both 3 and 5, return "FizzBuzz".
+Otherwise, return the number itself as a string.
+  */
+
+function fizzBuzz(n) {
+  // Write your solution here
+}
+
+/* output Example */
+
+[
+  "1",
+  "2",
+  "Fizz",
+  "4",
+  "Buzz",
+  "Fizz",
+  "7",
+  "8",
+  "Fizz",
+  "Buzz",
+  "11",
+  "Fizz",
+  "13",
+  "14",
+  "FizzBuzz",
+];
