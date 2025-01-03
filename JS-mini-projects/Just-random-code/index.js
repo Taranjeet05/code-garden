@@ -238,9 +238,9 @@ function longestSubstringWithoutRepeating(s) {
 
 // Test the function
 console.log(longestSubstringWithoutRepeating("abcabcbb")); // Output: 3
-console.log(longestSubstringWithoutRepeating("bbbbb"));   // Output: 1
-console.log(longestSubstringWithoutRepeating("pwwkew"));  // Output: 3
-console.log(longestSubstringWithoutRepeating(""));        // Output: 0
+console.log(longestSubstringWithoutRepeating("bbbbb")); // Output: 1
+console.log(longestSubstringWithoutRepeating("pwwkew")); // Output: 3
+console.log(longestSubstringWithoutRepeating("")); // Output: 0
 
 /* 
 Here's a JavaScript problem to solve:
@@ -273,7 +273,6 @@ function doSomething(i) {
   }, 0);
 }
 
-
 const result = [];
 for (var i = 0; i < 5; i++) {
   doSomething(i);
@@ -293,7 +292,7 @@ For example: */
 
 function deepFlatten(arr) {
   const result = [];
-  
+
   function flatten(item) {
     if (Array.isArray(item)) {
       item.forEach(flatten);
@@ -301,12 +300,46 @@ function deepFlatten(arr) {
       result.push(item);
     }
   }
-  
+
   flatten(arr);
   return result;
 }
 
 // Example usage:
 const input = [1, [2, [3, [4, [5]]]]];
-console.log(deepFlatten(input)); 
+console.log(deepFlatten(input));
 // Output: [1, 2, 3, 4, 5]
+
+/* Problem: The Maze Runner
+You are given a 2D array representing a maze. Each cell can be one of the following:
+
+0: A walkable path.
+1: A wall.
+S: The starting point.
+E: The endpoint.
+Write a function that determines if there is a path from S to E. You can only move up, down, left, or right. If a path exists, return true; otherwise, return false. */
+
+/* Rules
+You cannot move diagonally.
+You cannot pass through walls (1).
+The function should handle mazes of any size.
+Avoid revisiting cells to prevent infinite loops.
+ */
+
+const maze = [
+  ["S", 0, 1, 0],
+  [1, 0, 1, 0],
+  [0, 0, 0, 1],
+  [1, 1, 0, "E"],
+];
+
+console.log(canReachEnd(maze)); // Output: true
+
+const maze2 = [
+  ["S", 1, 1, 0],
+  [1, 1, 1, 0],
+  [0, 1, 1, 1],
+  [1, 1, 1, "E"],
+];
+
+console.log(canReachEnd(maze2)); // Output: false
