@@ -36,9 +36,21 @@ const Home = () => {
             I change colors based on screen size!
           </p>
         </div>
-        {/* NavBar with block and hidden properties */} 
+        {/* NavBar with block and hidden properties */}
         {/*Media query challenge*/}
         <NavBar />
+        {/* Tailwind css Hover */}
+        <button className="my-2 bg-blue-500 py-2 px-4 
+        rounded-lg hover:bg-blue-700 text-white font-bold 
+        focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-800">
+          Hover me
+        </button>
+        <a className="block my-2 bg-slate-500 text-white text-center font-mono font-extrabold py-2 px-4
+        rounded-lg hover:bg-slate-700 focus:outline-none focus:ring focus-ring-slate-300 active:bg-slate-800
+        w-1/2 mx-auto"
+        href="#">
+          This Link is to check the hover effect.
+        </a>
       </main>
     </>
   );
