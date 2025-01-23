@@ -40,17 +40,41 @@ const Home = () => {
         {/*Media query challenge*/}
         <NavBar />
         {/* Tailwind css Hover */}
-        <button className="my-2 bg-blue-500 py-2 px-4 
+        <button
+          className="my-2 bg-blue-500 py-2 px-4 
         rounded-lg hover:bg-blue-700 text-white font-bold 
-        focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-800">
+        focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-800"
+        >
           Hover me
         </button>
-        <a className="block my-2 bg-slate-500 text-white text-center font-mono font-extrabold py-2 px-4
+        <a
+          className="block my-2 bg-slate-500 text-white text-center font-mono font-extrabold py-2 px-4
         rounded-lg hover:bg-slate-700 focus:outline-none focus:ring focus-ring-slate-300 active:bg-slate-800
         w-1/2 mx-auto"
-        href="#">
+          href="#"
+        >
           This Link is to check the hover effect.
         </a>
+        {/* tailwind First, Odd and Even properties */}
+        <ul className="my-5 space-y-2">
+          <li className="bg-white p-2 first:bg-yellow-200">Items 01</li>
+          <li className="bg-white p-2 first:bg-yellow-100 odd:bg-red-200 even:bg-green-200">
+            Items 02
+          </li>
+          <li className="bg-white p-2 first:bg-yellow-100 odd:bg-red-200 even:bg-green-200">
+            Items 03
+          </li>
+          <li className="bg-white p-2 first:bg-yellow-100 odd:bg-red-200 even:bg-green-200">
+            Items 04
+          </li>
+          <li className="bg-white p-2 first:bg-yellow-100 odd:bg-red-200 even:bg-green-200">
+            Items 05
+          </li>
+          <li className="bg-white p-2 first:bg-yellow-100 odd:bg-red-200 even:bg-green-200">
+            Items 06
+          </li>
+        </ul>
+        {/* Tailwind Dark Mode */}
       </main>
     </>
   );
