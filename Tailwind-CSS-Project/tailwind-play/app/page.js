@@ -1,4 +1,4 @@
-import React from "react";
+import NavBar from "@/components/NavBar";
 
 const Home = () => {
   return (
@@ -24,6 +24,21 @@ const Home = () => {
           <div className="bg-blue-500 h-12"></div>
           <div className="bg-green-500 h-12"></div>
         </div>
+        {/* media queries */}
+        <div className="md:block hidden">
+          <p>I will appear for devices resolution &gt; 768px</p>
+        </div>
+        <div className="max-md:block hidden">
+          <p>I will appear for devices resolution &lt; 768px </p>
+        </div>
+        <div className="rounded-md bg-blue-500 sm:bg-green-500 md:bg-red-500 lg:bg-yellow-500 xl:bg-pink-500 2xl:bg-purple-500">
+          <p className="font-mono text-white font-extrabold text-center">
+            I change colors based on screen size!
+          </p>
+        </div>
+        {/* NavBar with block and hidden properties */} 
+        {/*Media query challenge*/}
+        <NavBar />
       </main>
     </>
   );
