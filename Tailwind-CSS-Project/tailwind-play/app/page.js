@@ -77,13 +77,41 @@ const Home = () => {
         </ul>
         {/* Tailwind Dark Mode */}
         <DarkModeToggle />
-        {/*Tailwind CSS Custom Styles */}
-        {/* There Is 2 ways You can do It. */}
-        {/* 1. Way Using Tailwind CSS Custom Styles text-[#973F29] */}
+        {/* Tailwind CSS Custom Styles Demonstration */}
+        {/* There are two ways to apply custom styles in Tailwind CSS: */}
+        {/* 1. Using inline custom styles directly in the component */}
         <p className="text-2xl font-mono text-[#973F29] bg-stone-200 p-2">
           ChestNut Color
         </p>
-        {/* 2. Way Using Tailwind CSS Custom Styles is Tailwind config */}
+        {/* 2. Using custom styles defined in the Tailwind config file */}
+        <div className="flex flex-col space-y-4 my-4">
+          {/* Example: Custom colors */}
+          <div className="bg-primary text-white p-6 rounded-xl">
+            Primary Background (custom primary color from config)
+          </div>
+          <div className="bg-secondary text-white p-6 rounded-2xl">
+            Secondary Background (custom secondary color from config)
+          </div>
+
+          {/* Example: Custom font families */}
+          <h1 className="font-heading text-4xl">
+            Stylish Heading (custom heading font from config)
+          </h1>
+          <p className="font-sans text-base">
+            Modern Sans-serif Paragraph (custom sans font from config)
+          </p>
+          <code className="font-mono text-sm">
+            Code Snippet (custom monospaced font from config)
+          </code>
+
+          {/* Example: Custom shadows */}
+          <div className="shadow-custom-light p-4 bg-white rounded-lg">
+            Light Shadow (custom light shadow from config)
+          </div>
+          <div className="shadow-custom-dark p-4 bg-white rounded-lg">
+            Dark Shadow (custom dark shadow from config)
+          </div>
+        </div>
       </main>
     </>
   );
