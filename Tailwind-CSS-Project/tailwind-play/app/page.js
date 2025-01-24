@@ -84,42 +84,52 @@ const Home = () => {
           ChestNut Color
         </p>
         {/* 2. Using custom styles defined in the Tailwind config file */}
-        <div className="flex flex-col space-y-6 my-6">
+        <div className="flex flex-col space-y-8 my-6">
           {/* Section: Custom Colors */}
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-800">Custom Colors</h2>
-            <div className="bg-primary text-white p-6 rounded-xl">
-              Primary Background (custom primary color from config)
-            </div>
-            <div className="bg-secondary text-white p-6 rounded-2xl">
-              Secondary Background (custom secondary color from config)
+          <div className="p-6 bg-gray-50 border border-gray-300 rounded-lg shadow-md">
+            <h2 className="text-xl font-bold text-gray-700 mb-4">
+              🎨 Custom Colors
+            </h2>
+            <div className="space-y-4">
+              <div className="bg-primary text-white p-6 rounded-xl">
+                Primary Background (custom primary color from config)
+              </div>
+              <div className="bg-secondary text-white p-6 rounded-2xl">
+                Secondary Background (custom secondary color from config)
+              </div>
             </div>
           </div>
 
           {/* Section: Custom Font Families */}
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-800">
-              Custom Font Families
+          <div className="p-6 bg-blue-50 border border-blue-300 rounded-lg shadow-md">
+            <h2 className="text-xl font-bold text-blue-700 mb-4">
+              ✍️ Custom Font Families
             </h2>
-            <h1 className="font-heading text-4xl">
-              Stylish Heading (custom heading font from config)
-            </h1>
-            <p className="font-sans text-base">
-              Modern Sans-serif Paragraph (custom sans font from config)
-            </p>
-            <code className="font-mono text-sm">
-              Code Snippet (custom monospaced font from config)
-            </code>
+            <div className="space-y-4">
+              <h1 className="font-heading text-4xl">
+                Stylish Heading (custom heading font from config)
+              </h1>
+              <p className="font-sans text-base">
+                Modern Sans-serif Paragraph (custom sans font from config)
+              </p>
+              <code className="font-mono text-sm">
+                Code Snippet (custom monospaced font from config)
+              </code>
+            </div>
           </div>
 
           {/* Section: Custom Shadows */}
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-800">Custom Shadows</h2>
-            <div className="shadow-custom-light p-4 bg-white rounded-lg">
-              Light Shadow (custom light shadow from config)
-            </div>
-            <div className="shadow-custom-dark p-4 bg-white rounded-lg">
-              Dark Shadow (custom dark shadow from config)
+          <div className="p-6 bg-green-50 border border-green-300 rounded-lg shadow-md">
+            <h2 className="text-xl font-bold text-green-700 mb-4">
+              🌟 Custom Shadows
+            </h2>
+            <div className="space-y-4">
+              <div className="shadow-custom-light p-4 bg-white rounded-lg">
+                Light Shadow (custom light shadow from config)
+              </div>
+              <div className="shadow-custom-dark p-4 bg-white rounded-lg">
+                Dark Shadow (custom dark shadow from config)
+              </div>
             </div>
           </div>
         </div>
