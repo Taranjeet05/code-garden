@@ -133,9 +133,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <button className="special-button">
-        special-button
-        </button>
+        {/* Special button with custom styles defined in global.css */}
+        <button className="special-button">special-button</button>
       </main>
     </>
   );
