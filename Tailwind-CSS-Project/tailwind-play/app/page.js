@@ -77,6 +77,13 @@ const Home = () => {
         </ul>
         {/* Tailwind Dark Mode */}
         <DarkModeToggle />
+        {/*Tailwind CSS Custom Styles */}
+        {/* There Is 2 ways You can do It. */}
+        {/* 1. Way Using Tailwind CSS Custom Styles text-[#973F29] */}
+        <p className="text-2xl font-mono text-[#973F29] bg-stone-200 p-2">
+          ChestNut Color
+        </p>
+        {/* 2. Way Using Tailwind CSS Custom Styles is Tailwind config */}
       </main>
     </>
   );
