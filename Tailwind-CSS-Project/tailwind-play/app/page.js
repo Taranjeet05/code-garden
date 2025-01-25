@@ -78,9 +78,11 @@ const Home = () => {
         {/* Tailwind Dark Mode */}
         <DarkModeToggle />
         {/* Tailwind CSS Custom Styles Demonstration */}
+        {/* Special button with custom styles defined in global.css */}
+        <button className="special-button">special-button</button>
         {/* There are two ways to apply custom styles in Tailwind CSS: */}
         {/* 1. Using inline custom styles directly in the component */}
-        <p className="text-2xl font-mono text-[#973F29] bg-stone-200 p-2">
+        <p className="text-2xl font-mono text-[#973F29] bg-stone-200 p-2 my-4">
           ChestNut Color
         </p>
         {/* 2. Using custom styles defined in the Tailwind config file */}
@@ -133,8 +135,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* Special button with custom styles defined in global.css */}
-        <button className="special-button">special-button</button>
       </main>
     </>
   );
