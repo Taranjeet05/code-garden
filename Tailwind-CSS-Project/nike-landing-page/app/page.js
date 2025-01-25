@@ -1,4 +1,3 @@
-
 const page = () => {
   return (
     <div className="text-2xl font-mono font-bold text-center">
