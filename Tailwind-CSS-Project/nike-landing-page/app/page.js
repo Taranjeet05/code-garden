@@ -1,28 +1,45 @@
 import React from "react";
 
+import {
+  Hero,
+  PopularProducts,
+  SuperQuality,
+  Services,
+  SpecialOffer,
+  CustomerReviews,
+  Subscribe,
+  Footer,
+} from "@/sections/index";
+
 const Home = () => {
   return (
     <>
       <main className="relative">
         Navbar
-        {/*hero section*/}
         <section className="xl:padding-1 wide:padding-r padding-b">
-          Hero
+          <Hero />
         </section>
-        {/*PopularProducts*/}
-        <section className="padding">Popular Products</section>
-        {/*SuperQuality*/}
-        <section className="padding">Super Quality</section>
-        {/*Services */}
-        <section className="padding-x py-10">Services</section>
-        {/*specialOffers*/}
-        <section className="padding bg-pale-blue ">Special Offers</section>
-        {/* customer reviews */}
-        <section className="padding">customer reviews</section>
-        {/* subscribe */}
-        <section className="padding-x sm:py-32 py-16 w-full">subscribe</section>
-        {/* footer */}
-        <section className="padding-x padding-t pb-8 bg-black ">Footer</section>
+        <section className="padding">
+          <PopularProducts />
+        </section>
+        <section className="padding">
+          <SuperQuality />
+        </section>
+        <section className="padding-x py-10">
+          <Services />
+        </section>
+        <section className="padding bg-pale-blue ">
+          <SpecialOffer />
+        </section>
+        <section className="padding">
+          <CustomerReviews />
+        </section>
+        <section className="padding-x sm:py-32 py-16 w-full">
+          <Subscribe />
+        </section>
+        <section className="padding-x padding-t pb-8 bg-black ">
+          <Footer />
+        </section>
       </main>
     </>
   );
