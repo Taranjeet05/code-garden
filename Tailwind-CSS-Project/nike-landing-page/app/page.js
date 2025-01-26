@@ -11,11 +11,13 @@ import {
   Footer,
 } from "@/sections/index";
 
+import Nav from "@/components/Nav";
+
 const Home = () => {
   return (
     <>
       <main className="relative">
-        Navbar
+        <Nav />
         <section className="xl:padding-1 wide:padding-r padding-b">
           <Hero />
         </section>
