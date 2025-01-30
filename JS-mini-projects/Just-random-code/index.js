@@ -14,6 +14,11 @@ const data = {
   }
 };
 
+function getValueAtPath(obj, path) {
+  return path.split('.').reduce((acc, key) => acc && acc[key], obj);
+}
+
+
 console.log(getValueAtPath(data, "user.profile.name")); // Output: "Taranjeet"
 console.log(getValueAtPath(data, "user.profile.address.city")); // Output: "Frankfurt"
 console.log(getValueAtPath(data, "user.profile.hobbies")); // Output: undefined
