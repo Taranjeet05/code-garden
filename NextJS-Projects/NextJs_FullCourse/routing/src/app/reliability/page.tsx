@@ -27,7 +27,7 @@ const ReliabilityPage = () => {
 
       {/* Nested Route Link */}
       <div className="mt-10 text-center">
-        <Link href="/reliabilty/more-info" className="text-blue-600 font-medium hover:underline">
+        <Link href="/reliability/more-info" className="text-blue-600 font-medium hover:underline">
           Learn More About Reliability →
         </Link>
       </div>
