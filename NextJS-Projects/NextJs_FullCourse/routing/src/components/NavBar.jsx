@@ -23,6 +23,12 @@ const NavBar = () => {
           >
             Reliability 🛡️
           </Link>
+          <Link
+            href="/articles"
+            className="text-lg font-medium hover:text-gray-300 transition-all"
+          >
+            Articles 📝
+          </Link>
         </div>
       </div>
     </nav>

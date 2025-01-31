@@ -24,16 +24,10 @@ const Home = () => {
           Discover Reliability 🛡️
         </Link>
         <Link
-          href="/articles/nextjs-routing"
+          href="/articles"
           className="px-6 py-3 text-white bg-green-700 rounded-lg shadow-md hover:bg-green-800 transition-all"
         >
-          Learn About Next.js Routing 🚀
-        </Link>
-        <Link
-          href="/articles/server-components"
-          className="px-6 py-3 text-white bg-blue-700 rounded-lg shadow-md hover:bg-blue-800 transition-all"
-        >
-          Discover Server Components 🛠️
+          Discover Articles 📝
         </Link>
       </div>
     </div>
