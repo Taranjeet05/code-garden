@@ -15,7 +15,7 @@ const Home = () => {
           Learn About Performance 🚀
         </a>
         <a
-          href="/reliabilty"
+          href="/reliability"
           className="px-6 py-3 text-white bg-blue-700 rounded-lg shadow-md hover:bg-blue-800 transition-all"
         >
           Discover Reliability 🛡️

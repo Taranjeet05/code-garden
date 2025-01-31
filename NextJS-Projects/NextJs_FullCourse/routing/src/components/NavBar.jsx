@@ -18,7 +18,7 @@ const NavBar = () => {
             Performance 🚀
           </Link>
           <Link
-            href="/reliabilty"
+            href="/reliability"
             className="text-lg font-medium hover:text-gray-300 transition-all"
           >
             Reliability 🛡️
