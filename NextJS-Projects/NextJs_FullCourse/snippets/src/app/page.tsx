@@ -10,7 +10,9 @@ const Home = () => {
       </Link>
       <div className="flex items-center justify-between">
         <h1>Snippets</h1>
+        <Link href='/snippet/new'>
         <Button>New</Button>
+        </Link>
       </div>
     </div>
   );
