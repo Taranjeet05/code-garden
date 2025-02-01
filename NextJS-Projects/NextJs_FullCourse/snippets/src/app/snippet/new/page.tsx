@@ -19,7 +19,9 @@ const CreateSnippetPage = () => {
           id="code"
         />
       </div>
-      <Button type="submit" className="my-4">New</Button>
+      <Button type="submit" className="my-4">
+        New
+      </Button>
     </form>
   );
 };
