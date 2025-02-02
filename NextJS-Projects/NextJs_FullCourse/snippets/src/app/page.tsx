@@ -20,7 +20,7 @@ const Home = async () => {
       {snippets.map((snippet) => (
         <div
           key={snippet.id}
-          className="bg-green-500 flex items-center justify-between mt-5"
+          className="bg-slate-300 p-2 rounded-md my-2 flex items-center justify-between"
         >
           <h1>{snippet.title}</h1>
           <Link href={`/snippet/${snippet.id}`}>
