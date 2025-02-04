@@ -3,13 +3,18 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "@/components/ui/button";
 
-const SnippetViewPage = async ({ params }: { params: { id: string } }) => {
+const SnippetViewPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   // Convert ID from string to number
-  const id = parseInt(params.id);
-
+  const id = parseInt((await params).id);
   // Fetch snippet from database
   const snippet = await prisma.snippet.findUnique({
-    where: { id },
+    where: {
+      id,
+    },
   });
 
   // Handle case where snippet is not found
@@ -20,16 +25,14 @@ const SnippetViewPage = async ({ params }: { params: { id: string } }) => {
       <div className="flex items-center justify-between">
         <h1 className="">{snippet.title}</h1>
         <div className="flex items-center gap-2">
-          <Link href={`/snippet/${id}/edit`}>
+          <Link href={`/snippet/${snippet.id}/edit`}>
             <Button>Edit</Button>
           </Link>
           <Button variant={"destructive"}>Delete</Button>{" "}
         </div>
       </div>
       <pre className="p-3 bg-gray-200 rounded-md border-gray-200">
-        <code>
-          {snippet.code}
-        </code>
+        <code>{snippet.code}</code>
       </pre>
     </div>
   );
