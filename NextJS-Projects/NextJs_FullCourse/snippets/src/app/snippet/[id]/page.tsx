@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { deleteSnippet } from "@/actions";
+import { notFound } from "next/navigation";
 
 const SnippetViewPage = async ({
   params,
@@ -19,7 +20,7 @@ const SnippetViewPage = async ({
   });
 
   // Handle case where snippet is not found
-  if (!snippet) return <h1>Snippet Not Found !!..</h1>;
+  if (!snippet) notFound();
 
   const deletSnippetActions = deleteSnippet.bind(null, snippet.id);
 
