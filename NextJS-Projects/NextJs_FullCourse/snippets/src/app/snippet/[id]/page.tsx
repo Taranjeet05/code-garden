@@ -45,6 +45,12 @@ const SnippetViewPage = async ({
       <pre className="p-3 bg-gray-200 rounded-md border-gray-200">
         <code>{snippet.code}</code>
       </pre>
+      {/* Back to Home Button */}
+      <div className="mt-5">
+        <Link href="/">
+          <Button>⬅ Back to Home</Button>
+        </Link>
+      </div>
     </div>
   );
 };
