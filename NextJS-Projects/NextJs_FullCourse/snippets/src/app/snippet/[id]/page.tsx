@@ -12,6 +12,9 @@ const SnippetViewPage = async ({
 }) => {
   // Convert ID from string to number
   const id = parseInt((await params).id);
+
+  await new Promise((r) => setTimeout(r, 2000));
+
   // Fetch snippet from database
   const snippet = await prisma.snippet.findUnique({
     where: {
