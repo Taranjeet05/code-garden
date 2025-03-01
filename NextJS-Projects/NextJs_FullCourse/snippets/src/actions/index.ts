@@ -30,20 +30,29 @@ export async function CreateSnippet(
 ) {
   const title = formData.get("title");
   const code = formData.get("code");
-  if (!title || typeof title !== "string" || title.length < 3) {
-    return { message: "Title is REQUIRED and must be LONGER" };
+
+  // Trim Input to avoid extra white Spaces
+  const trimmedTitle = title?.toString().trim();
+  const trimmedCode = code?.toString().trim();
+
+  if (!trimmedTitle || trimmedTitle.length < 3) {
+    return {
+      message: "❌ Title is REQUIRED and must be at least 3 characters long!",
+    };
   }
-  if (!code || typeof code !== "string" || code.length < 8) {
-    return { message: "Code is REQUIRED and must be LONGER" };
+  if (!trimmedCode || trimmedCode.length < 8) {
+    return {
+      message: "❌ Code is REQUIRED and must be at least 8 characters long!",
+    };
   }
 
   const snippet = await prisma.snippet.create({
     data: {
-      title,
-      code,
+      title: trimmedTitle,
+      code: trimmedCode,
     },
   });
-  console.log("Created Snippet", snippet);
+  console.log("Created Snippet ✅:", snippet);
 
   redirect("/");
 }
