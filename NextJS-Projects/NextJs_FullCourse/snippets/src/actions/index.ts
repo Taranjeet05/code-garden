@@ -28,31 +28,39 @@ export async function CreateSnippet(
   prevState: { message: string },
   formData: FormData
 ) {
-  const title = formData.get("title");
-  const code = formData.get("code");
+  try {
+    const title = formData.get("title");
+    const code = formData.get("code");
 
-  // Trim Input to avoid extra white Spaces
-  const trimmedTitle = title?.toString().trim();
-  const trimmedCode = code?.toString().trim();
+    // Trim Input to avoid extra white Spaces
+    const trimmedTitle = title?.toString().trim();
+    const trimmedCode = code?.toString().trim();
 
-  if (!trimmedTitle || trimmedTitle.length < 3) {
-    return {
-      message: "❌ Title is REQUIRED and must be at least 3 characters long!",
-    };
+    if (!trimmedTitle || trimmedTitle.length < 3) {
+      return {
+        message: "❌ Title is REQUIRED and must be at least 3 characters long!",
+      };
+    }
+    if (!trimmedCode || trimmedCode.length < 8) {
+      return {
+        message: "❌ Code is REQUIRED and must be at least 8 characters long!",
+      };
+    }
+
+    const snippet = await prisma.snippet.create({
+      data: {
+        title: trimmedTitle,
+        code: trimmedCode,
+      },
+    });
+    console.log("Created Snippet ✅:", snippet);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return { message: error.message };
+    } else {
+      return { message: "Some internal server error" };
+    }
   }
-  if (!trimmedCode || trimmedCode.length < 8) {
-    return {
-      message: "❌ Code is REQUIRED and must be at least 8 characters long!",
-    };
-  }
-
-  const snippet = await prisma.snippet.create({
-    data: {
-      title: trimmedTitle,
-      code: trimmedCode,
-    },
-  });
-  console.log("Created Snippet ✅:", snippet);
 
   redirect("/");
 }
