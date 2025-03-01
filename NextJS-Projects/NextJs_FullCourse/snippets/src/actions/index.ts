@@ -23,3 +23,18 @@ export const deleteSnippet = async (id: number) => {
   });
   redirect("/");
 };
+
+export async function CreateSnippet(formData: FormData) {
+  const title = formData.get("title") as string;
+  const code = formData.get("code") as string;
+
+  const snippet = await prisma.snippet.create({
+    data: {
+      title,
+      code,
+    },
+  });
+  console.log("Created Snippet", snippet);
+
+  redirect("/");
+}
