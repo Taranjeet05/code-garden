@@ -6,14 +6,14 @@ import { Button } from "@/components/ui/button";
 
 const HeaderPage = () => {
   return (
-    <div>
-      <div>
-        <h1>Discuss</h1>
+    <div className="grid grid-cols-3 h-14 items-center">
+      <div className="flex justify-start">
+        <h1 className="text-xl font-mono font-bold">Discuss</h1>
       </div>
-      <div>
+      <div className="flex justify-center">
         <Input type="text" placeholder="Search post ..." />
       </div>
-      <div>
+      <div className="flex justify-end gap-2">
       <form action={signIn}>
             <Button variant={"outline"} type="submit">SignIn with GITHUB</Button>
           </form>
