@@ -13,8 +13,7 @@ import {
 import { LogOutIcon } from "lucide-react";
 import { Separator } from "./ui/separator";
 
-const HeaderPage = async () => {
-  const session = await auth();
+const HeaderPage = () => {
   return (
     <div className="grid grid-cols-3 h-14 items-center">
       <div className="flex justify-start">
@@ -23,37 +22,7 @@ const HeaderPage = async () => {
       <div className="flex justify-center">
         <Input type="text" placeholder="Search post ..." />
       </div>
-      <div className="flex justify-end gap-2">
-        {session?.user ? (
-          <Popover>
-            <PopoverTrigger asChild>
-              <Avatar>
-                <AvatarImage src={session.user.image || ""} alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </PopoverTrigger>
-            <PopoverContent>
-              <h1 className="font-bold font-mono">{session.user.name}</h1>
-              <h1 className="font-medium font-serif">{session.user.email}</h1>
-              <Separator className="my-2" />
-              <form action={signOut}>
-                <Button>
-                  <LogOutIcon /> LogOut
-                </Button>
-              </form>
-            </PopoverContent>
-          </Popover>
-        ) : (
-          <>
-            <form action={signIn}>
-              <Button variant={"outline"} type="submit">
-                SignIn with GITHUB
-              </Button>
-              <Button type="submit">SignUp</Button>
-            </form>
-          </>
-        )}
-      </div>
+      <div className="flex justify-end gap-2"></div>
     </div>
   );
 };
