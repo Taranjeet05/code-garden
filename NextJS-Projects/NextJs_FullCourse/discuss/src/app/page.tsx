@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import TopicCreateForm from "@/components/topics/TopicCreateForm";
 
 export default async function Home() {
   return (
@@ -10,7 +10,7 @@ export default async function Home() {
           </h1>
         </div>
         <div className="col-span-1">
-          <Button>New Topic</Button>
+          <TopicCreateForm />
         </div>
       </div>
     </>
