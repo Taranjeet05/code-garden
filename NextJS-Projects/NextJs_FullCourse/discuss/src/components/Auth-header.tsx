@@ -1,8 +1,8 @@
 "use client";
 import { useSession } from "next-auth/react";
 import React from "react";
-import { signIn } from "@/app/actions/sign-in";
-import { signOut } from "@/app/actions/sign-out";
+import { signIn } from "@/actions/sign-in";
+import { signOut } from "@/actions/sign-out";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
