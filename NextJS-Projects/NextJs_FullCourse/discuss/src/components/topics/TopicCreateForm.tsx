@@ -16,8 +16,7 @@ import { createTopics } from "@/actions/create-topics";
 import { useActionState } from "react";
 
 const TopicCreateForm = () => {
-  const [formState, action] = useActionState(createTopics, { error: {} });
-
+  const [formState, action] = useActionState(createTopics, { errors: {} });
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -28,7 +27,7 @@ const TopicCreateForm = () => {
           <DialogHeader>
             <DialogTitle>Create a Topic</DialogTitle>
             <DialogDescription>
-              Write a new Topic to start discussion. Click save when you&apos;re
+              Write a new topic to start discussion. Click save when you&apos;re
               done.
             </DialogDescription>
           </DialogHeader>
@@ -37,23 +36,23 @@ const TopicCreateForm = () => {
               <Label htmlFor="name">Name</Label>
               <Input id="name" name="name" />
             </div>
-            {formState.error.name && (
-              <div className="text-red-600 text-sm">{formState.error.name}</div>
+            {formState.errors.name && (
+              <p className="text-sm text-red-600">{formState.errors.name}</p>
             )}
             <div>
-              <Label htmlFor="discription" className="text-right">
-                Discription
+              <Label htmlFor="description" className="text-right">
+                Description
               </Label>
-              <Textarea id="discription" name="discription" />
+              <Textarea id="description" name="description" />
             </div>
-            {formState.error.discription && (
-              <div className="text-red-600 text-sm">
-                {formState.error.discription}
-              </div>
+            {formState.errors.description && (
+              <p className="text-sm text-red-600">
+                {formState.errors.description}
+              </p>
             )}
-            {formState.error.formError && (
+            {formState.errors.formError && (
               <div className="border border-red-600 bg-red-200 p-2 rounded">
-                {formState.error.formError}
+                {formState.errors.formError}
               </div>
             )}
           </div>
@@ -67,5 +66,4 @@ const TopicCreateForm = () => {
     </Dialog>
   );
 };
-
 export default TopicCreateForm;
