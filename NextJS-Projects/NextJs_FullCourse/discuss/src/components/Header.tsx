@@ -1,17 +1,6 @@
 import React from "react";
 import { Input } from "./ui/input";
-import { signIn } from "@/app/actions/sign-in";
-import { signOut } from "@/app/actions/sign-out";
-import { Button } from "@/components/ui/button";
-import { auth } from "@/auth";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { LogOutIcon } from "lucide-react";
-import { Separator } from "./ui/separator";
+import AuthHeader from "@/components/Auth-header";
 
 const HeaderPage = () => {
   return (
@@ -22,7 +11,9 @@ const HeaderPage = () => {
       <div className="flex justify-center">
         <Input type="text" placeholder="Search post ..." />
       </div>
-      <div className="flex justify-end gap-2"></div>
+      <div className="flex justify-end gap-2">
+        <AuthHeader />
+      </div>
     </div>
   );
 };
