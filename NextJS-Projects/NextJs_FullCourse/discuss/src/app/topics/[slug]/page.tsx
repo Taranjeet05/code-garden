@@ -1,11 +1,23 @@
-import React from 'react'
+import { Button } from "@/components/ui/button";
+import React from "react";
 
-const TopicShowPage = () => {
+type TopicShowPageProps = {
+  params: { slug: string };
+};
+
+const TopicShowPage = async ({ params }: TopicShowPageProps) => {
+  const slug = params.slug;
+
   return (
-    <div>
-      TopicShowPage
+    <div className="grid grid-cols-4 gap-4 p-4">
+      <div className="col-span-3">
+        <h1 className="font-bold text-2xl mb-2">{slug}</h1>
+      </div>
+      <div>
+        <Button>Create Post</Button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default TopicShowPage
+export default TopicShowPage;
