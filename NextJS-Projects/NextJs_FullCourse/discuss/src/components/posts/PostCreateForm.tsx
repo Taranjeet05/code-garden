@@ -16,14 +16,14 @@ import { createTopics } from "@/actions/create-topics";
 import { useActionState } from "react";
 
 const PostCreateForm = () => {
-  const [formState, action] = useActionState(createTopics, { errors: {} });
+ // const [formState, action] = useActionState(createTopics, { errors: {} });
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button>New Topic</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <form action={action}>
+        <form>
           <DialogHeader>
             <DialogTitle>Create a Topic</DialogTitle>
             <DialogDescription>
@@ -36,15 +36,17 @@ const PostCreateForm = () => {
               <Label htmlFor="name">Name</Label>
               <Input id="name" name="name" />
             </div>
-            {formState.errors.name && (
+           { /* {formState.errors.name && (
               <p className="text-sm text-red-600">{formState.errors.name}</p>
             )}
+          */}
             <div>
               <Label htmlFor="description" className="text-right">
                 Description
               </Label>
               <Textarea id="description" name="description" />
             </div>
+           {/*  
             {formState.errors.description && (
               <p className="text-sm text-red-600">
                 {formState.errors.description}
@@ -55,6 +57,7 @@ const PostCreateForm = () => {
                 {formState.errors.formError}
               </div>
             )}
+              */}
           </div>
           <DialogFooter>
             <Button type="submit" className="w-full">
