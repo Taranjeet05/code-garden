@@ -19,31 +19,31 @@ const PostCreateForm = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>New Topic</Button>
+        <Button>New Post</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <form>
           <DialogHeader>
-            <DialogTitle>Create a Topic</DialogTitle>
+            <DialogTitle>Create a Post</DialogTitle>
             <DialogDescription>
-              Write a new topic to start discussion. Click save when you&apos;re
+              Write a new post. Click save when you&apos;re
               done.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div>
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" />
+              <Label htmlFor="title">Title</Label>
+              <Input id="title" title="title" />
             </div>
             {/* {formState.errors.name && (
               <p className="text-sm text-red-600">{formState.errors.name}</p>
             )}
           */}
             <div>
-              <Label htmlFor="description" className="text-right">
-                Description
+              <Label htmlFor="content" className="text-right">
+              Content
               </Label>
-              <Textarea id="description" name="description" />
+              <Textarea id="content" name="content" />
             </div>
             {/*  
             {formState.errors.description && (

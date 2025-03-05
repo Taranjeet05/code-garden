@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import PostCreateForm from "@/components/posts/PostCreateForm";
 import React from "react";
 
 type TopicShowPageProps = {
@@ -14,7 +14,7 @@ const TopicShowPage = async ({ params }: TopicShowPageProps) => {
         <h1 className="font-bold text-2xl mb-2">{slug}</h1>
       </div>
       <div>
-        <Button>Create Post</Button>
+        <PostCreateForm />
       </div>
     </div>
   );
