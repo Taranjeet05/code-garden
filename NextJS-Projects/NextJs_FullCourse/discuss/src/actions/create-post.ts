@@ -1,5 +1,4 @@
 "use server";
-
 import { auth } from "@/auth";
 import { prisma } from "@/lib";
 import { Post } from "@prisma/client";
@@ -8,12 +7,8 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 
 const createPostSchema = z.object({
-  title: z
-    .string()
-    .min(3, { message: "Title must be at least 3 characters long" }),
-  content: z
-    .string()
-    .min(10, { message: "Content must be at least 10 characters long" }),
+  title: z.string().min(3),
+  content: z.string().min(10),
 });
 
 type CreatePostFormState = {
@@ -28,16 +23,14 @@ export const createPost = async (
   slug: string,
   prevState: CreatePostFormState,
   formData: FormData
-) :Promise<CreatePostFormState> => {
+): Promise<CreatePostFormState> => {
   const result = createPostSchema.safeParse({
-    title: String(formData.get("title") || ""),
-    content: String(formData.get("content") || ""),
+    title: formData.get("title"),
+    content: formData.get("content"),
   });
-  
-
   if (!result.success) {
     return {
-      errors: result.error.flatten().fieldErrors ?? {},
+      errors: result.error.flatten().fieldErrors,
     };
   }
 
@@ -46,25 +39,21 @@ export const createPost = async (
   if (!session || !session.user || !session.user.id) {
     return {
       errors: {
-        formError: ["You have to login first!"],
+        formError: ["You have to login first"],
       },
     };
   }
 
-  const topic = await prisma.topic.findUnique({
-    where: {
-      slug,
-    },
+  const topic = await prisma.topic.findFirst({
+    where: { slug },
   });
-
   if (!topic) {
     return {
       errors: {
-        formError: ["Topic not found!"],
+        formError: ["Topic not found"],
       },
     };
   }
-
   let post: Post;
 
   try {
@@ -86,7 +75,7 @@ export const createPost = async (
     } else {
       return {
         errors: {
-          formError: ["Something Went Wrong, Failed to create post."],
+          formError: ["Failed to create a post."],
         },
       };
     }

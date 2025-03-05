@@ -1,16 +1,25 @@
 import React from "react";
 import { Card, CardHeader, CardTitle,CardDescription } from "../ui/card";
+import { PostWithData } from "@/lib/query/post";
 
-const PostList = () => {
+
+type PostListProps = {
+  fetchData: () => Promise<PostWithData[]>
+};
+
+const PostList = async ({fetchData} : PostListProps) => {
+
+  const posts = await fetchData();
+
   return (
     <div className="flex flex-col gap-2">
-      {[1,2].map((post, index) => (
-        <Card key={index}>
+      {posts.map((post) => (
+        <Card key={post.id}>
           <CardHeader>
-            <CardTitle>{'TypeScript'}</CardTitle>
+            <CardTitle>{post.title}</CardTitle>
             <CardDescription className="flex items-center justify-between">
-              <h1>By TaranjeetSingh</h1>
-              <h1>0 comments</h1>
+              <h1>By {post.user.name}</h1>
+              <h1>{post._count.comments} comments</h1>
             </CardDescription>
           </CardHeader>
         </Card>
