@@ -28,10 +28,10 @@ export const createPost = async (
   slug: string,
   prevState: CreatePostFormState,
   formData: FormData
-) => {
+) :Promise<CreatePostFormState> => {
   const result = createPostSchema.safeParse({
     title: formData.get("title"),
-    constent: formData.get("content"),
+    content: formData.get("content"),
   });
 
   if (!result.success) {
@@ -79,13 +79,13 @@ export const createPost = async (
     if (error instanceof Error) {
       return {
         errors: {
-          fromError: [error.message],
+          formError: [error.message],
         },
       };
     } else {
       return {
         errors: {
-          dormError: ["Somthing Went Wrong, Failed to create post"],
+          formError: ["Somthing Went Wrong, Failed to create post."],
         },
       };
     }

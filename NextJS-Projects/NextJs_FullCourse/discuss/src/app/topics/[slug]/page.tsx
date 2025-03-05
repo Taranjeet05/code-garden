@@ -14,7 +14,7 @@ const TopicShowPage = async ({ params }: TopicShowPageProps) => {
         <h1 className="font-bold text-2xl mb-2">{slug}</h1>
       </div>
       <div>
-        <PostCreateForm />
+        <PostCreateForm slug={slug} />
       </div>
     </div>
   );
