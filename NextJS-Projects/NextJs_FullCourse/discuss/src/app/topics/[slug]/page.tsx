@@ -2,11 +2,11 @@ import PostCreateForm from "@/components/posts/PostCreateForm";
 import React from "react";
 
 type TopicShowPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-const TopicShowPage = async ({ params }: TopicShowPageProps) => {
-  const slug = params.slug;
+const TopicShowPage: React.FC<TopicShowPageProps> = async ({ params }) => {
+  const slug = (await params).slug;
 
   return (
     <div className="grid grid-cols-4 gap-4 p-4">
