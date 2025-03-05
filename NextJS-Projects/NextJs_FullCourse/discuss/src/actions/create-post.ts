@@ -30,13 +30,14 @@ export const createPost = async (
   formData: FormData
 ) :Promise<CreatePostFormState> => {
   const result = createPostSchema.safeParse({
-    title: formData.get("title"),
-    content: formData.get("content"),
+    title: String(formData.get("title") || ""),
+    content: String(formData.get("content") || ""),
   });
+  
 
   if (!result.success) {
     return {
-      errors: result.error.flatten().fieldErrors,
+      errors: result.error.flatten().fieldErrors ?? {},
     };
   }
 
@@ -85,12 +86,12 @@ export const createPost = async (
     } else {
       return {
         errors: {
-          formError: ["Somthing Went Wrong, Failed to create post."],
+          formError: ["Something Went Wrong, Failed to create post."],
         },
       };
     }
   }
 
-  revalidatePath(`topics/${slug}`);
+  revalidatePath(`/topics/${slug}`);
   redirect(`/topics/${slug}/posts/${post.id}`);
 };
