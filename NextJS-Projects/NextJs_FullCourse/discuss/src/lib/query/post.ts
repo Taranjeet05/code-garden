@@ -25,7 +25,7 @@ export const fetchTopPosts = async (): Promise<PostWithData[]> => {
   return prisma.post.findMany({
     orderBy: {
       comments: {
-        _count: 'desc',
+        _count: "desc",
       },
     },
     include: {
