@@ -1,16 +1,13 @@
 import React from "react";
-import { Card, CardHeader, CardTitle,CardDescription } from "../ui/card";
+import { Card, CardHeader, CardTitle, CardDescription } from "../ui/card";
 import { PostWithData } from "@/lib/query/post";
 
-
 type PostListProps = {
-  fetchData: () => Promise<PostWithData[]>
+  fetchData: () => Promise<PostWithData[]>;
 };
 
-const PostList = async ({fetchData} : PostListProps) => {
-
+const PostList = async ({ fetchData }: PostListProps) => {
   const posts = await fetchData();
-
   return (
     <div className="flex flex-col gap-2">
       {posts.map((post) => (
