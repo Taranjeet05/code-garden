@@ -37,7 +37,7 @@ const PostCreateForm = ({slug}: CreatePostFormProps) => {
           <div className="grid gap-4 py-4">
             <div>
               <Label htmlFor="title">Title</Label>
-              <Input id="title" title="title" />
+              <Input id="title" name="title" />
             </div>
             {formState.errors.title && (
               <p className="text-sm text-red-600">{formState.errors.title}</p>
