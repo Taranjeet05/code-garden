@@ -1,4 +1,6 @@
+import PostShow from "@/components/posts/PostShow";
 import React from "react";
+
 
 type PostShowPageProps = {
   params: Promise<{ slug: string; postid: string }>;
@@ -10,7 +12,7 @@ const PostShowPage = async ({params}:PostShowPageProps)  => {
 
   return (
     <div>
-      <h1>Post Show Page - {slug} - { postid}</h1>
+      <PostShow postId={postid} />
     </div>
   )
 };
