@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const PostShowPage = () => {
+type PostShowPageProps = {
+  params: Promise<{ slug: string; postid: string }>;
+};
+
+const PostShowPage = async ({params}:PostShowPageProps)  => {
+
+  const { slug, postid } = await params;
+
   return (
-    <div>PostShowPage</div>
+    <div>
+      <h1>Post Show Page - {slug} - { postid}</h1>
+    </div>
   )
-}
+};
 
-export default PostShowPage
+export default PostShowPage;
