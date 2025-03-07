@@ -1,5 +1,6 @@
 import React from "react";
 import { prisma } from "@/lib";
+import { notFound } from "next/navigation";
 
 type PostShowProps = {
   postId: string;
@@ -12,12 +13,11 @@ const PostShow = async ({ postId }: PostShowProps) => {
     },
   });
 
-  if (!post) {
-    return <div>Post not found</div>;
-  }
+  if (!post) notFound();
   return (
     <div>
-      <h1>Post Show Page - {postId}</h1>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
     </div>
   );
 };
