@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const PostShow = () => {
-  return (
-    <div>PostShow</div>
-  )
-}
+type PostShowProps = {
+  postId: string;
+};
 
-export default PostShow
+const PostShow = async ({ postId }: PostShowProps) => {
+  return <div>PostShow</div>;
+};
+
+export default PostShow;
