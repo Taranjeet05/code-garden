@@ -14,6 +14,7 @@ const CommentCreateForm = () => {
       {open && (
         <form action="" className="space-y-2">
           <Textarea
+            name="content"
             placeholder="Write a comment..."
             className="bg-gray-100 focus-visible:ring-0 focus:ring-0 focus:ring-transparent"
           />
