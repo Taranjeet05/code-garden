@@ -1,3 +1,4 @@
+import CommentCreateForm from "@/components/comments/CommentCreateForm";
 import PostShow from "@/components/posts/PostShow";
 import React from "react";
 
@@ -13,6 +14,7 @@ const PostShowPage = async ({params}:PostShowPageProps)  => {
   return (
     <div>
       <PostShow postId={postid} />
+      <CommentCreateForm />
     </div>
   )
 };
