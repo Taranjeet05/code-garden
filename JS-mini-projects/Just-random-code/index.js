@@ -10,5 +10,5 @@ The numbering starts at 1. The format is n: string. Notice the colon and space i
 
 var number=function(array){
   //your awesome code here
-  
+  return array.map((line, index)=> `${index + 1 }: ${line}`)
 }
