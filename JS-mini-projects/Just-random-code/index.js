@@ -21,6 +21,6 @@ Example:
 
 None of the arrays will be empty, so you don't have to worry about that! */
 
-function removeEveryOther(arr){
-  //your code here
+function removeEveryOther(arr) {
+  return arr.filter((item, index) => index % 2 === 0);
 }
