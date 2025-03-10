@@ -49,3 +49,18 @@ function isAnagram(str1, str2) {
 
   return cleanString(str1) === cleanString(str2);
 }
+
+
+/*
+💡 Challenge: Find the First Non-Repeating Character
+Write a JavaScript function that returns the first character in a string that does not repeat.
+Ignore spaces and treat uppercase and lowercase letters as the same.
+
+✅ Requirements:
+Return the first non-repeating character (case-insensitive).
+If all characters repeat, return null.
+*/
+
+function firstNonRepeatingChar(str) {
+  // your code here
+}
