@@ -37,5 +37,15 @@ Ignore non-alphabet characters (spaces, punctuation, etc.)
 */
 
 function isAnagram(str1, str2) {
-  // your code here
+  // Helper function to clean and sort the string
+  function cleanString(str) {
+    return str
+      .toLowerCase()                    // convert to lowercase
+      .replace(/[^a-z]/g, "")          // remove non-letter characters
+      .split("")                       // convert string to array
+      .sort()                          // sort the characters
+      .join("");                       // join back to string
+  }
+
+  return cleanString(str1) === cleanString(str2);
 }
