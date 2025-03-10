@@ -24,3 +24,18 @@ None of the arrays will be empty, so you don't have to worry about that! */
 function removeEveryOther(arr) {
   return arr.filter((item, index) => index % 2 === 0);
 }
+
+/*
+💡 Challenge: Anagram Checker
+Write a JavaScript function that checks if two strings are anagrams of each other.
+Two strings are anagrams if they contain the same characters in the same 
+frequency, but in a different order.
+
+✅ Requirements:
+Ignore case (i.e., "Listen" and "Silent" should be anagrams)
+Ignore non-alphabet characters (spaces, punctuation, etc.)
+*/
+
+function isAnagram(str1, str2) {
+  // your code here
+}
