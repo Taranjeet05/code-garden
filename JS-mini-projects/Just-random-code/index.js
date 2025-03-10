@@ -40,16 +40,15 @@ function isAnagram(str1, str2) {
   // Helper function to clean and sort the string
   function cleanString(str) {
     return str
-      .toLowerCase()                    // convert to lowercase
-      .replace(/[^a-z]/g, "")          // remove non-letter characters
-      .split("")                       // convert string to array
-      .sort()                          // sort the characters
-      .join("");                       // join back to string
+      .toLowerCase() // convert to lowercase
+      .replace(/[^a-z]/g, "") // remove non-letter characters
+      .split("") // convert string to array
+      .sort() // sort the characters
+      .join(""); // join back to string
   }
 
   return cleanString(str1) === cleanString(str2);
 }
-
 
 /*
 💡 Challenge: Find the First Non-Repeating Character
@@ -62,5 +61,20 @@ If all characters repeat, return null.
 */
 
 function firstNonRepeatingChar(str) {
-  // your code here
+  const lowerStr = str.toLowerCase().replace(/\s/g, ""); // ignore spaces, lowercase
+  const charCount = {};
+
+  // Count occurrences of each character
+  for (let char of lowerStr) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  // Find the first non-repeating character
+  for (let i = 0; i < lowerStr.length; i++) {
+    if (charCount[lowerStr[i]] === 1) {
+      return str[i]; // return original char with original casing
+    }
+  }
+
+  return null; // if all characters repeat
 }
