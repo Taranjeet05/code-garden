@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardTitle, CardDescription } from "../ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { PostWithData } from "@/lib/query/post";
 
 type PostListProps = {

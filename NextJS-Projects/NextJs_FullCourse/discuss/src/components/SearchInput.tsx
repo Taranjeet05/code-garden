@@ -1,9 +1,22 @@
-import React from 'react'
+"use client";
+import React from "react";
+import { Input } from "./ui/input";
+import { useSearchParams } from "next/navigation";
+import { search } from "@/actions/search";
 
 const SearchInput = () => {
-  return (
-    <div>SearchInput</div>
-  )
-}
+  const searchParams = useSearchParams();
 
-export default SearchInput
+  return (
+    <form action={search}>
+      <Input
+        defaultValue={searchParams.get("term") || ""}
+        type="text"
+        name="term"
+        placeholder="Search post..."
+      />
+    </form>
+  );
+};
+
+export default SearchInput;
