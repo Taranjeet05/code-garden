@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import AuthHeader from "@/components/Auth-header";
 import SearchInput from "./SearchInput";
 
@@ -9,7 +9,9 @@ const HeaderPage = () => {
         <h1 className="text-xl font-mono font-bold">Discuss</h1>
       </div>
       <div className="flex justify-center">
-        <SearchInput />
+        <Suspense>
+          <SearchInput />
+        </Suspense>
       </div>
       <div className="flex justify-end gap-2">
         <AuthHeader />
