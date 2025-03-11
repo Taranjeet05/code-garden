@@ -7,6 +7,7 @@ type PostShowProps = {
 };
 
 const PostShow = async ({ postId }: PostShowProps) => {
+  await new Promise((res) => setTimeout(res, 3000));
   const post = await prisma.post.findUnique({
     where: {
       id: postId,
