@@ -12,8 +12,8 @@ const n1 = 54; // number
 const n2 = 54; // number
 
 const printResult = true;
-const goodText = 'We let you see the result check console ✅'
-const badText = 'We are not let you see the result because your result is false.❌'
+const goodText = 'We let you see the result check console ✅' // string
+const badText = 'We are not let you see the result because your result is false.❌' // string
 const ans = add(n1, n2, printResult, goodText , badText);
 
 console.log(ans);
