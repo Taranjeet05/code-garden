@@ -93,3 +93,17 @@ const voter: Voter = {
 
 console.log(voter.firstName, voter.lastName);
 console.log(voter.votedFor);
+
+function hasVoted (voter : Voter) {
+  if(voter.votingStatus === 'voted'){
+    alert(`Thanks for Taking part in voting.`)
+    alert(`You voted for ${voter.votedFor}`)
+    console.log('Thanks for voting', voter.votedFor)
+  }else{
+    alert(`Democracy will stay healthy if you vote for the country.`)
+    alert(`Your voting status is > ${voter.votingStatus}`)
+    console.log(voter.votingStatus);
+  }
+}
+
+hasVoted(voter)
