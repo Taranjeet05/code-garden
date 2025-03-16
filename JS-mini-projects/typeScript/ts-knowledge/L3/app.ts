@@ -1,4 +1,4 @@
-// A Student report card
+//                               A Student Report Card
 
 // Literal Types using Union
 type Subject = "Math" | "Science" | "English";
@@ -23,8 +23,8 @@ type Student = {
 
 // Assign type to student
 const student: Student = {
-  studentId: 'Singg565' ,
-  name: 'Taranjeet Singh',
+  studentId: "Singg565",
+  name: "Taranjeet Singh",
   rollNumber: 11,
   class: "10 Grade",
   reports: [
@@ -46,6 +46,50 @@ const student: Student = {
   ],
 };
 
-console.log(`Student ID:`,student.studentId);
-console.log(student.name , student.class, student.rollNumber);
-console.log(student.reports[0], student.reports[1], student.reports[2])
+console.log(`Student ID:`, student.studentId);
+console.log(student.name, student.class, student.rollNumber);
+console.log(student.reports[0], student.reports[1], student.reports[2]);
+
+//                                🗳️ Voting App
+
+type party = "BJP" | "Congress" | "Aap";
+type VotingStatus = "voted" | "not-voted";
+
+type Candidate = {
+  name: string;
+  party: party;
+};
+
+type Voter = {
+  voterId: string | number;
+  firstName: string;
+  lastName: string;
+  candidate: Candidate[];
+  votingStatus: VotingStatus;
+  votedFor: party;
+};
+
+const voter: Voter = {
+  voterId: "H2R45TT5",
+  firstName: "Taranjeet",
+  lastName: "Singh",
+  candidate: [
+    {
+      name: "Narender Modi",
+      party: "BJP",
+    },
+    {
+      name: "Rahul Gandhi",
+      party: "Congress",
+    },
+    {
+      name: "Kejriwal",
+      party: "Aap",
+    },
+  ],
+  votingStatus: "voted",
+  votedFor: "BJP",
+};
+
+console.log(voter.firstName, voter.lastName);
+console.log(voter.votedFor);
