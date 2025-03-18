@@ -142,3 +142,21 @@ function loginSimulation(
 loginSimulation("TaranjeetSingh013", "01256", (message) =>
   console.log(message)
 );
+
+/* Favorite Color
+Goal: Create a function that takes a color and a callback.
+If the color is "blue" or "green", the callback says "Nice choice!"
+Else, it says "Try another color!" */
+
+function favoriteColor(
+  color: string,
+  callback: (message: string) => void
+): void {
+  if (color.toLowerCase() === "blue" || color.toLowerCase() === "green") {
+    return callback(`Nice Choice 🙆`);
+  } else {
+    return callback(`Try another color 🙅‍♂️`);
+  }
+}
+
+favoriteColor("green", (message) => console.log(message));

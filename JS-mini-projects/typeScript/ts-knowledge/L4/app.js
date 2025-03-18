@@ -95,3 +95,16 @@ function loginSimulation(userName, password, callback) {
 loginSimulation("TaranjeetSingh013", "01256", function (message) {
     return console.log(message);
 });
+/* Favorite Color
+Goal: Create a function that takes a color and a callback.
+If the color is "blue" or "green", the callback says "Nice choice!"
+Else, it says "Try another color!" */
+function favoriteColor(color, callback) {
+    if (color.toLowerCase() === "blue" || color.toLowerCase() === "green") {
+        return callback("Nice Choice \uD83D\uDE46");
+    }
+    else {
+        return callback("Try another color \uD83D\uDE45\u200D\u2642\uFE0F");
+    }
+}
+favoriteColor("green", function (message) { return console.log(message); });
