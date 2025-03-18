@@ -160,3 +160,21 @@ function favoriteColor(
 }
 
 favoriteColor("green", (message) => console.log(message));
+
+/* Score Checker
+Goal: Function takes a number (score) and a callback.
+If score >= 80, callback says "Great Job!"
+If score < 80, callback says "Keep trying!" */
+
+function scoreChecker(
+  score: number,
+  callback: (message: string) => void
+): void {
+  if (score >= 80) {
+    return callback(`Great Job`);
+  } else {
+    return callback(`Keep trying`);
+  }
+}
+
+scoreChecker(100, (message) => console.log(message));
