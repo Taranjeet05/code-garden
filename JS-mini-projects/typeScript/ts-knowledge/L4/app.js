@@ -6,17 +6,22 @@ console.log(add(10, 50));
 function greeting(name) {
     console.log("Hello ".concat(name));
 }
-greeting('Taranjeet Singh');
+greeting("Taranjeet Singh");
 // let's practice Callback function::
 function doSomething(callback) {
-    callback('Hello, This message is from callback that honesty is the best policy');
+    callback("Hello, This message is from callback that honesty is the best policy");
 }
 doSomething(function (message) {
     console.log("Here is the message from callback function it says : ".concat(message));
 });
+function calculator(a, b, callback) {
+    return callback(a, b);
+}
+var result = calculator(5, 3, function (x, y) { return x * y; });
+console.log("The result is: ".concat(result));
 //                         💡 IDEAS YOU CAN CODE YOURSELF
 // 💬 1. Chat App Simulation
 function sendMessage(callback) {
-    callback('Hello Chat app Simulation');
+    callback("Hello Chat app Simulation");
 }
 sendMessage(function (message) { return console.log("here is you message >> ".concat(message)); });
