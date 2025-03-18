@@ -81,7 +81,7 @@ If both are correct, use a callback to show "Login successful", and return true.
 Otherwise, use the callback to show "Access denied", and return false. */
 function loginSimulation(userName, password, callback) {
     var validUserName = "TaranjeetSingh013";
-    var validPassword = "01256";
+    var validPassword = 1256;
     if (userName.toLowerCase() === validUserName.toLowerCase() &&
         password === validPassword) {
         callback("Login Successful \u2705\u2705");
@@ -92,9 +92,7 @@ function loginSimulation(userName, password, callback) {
         return false;
     }
 }
-loginSimulation("TaranjeetSingh013", "01256", function (message) {
-    return console.log(message);
-});
+loginSimulation("TaranjeetSingh013", 1256, function (message) { return console.log(message); });
 /* Favorite Color
 Goal: Create a function that takes a color and a callback.
 If the color is "blue" or "green", the callback says "Nice choice!"
