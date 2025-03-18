@@ -42,3 +42,19 @@ function checkAnswer(ans, onCorrect) {
 checkAnswer("Taranjeet Singh", function (message) {
     console.log("quiz says:", message);
 });
+/* Greeting Message
+Goal: Create a function that takes a name and a callback.
+If the name is "Taranjeet", call the callback with a "Welcome back, hero!" message.
+Otherwise, call the callback with "Hello, stranger!" */
+function GreetingMessage(name, callback) {
+    var validName = 'Taranjeet Singh';
+    if (name.toLowerCase() === validName.toLowerCase()) {
+        callback("Welcome back, hero!");
+    }
+    else {
+        callback("Hello Stranger!");
+    }
+}
+GreetingMessage('Taranjeet Singh', function (message) {
+    console.log("There is message for you >> ".concat(message));
+});
