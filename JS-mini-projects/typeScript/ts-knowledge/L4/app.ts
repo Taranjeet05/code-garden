@@ -121,11 +121,11 @@ Otherwise, use the callback to show "Access denied", and return false. */
 
 function loginSimulation(
   userName: string,
-  password: string,
+  password: number,
   callback: (message: string) => void
 ): boolean {
   const validUserName = "TaranjeetSingh013";
-  const validPassword = "01256";
+  const validPassword = 1256;
 
   if (
     userName.toLowerCase() === validUserName.toLowerCase() &&
@@ -139,9 +139,7 @@ function loginSimulation(
   }
 }
 
-loginSimulation("TaranjeetSingh013", "01256", (message) =>
-  console.log(message)
-);
+loginSimulation("TaranjeetSingh013", 1256, (message) => console.log(message));
 
 /* Favorite Color
 Goal: Create a function that takes a color and a callback.
