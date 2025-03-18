@@ -87,3 +87,21 @@ GreetingMessage('Taranjeet Singh', (message) => {
   console.log(`There is message for you >> ${message}`)
 });
 
+/* Math Check
+Goal: Create a function that checks if a number is even or odd.
+Use a callback to print a message like "Even number" or "Odd number".
+The function should return true for even, false for odd.*/
+
+function checkEvenOrOdd (num : number, callback: (message: string) => void) : boolean {
+  if(num % 2 === 0) {
+    callback(`Even Number`)
+    return true;
+  } else {
+    callback(`Odd Number`);
+    return false;
+  }
+}
+
+checkEvenOrOdd(10, (message) => {
+  console.log(message);
+});
