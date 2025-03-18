@@ -25,3 +25,20 @@ function sendMessage(callback) {
     callback("Hello Chat app Simulation");
 }
 sendMessage(function (message) { return console.log("here is you message >> ".concat(message)); });
+/* 🎯 2. Quiz Game
+Function: checkAnswer(ans: string): boolean
+Callback: onCorrect(callback: () => void) */
+function checkAnswer(ans, onCorrect) {
+    var correctAnswer = 'Taranjeet Singh';
+    if (ans.toLowerCase() === correctAnswer.toLowerCase()) {
+        onCorrect('🚀✅ correct! you nailed it. 🙆‍♀️🙆‍♂️🙆');
+        return true;
+    }
+    else {
+        onCorrect('❌, You answer is incorrect, Please try agian. 💬🙅🙅‍♂️🙅‍♀️');
+        return false;
+    }
+}
+checkAnswer('Taranjeet Singh', function (message) {
+    console.log("quiz says:", message);
+});
