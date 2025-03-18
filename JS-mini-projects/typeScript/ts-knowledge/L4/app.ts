@@ -51,7 +51,7 @@ sendMessage((message) => console.log(`here is you message >> ${message}`));
 Function: checkAnswer(ans: string): boolean
 Callback: onCorrect(callback: () => void) */
 
-function checkAnswer(ans: string, onCorrect: (message) => void): boolean {
+function checkAnswer(ans: string, onCorrect: (message : string) => void): boolean {
   const correctAnswer = "Taranjeet Singh";
 
   if (ans.toLowerCase() === correctAnswer.toLowerCase()) {
@@ -66,3 +66,4 @@ function checkAnswer(ans: string, onCorrect: (message) => void): boolean {
 checkAnswer("Taranjeet Singh", (message) => {
   console.log(`quiz says:`, message);
 });
+
