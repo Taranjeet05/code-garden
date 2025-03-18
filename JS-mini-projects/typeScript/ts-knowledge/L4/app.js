@@ -47,7 +47,7 @@ Goal: Create a function that takes a name and a callback.
 If the name is "Taranjeet", call the callback with a "Welcome back, hero!" message.
 Otherwise, call the callback with "Hello, stranger!" */
 function GreetingMessage(name, callback) {
-    var validName = 'Taranjeet Singh';
+    var validName = "Taranjeet Singh";
     if (name.toLowerCase() === validName.toLowerCase()) {
         callback("Welcome back, hero!");
     }
@@ -55,7 +55,7 @@ function GreetingMessage(name, callback) {
         callback("Hello Stranger!");
     }
 }
-GreetingMessage('Taranjeet Singh', function (message) {
+GreetingMessage("Taranjeet Singh", function (message) {
     console.log("There is message for you >> ".concat(message));
 });
 /* Math Check
@@ -74,4 +74,24 @@ function checkEvenOrOdd(num, callback) {
 }
 checkEvenOrOdd(10, function (message) {
     console.log(message);
+});
+/* Login Simulation
+Goal: Make a function that takes a username and password.
+If both are correct, use a callback to show "Login successful", and return true.
+Otherwise, use the callback to show "Access denied", and return false. */
+function loginSimulation(userName, password, callback) {
+    var validUserName = "TaranjeetSingh013";
+    var validPassword = "01256";
+    if (userName.toLowerCase() === validUserName.toLowerCase() &&
+        password === validPassword) {
+        callback("Login Successful \u2705\u2705");
+        return true;
+    }
+    else {
+        callback("Access denied \u274C\u274C");
+        return false;
+    }
+}
+loginSimulation("TaranjeetSingh013", "01256", function (message) {
+    return console.log(message);
 });
