@@ -136,26 +136,3 @@ Tip: Try not to use the built-in methods like .map(), .filter(), or .reduce() in
 
 
 */
-
-function reverseString(str) {
-  return str.split("").reverse().join("");
-}
-
-console.log(reverseString("hello")); // Output: "olleh"
-
-function isPalandrome(str) {
-  return str === str.split("").reverse().join("");
-}
-
-console.log("madam");
-
-function findMaxNumber(arr) {
-  return Math.max(...arr);
-}
-
-console.log(findMax([3, 9, 1, 5, 12])); // Output: 12
-
-function removeDuplicates(arr) {
-  return [...new Set(arr)];
-}
-console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
