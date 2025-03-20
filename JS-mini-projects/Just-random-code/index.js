@@ -148,3 +148,9 @@ function isPalandrome(str) {
 }
 
 console.log("madam");
+
+function findMaxNumber(arr) {
+  return Math.max(...arr);
+}
+
+console.log(findMax([3, 9, 1, 5, 12])); // Output: 12
