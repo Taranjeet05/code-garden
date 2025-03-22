@@ -1,17 +1,13 @@
+"use client";
 import React from "react";
-import Image from "next/image";
+import { FaArrowDown } from "react-icons/fa";
 
 const Button = () => {
   return (
-    <div className="relative mt-16">
-      <hr className="border-gray-200 border-1" />
-      <button className="absolute right-0 top-0 mt-4">
-        <Image
-          src="/assets/images/icon-arrow.svg"
-          alt="arrow-right"
-          width={40}
-          height={40}
-        />
+    <div className="flex items-center mt-16 relative">
+      <hr className="border-gray-200 border-1 w-6xl" />
+      <button className="rounded-full bg-purple-400 p-2 flex items-center justify-center ml-4 absolute right-7">
+        <FaArrowDown className="w-30 h-30 text-white font-thin " />
       </button>
     </div>
   );
