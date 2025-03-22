@@ -16,6 +16,8 @@ const InputFields = () => {
           id="day"
           name="day"
           placeholder="DD"
+          min={1}
+          max={31}
           className="border p-3 w-40 rounded-lg"
           style={{
             borderColor: "var(--color-smokey-grey)",
@@ -39,6 +41,8 @@ const InputFields = () => {
           id="month"
           placeholder="MM"
           className="border p-3 w-40 rounded-lg"
+          min={1}
+          max={12}
           style={{
             borderColor: "var(--color-smokey-grey)",
             fontSize: "32px",
