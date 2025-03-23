@@ -1,11 +1,11 @@
-export interface Birthday {
+export interface BirthDate {
   day: number;
   month: number;
   year: number;
 }
 
 export interface AgeResult {
-  day: number;
-  minth: number;
-  year: number;
+  years: number;
+  months: number;
+  days: number;
 }
