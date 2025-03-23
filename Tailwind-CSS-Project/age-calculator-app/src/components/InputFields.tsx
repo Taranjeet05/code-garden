@@ -1,6 +1,18 @@
 import React from "react";
+import { BirthDate } from "@/types";
 
-const InputFields = () => {
+type InputFieldsProps = {
+  setBirthDate: React.Dispatch<React.SetStateAction<BirthDate>>;};
+
+const InputFields = ({setBirthDate} : InputFieldsProps) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setBirthDate((prev) => ({
+      ...prev,
+      [name]: Number(value),
+    }));
+  };
+
   return (
     <form className="flex gap-4 ml-10">
       <div className="flex flex-col items-start">
@@ -18,6 +30,7 @@ const InputFields = () => {
           placeholder="DD"
           min={1}
           max={31}
+          onChange={handleChange}
           className="border p-3 w-40 rounded-lg"
           style={{
             borderColor: "var(--color-smokey-grey)",
@@ -43,6 +56,7 @@ const InputFields = () => {
           className="border p-3 w-40 rounded-lg"
           min={1}
           max={12}
+          onChange={handleChange}
           style={{
             borderColor: "var(--color-smokey-grey)",
             fontSize: "32px",
@@ -64,6 +78,7 @@ const InputFields = () => {
           name="year"
           id="year"
           placeholder="YYYY"
+          onChange={handleChange}
           className="border p-3 w-40 rounded-lg"
           style={{
             borderColor: "var(--color-smokey-grey)",
