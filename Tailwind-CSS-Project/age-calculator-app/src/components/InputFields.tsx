@@ -1,94 +1,123 @@
+// InputFields.tsx
 import React from "react";
 import { BirthDate } from "@/types";
 
 type InputFieldsProps = {
-  setBirthDate: React.Dispatch<React.SetStateAction<BirthDate>>;};
+  setBirthDate: React.Dispatch<React.SetStateAction<BirthDate>>;
+  errors: {
+    day: string;
+    month: string;
+    year: string;
+    general: string;
+  };
+};
 
-const InputFields = ({setBirthDate} : InputFieldsProps) => {
+const InputFields = ({ setBirthDate, errors }: InputFieldsProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setBirthDate((prev) => ({
-      ...prev,
-      [name]: Number(value),
-    }));
+    setBirthDate((prev) => ({ ...prev, [name]: Number(value) }));
   };
 
+  const getInputStyle = (error: string) => ({
+    borderColor: error ? "var(--color-light-red)" : "var(--color-smokey-grey)",
+    fontSize: "32px",
+    fontWeight: 700,
+  });
+
   return (
-    <form className="flex gap-4 ml-10">
-      <div className="flex flex-col items-start">
+    <div className="flex gap-4 ml-10">
+      {/* Day Input */}
+      <div className="flex flex-col">
         <label
-          className="flex items-start mb-2"
-          htmlFor="day"
-          style={{ color: "var(--color-smokey-grey)" }}
+          style={{
+            color: errors.day
+              ? "var(--color-light-red)"
+              : "var(--color-smokey-grey)",
+          }}
+          className="mb-2"
         >
-          DAY:
+          DAY
         </label>
         <input
           type="number"
-          id="day"
           name="day"
           placeholder="DD"
-          min={1}
-          max={31}
           onChange={handleChange}
           className="border p-3 w-40 rounded-lg"
-          style={{
-            borderColor: "var(--color-smokey-grey)",
-            fontSize: "32px",
-            fontWeight: 700,
-          }}
+          style={getInputStyle(errors.day)}
         />
+        {errors.day && (
+          <p
+            className="text-sm italic mt-1"
+            style={{ color: "var(--color-light-red)" }}
+          >
+            {errors.day}
+          </p>
+        )}
       </div>
 
-      <div className="flex flex-col items-start">
+      {/* Month Input */}
+      <div className="flex flex-col">
         <label
-          htmlFor="month"
-          className="flex items-start mb-2"
-          style={{ color: "var(--color-smokey-grey)" }}
+          style={{
+            color: errors.month
+              ? "var(--color-light-red)"
+              : "var(--color-smokey-grey)",
+          }}
+          className="mb-2"
         >
           MONTH
         </label>
         <input
           type="number"
           name="month"
-          id="month"
           placeholder="MM"
-          className="border p-3 w-40 rounded-lg"
-          min={1}
-          max={12}
           onChange={handleChange}
-          style={{
-            borderColor: "var(--color-smokey-grey)",
-            fontSize: "32px",
-            fontWeight: "700",
-          }}
+          className="border p-3 w-40 rounded-lg"
+          style={getInputStyle(errors.month)}
         />
+        {errors.month && (
+          <p
+            className="text-sm italic mt-1"
+            style={{ color: "var(--color-light-red)" }}
+          >
+            {errors.month}
+          </p>
+        )}
       </div>
 
-      <div className="flex flex-col items-start">
+      {/* Year Input */}
+      <div className="flex flex-col">
         <label
-          htmlFor="year"
-          className="flex items-start mb-2"
-          style={{ color: "var(--color-smokey-grey)" }}
+          style={{
+            color: errors.year
+              ? "var(--color-light-red)"
+              : "var(--color-smokey-grey)",
+          }}
+          className="mb-2"
         >
           YEAR
         </label>
         <input
           type="number"
           name="year"
-          id="year"
           placeholder="YYYY"
           onChange={handleChange}
           className="border p-3 w-40 rounded-lg"
-          style={{
-            borderColor: "var(--color-smokey-grey)",
-            fontSize: "32px",
-            fontWeight: "700",
-          }}
+          style={getInputStyle(errors.year)}
         />
+        {errors.year && (
+          <p
+            className="text-sm italic mt-1"
+            style={{ color: "var(--color-light-red)" }}
+          >
+            {errors.year}
+          </p>
+        )}
       </div>
-    </form>
+    </div>
   );
 };
 
 export default InputFields;
+  
