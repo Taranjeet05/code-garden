@@ -1,4 +1,3 @@
-// InputFields.tsx
 import React from "react";
 import { BirthDate } from "@/types";
 
