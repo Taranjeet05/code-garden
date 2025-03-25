@@ -1,4 +1,3 @@
-// Card.tsx
 "use client";
 import React, { useState } from "react";
 import InputFields from "./InputFields";

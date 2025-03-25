@@ -120,4 +120,3 @@ const InputFields = ({ setBirthDate, errors }: InputFieldsProps) => {
 };
 
 export default InputFields;
-  
