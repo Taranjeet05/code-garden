@@ -25,16 +25,16 @@ const InputFields = ({ setBirthDate, errors }: InputFieldsProps) => {
   });
 
   return (
-    <div className="flex gap-4 ml-10">
+    <div className="flex flex-wrap gap-4 md:gap-6 px-2 sm:px-4 md:ml-6 lg:ml-10 animated-fade">
       {/* Day Input */}
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full sm:w-auto">
         <label
           style={{
             color: errors.day
               ? "var(--color-light-red)"
               : "var(--color-smokey-grey)",
           }}
-          className="mb-2"
+          className="mb-2 text-xs sm:text-sm uppercase font-bold tracking-widest"
         >
           DAY
         </label>
@@ -43,12 +43,12 @@ const InputFields = ({ setBirthDate, errors }: InputFieldsProps) => {
           name="day"
           placeholder="DD"
           onChange={handleChange}
-          className="border p-3 w-40 rounded-lg"
+          className="border p-2 sm:p-3 w-full sm:w-20 md:w-36 lg:w-40 rounded-lg text-lg sm:text-xl md:text-2xl lg:text-3xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-1"
           style={getInputStyle(errors.day)}
         />
         {errors.day && (
           <p
-            className="text-sm italic mt-1"
+            className="text-xs italic mt-1"
             style={{ color: "var(--color-light-red)" }}
           >
             {errors.day}
@@ -57,14 +57,14 @@ const InputFields = ({ setBirthDate, errors }: InputFieldsProps) => {
       </div>
 
       {/* Month Input */}
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full sm:w-auto">
         <label
           style={{
             color: errors.month
               ? "var(--color-light-red)"
               : "var(--color-smokey-grey)",
           }}
-          className="mb-2"
+          className="mb-2 text-xs sm:text-sm uppercase font-bold tracking-widest"
         >
           MONTH
         </label>
@@ -73,12 +73,12 @@ const InputFields = ({ setBirthDate, errors }: InputFieldsProps) => {
           name="month"
           placeholder="MM"
           onChange={handleChange}
-          className="border p-3 w-40 rounded-lg"
+          className="border p-2 sm:p-3 w-full sm:w-20 md:w-36 lg:w-40 rounded-lg text-lg sm:text-xl md:text-2xl lg:text-3xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-1"
           style={getInputStyle(errors.month)}
         />
         {errors.month && (
           <p
-            className="text-sm italic mt-1"
+            className="text-xs italic mt-1"
             style={{ color: "var(--color-light-red)" }}
           >
             {errors.month}
@@ -87,14 +87,14 @@ const InputFields = ({ setBirthDate, errors }: InputFieldsProps) => {
       </div>
 
       {/* Year Input */}
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full sm:w-auto">
         <label
           style={{
             color: errors.year
               ? "var(--color-light-red)"
               : "var(--color-smokey-grey)",
           }}
-          className="mb-2"
+          className="mb-2 text-xs sm:text-sm uppercase font-bold tracking-widest"
         >
           YEAR
         </label>
@@ -103,12 +103,12 @@ const InputFields = ({ setBirthDate, errors }: InputFieldsProps) => {
           name="year"
           placeholder="YYYY"
           onChange={handleChange}
-          className="border p-3 w-40 rounded-lg"
+          className="border p-2 sm:p-3 w-full sm:w-20 md:w-36 lg:w-40 rounded-lg text-lg sm:text-xl md:text-2xl lg:text-3xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-1"
           style={getInputStyle(errors.year)}
         />
         {errors.year && (
           <p
-            className="text-sm italic mt-1"
+            className="text-xs italic mt-1"
             style={{ color: "var(--color-light-red)" }}
           >
             {errors.year}
