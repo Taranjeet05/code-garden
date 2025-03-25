@@ -59,7 +59,7 @@ const Card = () => {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <InputFields setBirthDate={setBirthDate} errors={errors} />
       <Button onClick={handleCalculate} />
       <Result result={result} />
