@@ -137,36 +137,4 @@ Tip: Try not to use the built-in methods like .map(), .filter(), or .reduce() in
 
 */
 
-async function getUserId() {
-  return new Promise(resolve => setTimeout(() => resolve(1), 1000));
-}
 
-async function fetchUserData(id) {
-  const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  const user = await response.json();
-  return user;
-}
-
-async function getUserInfo() {
-  const id = await getUserId();
-  const user = await fetchUserData(id);
-  console.log(user.name);
-}
-
-getUserInfo();
-
-
-async function fetchUser() {
-  try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
-    if (!response.ok) {
-      throw new Error("Failed to fetch user data");
-    }
-    const user = await response.json();
-    console.log(user.name);
-  } catch (error) {
-    console.error("Error:", error.message);
-  }
-}
-
-fetchUser();
