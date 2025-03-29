@@ -137,34 +137,3 @@ Tip: Try not to use the built-in methods like .map(), .filter(), or .reduce() in
 
 */
 
-/* Question:
-You are given an array of integers, nums, and an integer target. Return indices of the two numbers such that they add up to target.
-
-You may not use the same element twice. You can assume that there is exactly one solution, and you must return the answer in O(n) time complexity. 
-
-Example:
-
-Input: nums = [2, 7, 11, 15], target = 9  
-Output: [0, 1]  // Because nums[0] + nums[1] = 2 + 7 = 9
-
-*/
-
-function twoSum(nums, target) {
-  let map = new Map(); // Store numbers and their indices
-
-  for (let i = 0; i < nums.length; i++) {
-      let complement = target - nums[i];
-
-      if (map.has(complement)) {
-          return [map.get(complement), i]; // Return indices of the two numbers
-      }
-
-      map.set(nums[i], i); // Store the number with its index
-  }
-
-  return []; // In case there's no solution (though problem guarantees one)
-}
-
-// Example Usage:
-console.log(twoSum([2, 7, 11, 15], 9)); // Output: [0, 1]
-console.log(twoSum([3, 2, 4], 6)); // Output: [1, 2]
