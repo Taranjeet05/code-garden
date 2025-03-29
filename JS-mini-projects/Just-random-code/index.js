@@ -178,3 +178,19 @@ console.log(lengthOfLongestSubstring("abcabcbb")); // Output: 3
 console.log(lengthOfLongestSubstring("bbbbb"));    // Output: 1
 console.log(lengthOfLongestSubstring("pwwkew"));   // Output: 3
 console.log(lengthOfLongestSubstring(""));         // Output: 0
+
+/************************************************************************************************************************************************************ */
+
+/* 
+Container With Most Water
+Problem:
+You are given an array of heights representing vertical lines on an x-axis. Find the maximum water that can be stored between any two lines.
+
+Example:
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Hint: Use Two Pointers to optimize the solution to O(n) time complexity.
+*/
+
+
