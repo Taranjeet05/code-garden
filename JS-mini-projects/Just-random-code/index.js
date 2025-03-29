@@ -137,3 +137,15 @@ Tip: Try not to use the built-in methods like .map(), .filter(), or .reduce() in
 
 */
 
+/* Question:
+You are given an array of integers, nums, and an integer target. Return indices of the two numbers such that they add up to target.
+
+You may not use the same element twice. You can assume that there is exactly one solution, and you must return the answer in O(n) time complexity. 
+
+Example:
+
+Input: nums = [2, 7, 11, 15], target = 9  
+Output: [0, 1]  // Because nums[0] + nums[1] = 2 + 7 = 9
+
+*/
+
