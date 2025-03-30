@@ -137,3 +137,23 @@ Tip: Try not to use the built-in methods like .map(), .filter(), or .reduce() in
 
 */
 
+function twoSum(nums, target) {
+  let map = new Map(); // Create a hashmap to store numbers and their indices
+
+  for (let i = 0; i < nums.length; i++) {
+      let complement = target - nums[i]; // Find the number needed to reach target
+
+      if (map.has(complement)) {
+          return [map.get(complement), i]; // Return indices if complement is found
+      }
+
+      map.set(nums[i], i); // Store the number and its index in the map
+  }
+
+  return []; // Return empty array (this case won't occur as per the problem statement)
+}
+
+// Example usage:
+console.log(twoSum([2, 7, 11, 15], 9)); // Output: [0, 1]
+console.log(twoSum([3, 2, 4], 6)); // Output: [1, 2]
+console.log(twoSum([3, 3], 6)); // Output: [0, 1]
