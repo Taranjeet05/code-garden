@@ -137,20 +137,3 @@ Tip: Try not to use the built-in methods like .map(), .filter(), or .reduce() in
 
 */
 
-function findMissingNumber(arr, n) {
-  // Calculate the sum of numbers from 1 to n using the formula: (n * (n + 1)) / 2
-  let expectedSum = (n * (n + 1)) / 2;
-
-  // Calculate the actual sum of elements in the array
-  let actualSum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    actualSum += arr[i];
-  }
-
-  // The missing number is the difference between expected and actual sum
-  return expectedSum - actualSum;
-}
-
-// Test the function
-const numbers = [1, 2, 4, 5, 6]; // Missing 3
-console.log(findMissingNumber(numbers, 6)); // Output: 3
