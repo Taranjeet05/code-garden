@@ -39,3 +39,19 @@ class Dog implements Animal {
   }
 }
 
+class Cat implements Animal {
+  name: string; 
+  age: number;
+  constructor(name: string, age:number) {
+    this.name = name;
+    this.age = age;
+  }
+  makeSound() {
+    console.log("Meow! Meow!");
+  }
+}
+
+const dog = new Dog("Buddy", 3);
+const cat = new Cat("Whiskers", 2);
+dog.makeSound();
+cat.makeSound();

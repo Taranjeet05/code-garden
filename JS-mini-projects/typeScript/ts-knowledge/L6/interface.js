@@ -19,3 +19,16 @@ class Dog {
         console.log("Woof! Woof!");
     }
 }
+class Cat {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    makeSound() {
+        console.log("Meow! Meow!");
+    }
+}
+const dog = new Dog("Buddy", 3);
+const cat = new Cat("Whiskers", 2);
+dog.makeSound();
+cat.makeSound();
