@@ -78,7 +78,7 @@ class DrivingSchoolImlementation implements DrivingSchool {
 }
 
 const drivingSchool = new DrivingSchoolImlementation(
-  "Singh Driving School",
+  "Singh",
   "Delhi"
 );
 drivingSchool.teachDriving();

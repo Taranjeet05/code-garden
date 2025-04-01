@@ -41,5 +41,5 @@ class DrivingSchoolImlementation {
         console.log(`My name is ${this.name} and learning Driving in ${this.location}`);
     }
 }
-const drivingSchool = new DrivingSchoolImlementation("Singh Driving School", "Delhi");
+const drivingSchool = new DrivingSchoolImlementation("Singh", "Delhi");
 drivingSchool.teachDriving();
