@@ -32,3 +32,14 @@ const dog = new Dog("Buddy", 3);
 const cat = new Cat("Whiskers", 2);
 dog.makeSound();
 cat.makeSound();
+class DrivingSchoolImlementation {
+    constructor(name, location) {
+        this.name = name;
+        this.location = location;
+    }
+    teachDriving() {
+        console.log(`My name is ${this.name} and learning Driving in ${this.location}`);
+    }
+}
+const drivingSchool = new DrivingSchoolImlementation("Singh Driving School", "Delhi");
+drivingSchool.teachDriving();
