@@ -10,3 +10,12 @@ class Human {
 }
 const singh = new Human('Singh', 20);
 singh.speak();
+class Dog {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    makeSound() {
+        console.log("Woof! Woof!");
+    }
+}
