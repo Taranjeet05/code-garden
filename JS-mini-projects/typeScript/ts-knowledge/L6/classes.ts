@@ -14,3 +14,16 @@ class Student {
 
 const taran = new Student("Taranjeet Singh", 20);
 taran.introduce();
+
+class Teacher {
+  name: string;
+  subject: string;
+
+  constructor(name: string, subject:string) {
+    this.name = name; 
+    this.subject = subject;
+  }
+  teach(): void {
+    console.log(`My Name is ${this.name} and I teach ${this.subject}.`);
+  }
+}
