@@ -18,7 +18,7 @@ class Human implements Person {
   }
 }
 
-const singh = new Human('Singh', 20);
+const singh = new Human("Singh", 20);
 singh.speak();
 
 interface Animal {
@@ -28,7 +28,7 @@ interface Animal {
 }
 
 class Dog implements Animal {
-  name: string; 
+  name: string;
   age: number;
   constructor(name: string, age: number) {
     this.name = name;
@@ -40,9 +40,9 @@ class Dog implements Animal {
 }
 
 class Cat implements Animal {
-  name: string; 
+  name: string;
   age: number;
-  constructor(name: string, age:number) {
+  constructor(name: string, age: number) {
     this.name = name;
     this.age = age;
   }

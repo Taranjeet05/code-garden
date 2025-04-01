@@ -8,7 +8,7 @@ class Human {
         console.log("Hello! I can speak.");
     }
 }
-const singh = new Human('Singh', 20);
+const singh = new Human("Singh", 20);
 singh.speak();
 class Dog {
     constructor(name, age) {
