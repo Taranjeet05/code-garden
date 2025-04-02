@@ -7,10 +7,7 @@ const Header = () => {
         ToDo
       </h1>
       <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24">
-        <AvatarImage
-          src="https://github.com/shadcn.png"
-          alt="User Avatar"
-        />
+        <AvatarImage src="https://github.com/shadcn.png" alt="User Avatar" />
         <AvatarFallback className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
           CN
         </AvatarFallback>
