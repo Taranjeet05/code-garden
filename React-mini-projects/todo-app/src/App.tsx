@@ -7,6 +7,7 @@ function App() {
   return (
     <>
      <Header />
+     <hr className='h-px my-0.5 bg-gray-200 border-0 '/>
     </>
   )
 }
