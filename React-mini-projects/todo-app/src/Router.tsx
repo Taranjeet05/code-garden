@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import NewTaskPage from "./pages/NewTaskPage";
+import CreateNewTaskPage from "./pages/CreateNewTaskPage";
 import App from "./App";
 import ProfilePage from "./pages/ProfilePage";
 
@@ -9,7 +9,7 @@ const Router = () => {
       {/* routes for navigation */}
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/tasks/new" element={<NewTaskPage />} />
+        <Route path="/tasks/new" element={<CreateNewTaskPage />} />
         <Route path="/profile" element={<ProfilePage />} /> 
       </Routes>
     </div>
