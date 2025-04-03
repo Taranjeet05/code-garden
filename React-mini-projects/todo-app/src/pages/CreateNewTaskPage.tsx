@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
-const NewTaskPage = () => {
+const CreateNewTaskPage = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-2xl w-full p-8 bg-white rounded-xl shadow-lg border border-gray-200">
@@ -68,4 +68,4 @@ const NewTaskPage = () => {
   );
 };
 
-export default NewTaskPage;
+export default CreateNewTaskPage;
