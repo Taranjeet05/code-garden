@@ -70,7 +70,8 @@ export const deleteTodo: RequestHandler<{ todoId: string }> = (req, res) => {
   const { todoId } = req.params;
 
   const todoIndex = TODO.findIndex((todo) => todo.id === todoId);
-  if (todoIndex === -1) {
+
+  if (todoIndex < 0) {
     res.status(404).json({ message: "Todo not found" });
   }
   TODO.splice(todoIndex, 1);
