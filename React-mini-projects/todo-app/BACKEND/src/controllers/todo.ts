@@ -25,3 +25,12 @@ export const createTodo: RequestHandler = (req, res) => {
   TODO.push(newTodo);
   res.status(201).json({ message: "Todo Created Successfully", newTodo });
 };
+
+export const getAllTodos : RequestHandler = (req, res) => {
+  
+  if(TODO.length === 0){
+    res.status(200).json({message: "No todos found"});
+    return;
+  }
+  res.status(200).json({message: "todoa Fetched Successfully", TODO});
+}
