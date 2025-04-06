@@ -1,4 +1,4 @@
-// writeFile, appendFile, copyFile, rename, unlink, rm, mkdir,
+// writeFile, appendFile, copyFile, rename, unlink, rm, mkdir, readDir,
 
 const { error, log } = require("console");
 const fs = require("fs");
@@ -66,5 +66,13 @@ fs.mkdir("./newFolder", { recursive: true }, (error) => {
     console.log("Error occured while creating the folder. ❌");
   } else {
     console.log("Folder created successfully, Have a look at the folder. ✅");
+  }
+});
+
+fs.readdir("./newFolder", (error, files) => {
+  if (error) {
+    console.log("Error occured while reading the folder. ❌");
+  } else {
+    console.log("Files:", files);
   }
 });
