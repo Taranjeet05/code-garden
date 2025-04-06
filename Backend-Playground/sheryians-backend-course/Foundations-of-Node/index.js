@@ -26,3 +26,11 @@ fs.appendFile(
     }
   }
 );
+
+fs.rename("test.txt", "rename.txt", (error) => {
+  if (error) {
+    console.log("Error occured while renaming the file. ❌");
+  } else {
+    log("File Reanmed successfully, Have a look at the file name ✅");
+  }
+});
