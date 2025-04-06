@@ -1,1 +1,1 @@
-Hello I am testing out the writeFile in fs
+Hello I am testing out the writeFile in fs/n I am appending this text to the file
