@@ -34,3 +34,13 @@ fs.rename("test.txt", "rename.txt", (error) => {
     log("File Reanmed successfully, Have a look at the file name ✅");
   }
 });
+
+fs.copyFile("rename.txt", "./copy/copy.txt", (error) => {
+  if (error) {
+    console.log("Error occured while copying the file. ❌");
+  } else {
+    console.log(
+      "File copied successfully to the copy folder, Have a look at the file. ✅"
+    );
+  }
+});
