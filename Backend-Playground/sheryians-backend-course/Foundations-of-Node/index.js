@@ -1,4 +1,4 @@
-// writeFile, appendFile, copyFile, rename, unlink, rm
+// writeFile, appendFile, copyFile, rename, unlink, rm, mkdir,
 
 const { error, log } = require("console");
 const fs = require("fs");
@@ -58,5 +58,13 @@ fs.rm("./copy", { recursive: true }, (error) => {
     console.log("Error occured while deleting the folder. ❌");
   } else {
     console.log("Folder deleted successfully, Have a look at the folder. ✅");
+  }
+});
+
+fs.mkdir("./newFolder", { recursive: true }, (error) => {
+  if (error) {
+    console.log("Error occured while creating the folder. ❌");
+  } else {
+    console.log("Folder created successfully, Have a look at the folder. ✅");
   }
 });
