@@ -1,4 +1,4 @@
-// writeFile, appendFile, copyFile, rename, unlink
+// writeFile, appendFile, copyFile, rename, unlink, rm
 
 const { error, log } = require("console");
 const fs = require("fs");
@@ -50,5 +50,13 @@ fs.unlink("rename.txt", (error) => {
     console.log("Error occured while deleting the file. ❌");
   } else {
     console.log("File deleted successfully, Have a look at the file. ✅");
+  }
+});
+
+fs.rm("./copy", { recursive: true }, (error) => {
+  if (error) {
+    console.log("Error occured while deleting the folder. ❌");
+  } else {
+    console.log("Folder deleted successfully, Have a look at the folder. ✅");
   }
 });
