@@ -44,3 +44,11 @@ fs.copyFile("rename.txt", "./copy/copy.txt", (error) => {
     );
   }
 });
+
+fs.unlink("rename.txt", (error) => {
+  if (error) {
+    console.log("Error occured while deleting the file. ❌");
+  } else {
+    console.log("File deleted successfully, Have a look at the file. ✅");
+  }
+});
