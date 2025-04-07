@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/profile", (req, res, next) => {
-  throw new Error("Profile not Found");
+  return next(new Error("This is a custom error"));
 });
 
 app.use((err, req, res, next) => {
