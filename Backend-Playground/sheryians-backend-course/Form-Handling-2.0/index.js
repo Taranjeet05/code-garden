@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const fs = require("fs");
+const { error } = require("console");
 const PORT = 1008;
 
 app.use(express.json());
@@ -31,6 +32,22 @@ app.post("/create", (req, res) => {
     description,
     (error) => {
       console.log(`Something went worng >> ${error}`);
+      res.redirect("/");
+    }
+  );
+});
+
+app.get("/edit/:filename", (req, res) => {
+  const { filename } = req.params;
+  res.render("edit", { filename: filename });
+});
+
+app.post("/edit", (req, res) => {
+  const { prevName, newName } = req.body;
+  fs.rename(
+    `./files/${prevName}`,
+    `./files/${newName.split(" ").join("")}.txt`,
+    (error) => {
       res.redirect("/");
     }
   );
