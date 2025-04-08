@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const fs = require("fs");
+const { error } = require("console");
+const { isUtf8 } = require("buffer");
 const PORT = 1008;
 
 app.use(express.json());
@@ -13,6 +15,14 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   fs.readdir(`./files`, (error, files) => {
     res.render("index", { files: files });
+  });
+});
+
+app.get("/file/:filename", (req, res) => {
+  const { filename } = req.params;
+  fs.readFile(`./files/${filename}`, "utf-8", (error, filedata) => {
+    console.log(error);
+    res.render("show", { filedata: filedata, filename: filename });
   });
 });
 
