@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="main min-h-screen bg-zinc-900"> 
+      <h1 class="text-center text-6xl text-white mb-10 text-yellow-500">Update Your FileName</h1>
+      <a
+      href="/"
+      class="text-yellow-500 hover:text-yellow-700 group inline-flex items-center p-10"
+    >
+      <span
+        id="icon"
+        class="mr-2 transition-all duration-300 group-hover:hidden"
+        >⬅️</span
+      >
+      <span class="mr-2 transition-all duration-300 hidden group-hover:inline"
+        >👆</span
+      >
+      Go Back to Home
+    </a>
+
+      <div class="form p-10 w-full">
+        <form
+          action="/edit"
+          method="post"
+          class="flex flex-col w-1/2 mx-auto gap-5"
+        >
+          <input
+            class="bg-zinc-800 p-2 text-lg text-zinc-400 outline-none border-[1px] border-zinc-500 rounded-md cursor-not-allowed"
+            type="text"
+            name="prevName"
+            id="prevName"
+            value="<%= filename %>"
+            placeholder="Your old File Name"
+            readonly
+          />
+          <input
+            class="bg-zinc-800 p-2 text-lg text-white outline-none border-[1px] border-zinc-500 resize-none rounded-md "
+            name="newName"
+            id="newName"
+            placeholder="Enter Your New File Name"
+          ></input>
+          <input
+            class="bg-yellow-700 py-2 px-5 text-lg font-bold tracking-wide text-black outline-none border-[1px] border-yellow-500 rounded-md hover:bg-yellow-800 cursor-pointer"
+            type="submit"
+            value="Update File Name"
+          />
+        </form>
+      </div>
+
+      
+    </div>
+  </body>
+</html>
