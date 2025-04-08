@@ -45,9 +45,13 @@
         >
           <h2 class="text-white text-2xl font-semibold mb-3"><%= data %></h2>
           <a
-            href=""
-            class="text-blue-500 hover:text-blue-400 text-lg font-medium"
-            >Read More.</a
+            href="/file/<%= data %>"
+            class="text-blue-500 hover:text-blue-400 text-lg font-medium group"
+            >Read More.
+            <span
+              class="hidden group-hover:inline transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              >📖</span
+            ></a
           >
         </div>
         <% }) %> <% } else { %>
