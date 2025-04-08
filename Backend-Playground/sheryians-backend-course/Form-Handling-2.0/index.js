@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const fs = require("fs");
 const PORT = 1008;
 
 app.use(express.json());
@@ -10,7 +11,21 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.render("index");
+  fs.readdir(`./files`, (error, files) => {
+    res.render("index", { files: files });
+  });
+});
+
+app.post("/create", (req, res) => {
+  const { title, description } = req.body;
+  fs.writeFile(
+    `./files/${title.split(" ").join("")}.txt`,
+    description,
+    (error) => {
+      console.log(`Something went worng >> ${error}`);
+      res.redirect("/");
+    }
+  );
 });
 
 app.listen(PORT, () => {
