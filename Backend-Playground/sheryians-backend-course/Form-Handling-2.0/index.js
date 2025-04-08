@@ -2,8 +2,6 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const fs = require("fs");
-const { error } = require("console");
-const { isUtf8 } = require("buffer");
 const PORT = 1008;
 
 app.use(express.json());
