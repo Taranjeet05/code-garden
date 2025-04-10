@@ -16,9 +16,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/read", async (req, res) => {
-  
   const readUser = await userModel.find();
-  res.render("read", {users : readUser});
+  res.render("read", { users: readUser });
 });
 
 app.post("/create", async (req, res) => {
@@ -26,9 +25,15 @@ app.post("/create", async (req, res) => {
   let createUser = await userModel.create({
     name,
     email,
-    imageUrl
+    imageUrl,
   });
-  res.redirect('/read');
+  res.redirect("/read");
+});
+
+app.get("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  let deleteUser = await userModel.findOneAndDelete({ _id: id });
+  res.redirect("/read");
 });
 
 app.listen(PORT, () => {
