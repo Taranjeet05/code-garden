@@ -30,6 +30,24 @@ app.post("/create", async (req, res) => {
   res.redirect("/read");
 });
 
+app.get("/edit/:id", async (req, res) => {
+  const { id } = req.params;
+  let user = await userModel.findOne({ _id: id });
+  res.render("edit", { user });
+  console.log(user);
+});
+
+app.post("/update/:id", async (req, res) => {
+  const { name, email, imageUrl } = req.body;
+  const { id } = req.params;
+  let updateUser = await userModel.findOneAndUpdate(
+    { _id: id },
+    { name, email, imageUrl },
+    { new: true }
+  );
+  res.redirect("/read");
+});
+
 app.get("/delete/:id", async (req, res) => {
   const { id } = req.params;
   let deleteUser = await userModel.findOneAndDelete({ _id: id });
