@@ -17,34 +17,42 @@
 
       <div class="form">
         <form
-          action=""
-          class="flex flex-col items-center justify-center p-10 gap-10 text-white"
+          action="/create"
+          method="post"
+          class="flex flex-col items-center justify-center p-10 gap-6 text-white"
         >
+          <!-- Name Input -->
           <input
             type="text"
             name="name"
             id="name"
             placeholder="Name"
-            class="border-1 border-zinc-700 bg-transparent px-10 py-4 text-xl font-mono outline-none rounded-lg"
+            class="border border-zinc-700 bg-transparent px-6 py-4 text-xl font-mono outline-none rounded-lg w-96 min-w-[300px] focus:ring-2 focus:ring-blue-600 focus:border-transparent"
           />
+
+          <!-- Email Input -->
           <input
             type="email"
             name="email"
             id="email"
             placeholder="Email"
-            class="border-1 border-zinc-700 bg-transparent px-10 py-4 text-xl font-mono outline-none rounded-lg"
+            class="border border-zinc-700 bg-transparent px-6 py-4 text-xl font-mono outline-none rounded-lg w-96 min-w-[300px] focus:ring-2 focus:ring-blue-600 focus:border-transparent"
           />
+
+          <!-- Image URL Input -->
           <input
             type="text"
-            name="image"
+            name="imageUrl"
             id="image"
             placeholder="Image URL"
-            class="border-1 border-zinc-700 bg-transparent px-10 py-4 text-xl font-mono outline-none rounded-lg"
+            class="border border-zinc-700 bg-transparent px-6 py-4 text-xl font-mono outline-none rounded-lg w-96 min-w-[300px] focus:ring-2 focus:ring-blue-600 focus:border-transparent"
           />
+
+          <!-- Submit Button -->
           <input
-            type="button"
+            type="submit"
             value="Create a User"
-            class="bg-blue-700 hover:bg-blue-900 cursor-pointer w-xs rounded-lg font-mono text-lg py-2"
+            class="bg-blue-700 hover:bg-blue-900 cursor-pointer w-96 min-w-[300px] rounded-lg font-mono text-lg py-2 focus:ring-2 focus:ring-blue-600"
           />
         </form>
       </div>
