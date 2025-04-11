@@ -4,6 +4,7 @@ const app = express();
 const PORT = 1008;
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const userSchema = require('./model/user');
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -24,3 +25,4 @@ app.listen(PORT, () => {
     "-------------------------------------------------------------------------------------------------------------------------------------------------------"
   );
 });
+ 
