@@ -1,5 +1,14 @@
 const mongoose = require("mongoose");
 
+const URI = process.env.MONGODB_URI;
+
+mongoose
+  .connect(URI)
+  .then(() => console.log("✅ MONGODB is Connected"))
+  .catch((error) => {
+    console.log(`❌ Something went Wrong >> ${error}`);
+  });
+
 const userSchema = mongoose.Schema({
   userName: {
     type: String,
@@ -11,7 +20,7 @@ const userSchema = mongoose.Schema({
     required: true,
   },
   age: {
-    type: String,
+    type: Number,
     required: true,
   },
   posts: [
