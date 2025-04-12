@@ -4,34 +4,20 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const userModel = require("./models/user");
 const postModel = require("./models/post");
+const path = require("path");
 const post = require("./models/post");
 
+app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.send("Hello from HOME PAGE");
+  res.render("index");
 });
 
-app.get("/create", async (req, res) => {
-  let createUser = await userModel.create({
-    userName: "Taranjeet Singh",
-    email: "Taranjeet@t.com",
-    age: 20,
-  });
-  res.send(createUser);
-});
-
-app.get("/post/create", async (req, res) => {
-  let createPost = await postModel.create({
-    postData: "Hello kaaise hoo aap sab",
-    user: "67f9da699bd163280f19b241",
-  });
-  let user = await userModel.findOne({ _id: "67f9da699bd163280f19b241" });
-  user.posts.push(createPost._id);
-  await user.save();
-
-  res.send({ createPost, user });
+app.get("/login", (req, res) => {
+  res.render("login");
 });
 
 app.listen(PORT, () => {
