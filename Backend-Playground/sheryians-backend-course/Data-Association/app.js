@@ -1,13 +1,13 @@
 require("dotenv").config();
+const cookieParser = require("cookie-parser");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const path = require("path");
 const userModel = require("./models/user");
 const postModel = require("./models/post");
-const path = require("path");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const cookieParser = require("cookie-parser");
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -24,38 +24,38 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/post", (req, res) => {
-  res.send("Welcome to the POST PAGE");
+  res.send("WELCOME TO THE POST PAGE");
 });
 
 app.post("/register", async (req, res) => {
   try {
     const { userName, name, age, email, password } = req.body;
-
-    const user = await userModel.findOne({ email });
-    if (user) return res.status(500).send("User Already Exist");
+    let user = await userModel.findOne({ email });
+    if (user) return res.status(500).send("User Already Exist 👤");
 
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const hashPassword = await bcrypt.hash(password, salt);
 
     const createUser = await userModel.create({
       userName,
       name,
-      age,
       email,
-      password: hashedPassword,
+      age,
+      password: hashPassword,
     });
     const token = jwt.sign(
-      { userID: createUser._id, email },
+      { email, emailId: createUser._id },
       process.env.JWT_SECRET
     );
+
     res.cookie("token", token);
+
     res.redirect("/post");
   } catch (error) {
-    console.log(error);
-    res.status(500).send("Server Error");
+    console.log(`something went wrong ❌ > ${error.message}`);
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is Running at ${PORT}`);
+  console.log(`Application is Rinning on ${PORT}`);
 });
