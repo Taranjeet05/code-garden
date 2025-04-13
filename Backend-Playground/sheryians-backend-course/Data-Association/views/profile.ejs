@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="bg-zinc-800 h-screen w-full">
+      <h1 class="text-center p-10 text-blue-600 text-5xl font-mono">Profile</h1>
+      <div class="flex items-center justify-end mx-40">
+        <a
+          href="/logout"
+          class="bg-red-700 hover:bg-red-900 cursor-pointer w-28 rounded-lg font-mono text-xl text-white text-center py-2 focus:ring-2 focus:ring-red-600"
+          >LogOut
+        </a>
+      </div>
+      <div class="text-white p-10 font-mono">
+        <h2 class="text-2xl">
+          <span class="font-bold">Hello,</span> <%= user.name %> 👋
+        </h2>
+        <p class="mt-5 text-blue-300 hover:text-blue-400"><%= user.email %></p>
+      </div>
+
+      <h2 class="text-start mx-34 mt-10 text-xl text-blue-300 font-mono">
+        Create a New Post
+      </h2>
+      <form
+        action="/register"
+        method="post"
+        class="flex flex-col items-start justify-center mx-10 mt-4 mb-10 gap-6 text-white"
+      >
+        <!-- content Input -->
+
+        <textarea
+          name="content"
+          id="content"
+          rows="4"
+          placeholder="What's on your mind today? 💭"
+          class="resize-none border border-zinc-700 bg-zinc-800 text-white px-6 py-4 text-xl font-mono leading-relaxed outline-none rounded-lg w-96 min-w-[300px] shadow-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 ease-in-out"
+        ></textarea>
+
+        <!-- Submit Button -->
+        <input
+          type="submit"
+          value="Create a Post"
+          class="bg-blue-700 hover:bg-blue-900 cursor-pointer w-96 min-w-[300px] rounded-lg font-mono text-lg py-2 focus:ring-2 focus:ring-blue-600"
+        />
+      </form>
+
+      <div class="px-10 pt-5 text-white font-mono">
+        <h2 class="text-3xl font-bold mb-6 text-blue-400">Your Posts 📝</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-zinc-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
+          >
+            <h3 class="text-lg text-blue-300 font-semibold mb-2">
+              example@email.com
+            </h3>
+            <p class="text-white text-md mb-4">
+              This is a sample post content written by the user.
+            </p>
+            <div class="flex gap-4 text-sm text-blue-400 font-semibold">
+              <a href="#" class="hover:text-blue-200 transition-colors"
+                >Like ❤️</a
+              >
+              <a href="#" class="hover:text-yellow-300 transition-colors"
+                >Edit ✏️</a
+              >
+              <a href="#" class="hover:text-red-400 transition-colors"
+                >Delete 🗑️</a
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-zinc-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
+          >
+            <h3 class="text-lg text-blue-300 font-semibold mb-2">
+              john@doe.com
+            </h3>
+            <p class="text-white text-md mb-4">
+              Another great thought added to the feed. Loving the vibes! 💭
+            </p>
+            <div class="flex gap-4 text-sm text-blue-400 font-semibold">
+              <a href="#" class="hover:text-blue-200 transition-colors"
+                >Like ❤️</a
+              >
+              <a href="#" class="hover:text-yellow-300 transition-colors"
+                >Edit ✏️</a
+              >
+              <a href="#" class="hover:text-red-400 transition-colors"
+                >Delete 🗑️</a
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-zinc-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
+          >
+            <h3 class="text-lg text-blue-300 font-semibold mb-2">
+              student@code.com
+            </h3>
+            <p class="text-white text-md mb-4">
+              Excited to share my first post ever here! 🚀
+            </p>
+            <div class="flex gap-4 text-sm text-blue-400 font-semibold">
+              <a href="#" class="hover:text-blue-200 transition-colors"
+                >Like ❤️</a
+              >
+              <a href="#" class="hover:text-yellow-300 transition-colors"
+                >Edit ✏️</a
+              >
+              <a href="#" class="hover:text-red-400 transition-colors"
+                >Delete 🗑️</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
