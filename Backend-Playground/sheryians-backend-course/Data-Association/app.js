@@ -74,6 +74,15 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.get("/logout", (req, res) => {
+  try {
+    res.cookie("token", "");
+    res.status(200).redirect("/login");
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Application is Rinning on ${PORT}`);
 });
