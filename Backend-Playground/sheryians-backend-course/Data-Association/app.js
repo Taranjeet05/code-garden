@@ -15,6 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 
+/****************** MIDDLEWARE FOR PROTECTION OF ROUTES************************************* */
+
 const isLoggedIn = (req, res, next) => {
   try {
     const token = req.cookies.token;
@@ -33,15 +35,18 @@ const isLoggedIn = (req, res, next) => {
 app.get("/", (req, res) => {
   res.render("index");
 });
-
+/****************** GET RENDER LOGIN ('/login') ************************************* */
 app.get("/login", (req, res) => {
   res.render("login");
 });
 
+/****************** GET RENDER profile ('/profile') ************************************* */
 app.get("/profile", isLoggedIn, async (req, res) => {
   const user = await userModel.findOne({ email: req.user.email });
   res.render("profile", { user });
 });
+
+/****************** POST REGISTER ('/register') ************************************* */
 
 app.post("/register", async (req, res) => {
   try {
@@ -72,6 +77,8 @@ app.post("/register", async (req, res) => {
   }
 });
 
+/****************** POST LOGIN ('/login') ************************************* */
+
 app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -89,6 +96,8 @@ app.post("/login", async (req, res) => {
     console.log(error.message);
   }
 });
+
+/****************** POST POSTS ('/post') ************************************* */
 
 app.post("/post", isLoggedIn, async (req, res) => {
   try {
@@ -108,6 +117,8 @@ app.post("/post", isLoggedIn, async (req, res) => {
     console.log(error.message);
   }
 });
+
+/****************** GET LOGOUT profile ('/logout') ************************************* */
 
 app.get("/logout", (req, res) => {
   try {
