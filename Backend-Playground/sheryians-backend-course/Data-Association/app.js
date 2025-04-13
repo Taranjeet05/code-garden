@@ -8,6 +8,7 @@ const userModel = require("./models/user");
 const postModel = require("./models/post");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { env } = require("process");
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -15,6 +16,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 
+const isLoggedIn = (req, res, next) => {
+  try {
+    const token = req.cookies.token;
+
+    if (!token) return res.redirect("/login");
+
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = verified;
+    next();
+  } catch (error) {
+    return res.status(401).send("Invalid token ❌").redirect("/login");
+  }
+};
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -23,7 +37,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/post", (req, res) => {
+app.get("/post", isLoggedIn, (req, res) => {
   res.send("WELCOME TO THE POST PAGE");
 });
 
@@ -82,6 +96,7 @@ app.get("/logout", (req, res) => {
     console.log(error.message);
   }
 });
+
 
 app.listen(PORT, () => {
   console.log(`Application is Rinning on ${PORT}`);
