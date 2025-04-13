@@ -8,7 +8,6 @@ const userModel = require("./models/user");
 const postModel = require("./models/post");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { env } = require("process");
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -30,6 +29,7 @@ const isLoggedIn = (req, res, next) => {
   }
 };
 
+/****************** GET RENDER INDEX ('/') ************************************* */
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -83,6 +83,25 @@ app.post("/login", async (req, res) => {
 
     const token = jwt.sign({ email, userId: user._id }, process.env.JWT_SECRET);
     res.cookie("token", token);
+
+    res.redirect("/profile");
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+app.post("/post", isLoggedIn, async (req, res) => {
+  try {
+    let user = await userModel.findOne({ email: req.user.email });
+    let { content } = req.body;
+
+    let post = await postModel.create({
+      user: user._id,
+      content,
+    });
+
+    user.posts.push(post._id);
+    await user.save();
 
     res.redirect("/profile");
   } catch (error) {
