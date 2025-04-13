@@ -29,6 +29,7 @@ const isLoggedIn = (req, res, next) => {
     return res.status(401).send("Invalid token ❌").redirect("/login");
   }
 };
+
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -37,8 +38,9 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/post", isLoggedIn, (req, res) => {
-  res.send("WELCOME TO THE POST PAGE");
+app.get("/profile", isLoggedIn, async (req, res) => {
+  const user = await userModel.findOne({ email: req.user.email });
+  res.render("profile", { user });
 });
 
 app.post("/register", async (req, res) => {
@@ -64,7 +66,7 @@ app.post("/register", async (req, res) => {
 
     res.cookie("token", token);
 
-    res.redirect("/post");
+    res.redirect("/profile");
   } catch (error) {
     console.log(`something went wrong ❌ > ${error.message}`);
   }
@@ -82,7 +84,7 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign({ email, userId: user._id }, process.env.JWT_SECRET);
     res.cookie("token", token);
 
-    res.redirect("/post");
+    res.redirect("/profile");
   } catch (error) {
     console.log(error.message);
   }
@@ -96,7 +98,6 @@ app.get("/logout", (req, res) => {
     console.log(error.message);
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Application is Rinning on ${PORT}`);
