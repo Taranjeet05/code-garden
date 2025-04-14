@@ -42,7 +42,9 @@ app.get("/login", (req, res) => {
 
 /****************** GET RENDER profile ('/profile') ************************************* */
 app.get("/profile", isLoggedIn, async (req, res) => {
-  const user = await userModel.findOne({ email: req.user.email }).populate("posts");
+  const user = await userModel
+    .findOne({ email: req.user.email })
+    .populate("posts");
   res.render("profile", { user });
 });
 
@@ -115,6 +117,24 @@ app.post("/post", isLoggedIn, async (req, res) => {
     res.redirect("/profile");
   } catch (error) {
     console.log(error.message);
+  }
+});
+
+/****************** GET Delete post ('/delete/:postId') ************************************* */
+
+app.get("/delete/:id", isLoggedIn, async (req, res) => {
+  try {
+    const postId = req.params.id;
+
+    const deletedPost = await postModel.findByIdAndDelete(postId);
+    const updateArray = await userModel.findByIdAndUpdate(deletedPost.user, {
+      $pull: { posts: postId },
+    });
+
+    res.redirect("/profile");
+  } catch (error) {
+    console.error("❌ Error deleting post:", error);
+    res.status(500).send("Something went wrong");
   }
 });
 
