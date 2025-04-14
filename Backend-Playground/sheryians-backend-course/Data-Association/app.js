@@ -138,6 +138,15 @@ app.get("/delete/:id", isLoggedIn, async (req, res) => {
   }
 });
 
+/****************** GET Delete post ('/like/:postId') ************************************* */
+
+app.get("/like/:postId", isLoggedIn, async (req, res) => {
+  const postId = req.params.postId;
+  const post = await postModel
+    .findOne({ _id: req.params.postId })
+    .populate("User");
+});
+
 /****************** GET LOGOUT profile ('/logout') ************************************* */
 
 app.get("/logout", (req, res) => {
