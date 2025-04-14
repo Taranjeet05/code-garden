@@ -127,7 +127,7 @@ app.get("/delete/:id", isLoggedIn, async (req, res) => {
     const postId = req.params.id;
 
     const deletedPost = await postModel.findByIdAndDelete(postId);
-    const updateArray = await userModel.findByIdAndUpdate(deletedPost.user, {
+    await userModel.findByIdAndUpdate(deletedPost.user, {
       $pull: { posts: postId },
     });
 
