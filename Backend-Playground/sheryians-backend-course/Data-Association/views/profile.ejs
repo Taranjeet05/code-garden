@@ -6,8 +6,8 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <div class="bg-zinc-800 h-screen w-full">
+  <body class="bg-zinc-800 h-screen w-full">
+    <div class="">
       <h1 class="text-center p-10 text-blue-600 text-5xl font-mono">Profile</h1>
       <div class="flex items-center justify-end mx-40">
         <a
@@ -50,74 +50,42 @@
       </form>
 
       <div class="px-10 pt-5 text-white font-mono">
+        <% if (user.posts && user.posts.length > 0) { %>
         <h2 class="text-3xl font-bold mb-6 text-blue-400">Your Posts 📝</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <% user.posts.forEach(post => { %>
           <div
             class="bg-zinc-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
           >
             <h3 class="text-lg text-blue-300 font-semibold mb-2">
-              example@email.com
+              <%= user.email %>
             </h3>
-            <p class="text-white text-md mb-4">
-              This is a sample post content written by the user.
-            </p>
+            <p class="text-white text-md mb-4"><%= post.content %></p>
             <div class="flex gap-4 text-sm text-blue-400 font-semibold">
-              <a href="#" class="hover:text-blue-200 transition-colors"
+              <a
+                href="/like/<%= post._id %>"
+                class="hover:text-blue-200 transition-colors"
                 >Like ❤️</a
               >
-              <a href="#" class="hover:text-yellow-300 transition-colors"
+              <a
+                href="/edit/<%= post._id %>"
+                class="hover:text-yellow-300 transition-colors"
                 >Edit ✏️</a
               >
-              <a href="#" class="hover:text-red-400 transition-colors"
+              <a
+                href="/delete/<%= post._id %>"
+                class="hover:text-red-400 transition-colors"
                 >Delete 🗑️</a
               >
             </div>
           </div>
-
-          <div
-            class="bg-zinc-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
-          >
-            <h3 class="text-lg text-blue-300 font-semibold mb-2">
-              john@doe.com
-            </h3>
-            <p class="text-white text-md mb-4">
-              Another great thought added to the feed. Loving the vibes! 💭
-            </p>
-            <div class="flex gap-4 text-sm text-blue-400 font-semibold">
-              <a href="#" class="hover:text-blue-200 transition-colors"
-                >Like ❤️</a
-              >
-              <a href="#" class="hover:text-yellow-300 transition-colors"
-                >Edit ✏️</a
-              >
-              <a href="#" class="hover:text-red-400 transition-colors"
-                >Delete 🗑️</a
-              >
-            </div>
-          </div>
-
-          <div
-            class="bg-zinc-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
-          >
-            <h3 class="text-lg text-blue-300 font-semibold mb-2">
-              student@code.com
-            </h3>
-            <p class="text-white text-md mb-4">
-              Excited to share my first post ever here! 🚀
-            </p>
-            <div class="flex gap-4 text-sm text-blue-400 font-semibold">
-              <a href="#" class="hover:text-blue-200 transition-colors"
-                >Like ❤️</a
-              >
-              <a href="#" class="hover:text-yellow-300 transition-colors"
-                >Edit ✏️</a
-              >
-              <a href="#" class="hover:text-red-400 transition-colors"
-                >Delete 🗑️</a
-              >
-            </div>
-          </div>
+          <% }) %>
         </div>
+        <% } else { %>
+        <div class="text-center mt-10 text-blue-300 text-xl">
+          No posts yet 💤
+        </div>
+        <% } %>
       </div>
     </div>
   </body>
