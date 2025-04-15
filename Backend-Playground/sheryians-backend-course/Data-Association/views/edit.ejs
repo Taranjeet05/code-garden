@@ -1,0 +1,37 @@
+<!-- edit.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-zinc-800 h-screen w-full">
+    <div class="text-white p-10 font-mono">
+      <h2 class="text-4xl font-bold text-yellow-300 text-center mb-40 mt-10">Edit Post</h2>
+      <form
+        action="/edit/<%= post._id %>"
+        method="POST"
+        class="flex flex-col items-center justify-center mx-10 mt-4 mb-10 gap-6 text-white"
+      >
+        <!-- content Input -->
+        <textarea
+          name="content"
+          id="content"
+          rows="4"
+          class="resize-none border border-zinc-700 bg-zinc-800 text-white px-6 py-4 text-xl font-mono leading-relaxed outline-none rounded-lg w-96 min-w-[300px] shadow-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 ease-in-out"
+        >
+          <%= post.content %></textarea
+        >
+
+        <!-- Submit Button -->
+        <input
+          type="submit"
+          value="Save Changes"
+          class="bg-yellow-700 hover:bg-yellow-900 cursor-pointer w-96 min-w-[300px] rounded-lg font-mono text-lg py-2 focus:ring-2 focus:ring-yellow-600"
+        />
+      </form>
+    </div>
+  </body>
+</html>
