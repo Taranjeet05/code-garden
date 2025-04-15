@@ -193,17 +193,6 @@ app.get("/edit/:id", isLoggedIn, async (req, res) => {
   }
 });
 
-/****************** GET LOGOUT profile ('/logout') ************************************* */
-
-app.get("/logout", (req, res) => {
-  try {
-    res.cookie("token", "");
-    res.status(200).redirect("/login");
-  } catch (error) {
-    console.log(error.message);
-  }
-});
-
 /****************** POST Edit Post ('/edit/id') ************************************* */
 app.post("/edit/:id", isLoggedIn, async (req, res) => {
   try {
@@ -228,6 +217,17 @@ app.post("/edit/:id", isLoggedIn, async (req, res) => {
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Server error");
+  }
+});
+
+/****************** GET LOGOUT profile ('/logout') ************************************* */
+
+app.get("/logout", (req, res) => {
+  try {
+    res.cookie("token", "");
+    res.status(200).redirect("/login");
+  } catch (error) {
+    console.log(error.message);
   }
 });
 
