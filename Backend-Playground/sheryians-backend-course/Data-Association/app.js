@@ -33,10 +33,16 @@ const isLoggedIn = (req, res, next) => {
 
 /****************** GET RENDER INDEX ('/') ************************************* */
 app.get("/", (req, res) => {
+  if (req.cookies.token) {
+    return res.redirect("/profile");
+  }
   res.render("index");
 });
 /****************** GET RENDER LOGIN ('/login') ************************************* */
 app.get("/login", (req, res) => {
+  if (req.cookies.token) {
+    return res.redirect("/profile");
+  }
   res.render("login");
 });
 
