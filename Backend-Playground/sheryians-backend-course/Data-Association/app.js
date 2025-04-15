@@ -169,6 +169,30 @@ app.get("/like/:postId", isLoggedIn, async (req, res) => {
   }
 });
 
+/****************** GET Edit post ('/edit/:postId') ************************************* */
+
+// Edit route
+app.get("/edit/:id", isLoggedIn, async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const post = await postModel.findById(postId);
+
+    if (!post) {
+      return res.status(404).send("Post not found.");
+    }
+
+    // Check if the logged-in user is the author of the post
+    if (post.user.toString() !== req.user.userId.toString()) {
+      return res.status(403).send("You are not authorized to edit this post.");
+    }
+
+    res.render("edit", { post });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Server error");
+  }
+});
+
 /****************** GET LOGOUT profile ('/logout') ************************************* */
 
 app.get("/logout", (req, res) => {
@@ -177,6 +201,33 @@ app.get("/logout", (req, res) => {
     res.status(200).redirect("/login");
   } catch (error) {
     console.log(error.message);
+  }
+});
+
+/****************** POST Edit Post ('/edit/id') ************************************* */
+app.post("/edit/:id", isLoggedIn, async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const { content } = req.body;
+
+    const post = await postModel.findById(postId);
+
+    if (!post) {
+      return res.status(404).send("Post not found.");
+    }
+
+    // Check if the logged-in user is the author of the post
+    if (post.user.toString() !== req.user.userId.toString()) {
+      return res.status(403).send("You are not authorized to edit this post.");
+    }
+
+    post.content = content;
+    await post.save();
+
+    res.redirect("/profile");
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Server error");
   }
 });
 
