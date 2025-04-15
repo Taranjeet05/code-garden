@@ -141,10 +141,15 @@ app.get("/delete/:id", isLoggedIn, async (req, res) => {
 /****************** GET Delete post ('/like/:postId') ************************************* */
 
 app.get("/like/:postId", isLoggedIn, async (req, res) => {
-  const postId = req.params.postId;
-  const post = await postModel
-    .findOne({ _id: req.params.postId })
-    .populate("User");
+  try {
+    const postId = req.params.postId;
+    const post = await postModel.findOne({ _id: postId }).populate("user");
+    await post.likes.push(req.user.userId);
+    await post.save();
+    res.redirect("/profile");
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 /****************** GET LOGOUT profile ('/logout') ************************************* */
