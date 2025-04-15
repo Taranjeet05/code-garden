@@ -125,9 +125,15 @@ app.post("/post", isLoggedIn, async (req, res) => {
 app.get("/delete/:id", isLoggedIn, async (req, res) => {
   try {
     const postId = req.params.id;
+    const post = await postModel.findById(postId);
 
-    const deletedPost = await postModel.findByIdAndDelete(postId);
-    await userModel.findByIdAndUpdate(deletedPost.user, {
+    if (!post) return res.status(404).send("Post not found");
+
+    if (post.user.toString() !== req.user.userId)
+      return res.status(403).send("❌ Not authorized");
+
+    await postModel.findByIdAndDelete(postId);
+    await userModel.findByIdAndUpdate(post.user, {
       $pull: { posts: postId },
     });
 
@@ -138,17 +144,28 @@ app.get("/delete/:id", isLoggedIn, async (req, res) => {
   }
 });
 
-/****************** GET Delete post ('/like/:postId') ************************************* */
+/****************** GET Like post ('/like/:postId') ************************************* */
 
 app.get("/like/:postId", isLoggedIn, async (req, res) => {
   try {
     const postId = req.params.postId;
     const post = await postModel.findOne({ _id: postId }).populate("user");
-    await post.likes.push(req.user.userId);
+
+    const userId = req.user.userId;
+
+    const index = post.likes.indexOf(userId);
+
+    if (index === -1) {
+      post.likes.push(userId);
+    } else {
+      post.likes.splice(index, 1);
+    }
+
     await post.save();
     res.redirect("/profile");
   } catch (error) {
-    console.log(error.message);
+    console.log("❌ Error in like route:", error.message);
+    res.status(500).send("Server Error");
   }
 });
 
