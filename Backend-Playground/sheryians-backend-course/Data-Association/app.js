@@ -45,7 +45,7 @@ app.get("/profile", isLoggedIn, async (req, res) => {
   const user = await userModel
     .findOne({ email: req.user.email })
     .populate("posts");
-  res.render("profile", { user });
+  res.render("profile", { user, currentUserId: req.user.userId });
 });
 
 /****************** POST REGISTER ('/register') ************************************* */
