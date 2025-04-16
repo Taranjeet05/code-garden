@@ -8,7 +8,7 @@ const userModel = require("./models/user");
 const postModel = require("./models/post");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const multerConfig = require("./config/multerConfig.js");
+const upload = require("./config/multerConfig.js");
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -39,6 +39,23 @@ app.get("/", (req, res) => {
   }
   res.render("index");
 });
+
+/****************** GET upload profile pic INDEX ('/profile/upload') ************************************* */
+
+app.get("/profile/upload", (req, res) => {
+  res.render("profileUpload");
+});
+
+/****************** post upload for the profile pic ('/upload') ************************************* */
+
+app.post("/upload", isLoggedIn, upload.single("avatar"), async (req, res) => {
+  console.log(req.file);
+  const user = await userModel.findOne({ email: req.user.email });
+  user.profilePic = req.file.filename;
+  await user.save();
+  res.redirect("/profile");
+});
+
 /****************** GET RENDER LOGIN ('/login') ************************************* */
 app.get("/login", (req, res) => {
   if (req.cookies.token) {
