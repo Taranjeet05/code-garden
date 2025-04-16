@@ -18,11 +18,16 @@
         >
       </div>
 
-      <div class="text-white p-10 font-mono">
-        <h2 class="text-2xl">
-          <span class="font-bold">Hello,</span> <%= user.name %> 👋
-        </h2>
-        <p class="mt-5 text-blue-300 hover:text-blue-400"><%= user.email %></p>
+      <div class="text-white p-10 font-mono flex gap-5">
+        <div class="bg-red-500 rounded-lg w-20 h-20"></div>
+        <div class="flex-col">
+          <h2 class="text-2xl">
+            <span class="font-bold">Hello,</span> <%= user.name %> 👋
+          </h2>
+          <p class="mt-5 text-blue-300 hover:text-blue-400">
+            <%= user.email %>
+          </p>
+        </div>
       </div>
 
       <h2 class="text-start mx-34 mt-10 text-xl text-blue-300 font-mono">
@@ -63,7 +68,9 @@
             <p class="text-white text-md mb-4"><%= post.content %></p>
 
             <!-- Likes Section -->
-            <div class="flex flex-col gap-2 text-sm text-blue-400 font-semibold">
+            <div
+              class="flex flex-col gap-2 text-sm text-blue-400 font-semibold"
+            >
               <div>❤️ <%= post.likes.length %> Likes</div>
               <div class="mt-2">
                 <a
