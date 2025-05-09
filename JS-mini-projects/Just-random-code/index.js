@@ -136,3 +136,22 @@ Tip: Try not to use the built-in methods like .map(), .filter(), or .reduce() in
 
 
 */
+
+/********************************* */
+
+function countVowels(str) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  let count = 0;
+
+  for (let char of str.toLowerCase()) {
+    if (vowels.includes(char)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Example usage:
+console.log(countVowels("Hello World")); // Output: 3
+console.log(countVowels("JavaScript is Fun")); // Output: 5
