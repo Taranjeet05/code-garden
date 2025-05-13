@@ -155,3 +155,49 @@ function countVowels(str) {
 // Example usage:
 console.log(countVowels("Hello World")); // Output: 3
 console.log(countVowels("JavaScript is Fun")); // Output: 5
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+// Function to check password strength
+
+function checkPasswordStrength(password) {
+  const suggestions = [];
+
+  // Criteria checks
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasLowerCase = /[a-z]/.test(password);
+  const hasDigit = /[0-9]/.test(password);
+  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+  const isLongEnough = password.length >= 8;
+
+  // Build suggestions
+  if (!hasUpperCase) suggestions.push("Add at least one uppercase letter.");
+  if (!hasLowerCase) suggestions.push("Add at least one lowercase letter.");
+  if (!hasDigit) suggestions.push("Include at least one number.");
+  if (!hasSpecialChar)
+    suggestions.push("Include a special character like !, @, #, etc.");
+  if (!isLongEnough) suggestions.push("Make it at least 8 characters long.");
+
+  if (
+    hasUpperCase &&
+    hasLowerCase &&
+    hasDigit &&
+    hasSpecialChar &&
+    isLongEnough
+  ) {
+    return {
+      status: "strong",
+      message: "✅ Great! Your password is strong.",
+    };
+  }
+
+  return {
+    status: "weak",
+    message: "❌ Your password is weak.",
+    suggestions: suggestions,
+  };
+}
+
+const password = "Password123!";
+const result = checkPasswordStrength(password);
+console.log(result.message);
