@@ -201,3 +201,38 @@ function checkPasswordStrength(password) {
 const password = "Password123!";
 const result = checkPasswordStrength(password);
 console.log(result.message);
+
+
+function getNextTrainTime(firstTrainTime, frequencyInMinutes) {
+  const now = new Date();
+  const [firstHour, firstMinute] = firstTrainTime.split(':').map(Number);
+
+  // Set the first train time for today
+  const firstTrain = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    firstHour,
+    firstMinute,
+    0
+  );
+
+  // If the first train is in the future
+  if (now < firstTrain) {
+    const diffMinutes = Math.round((firstTrain - now) / 60000);
+    return {
+      nextTrain: firstTrain.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      minutesAway: diffMinutes
+    };
+  }
+
+  // Calculate how many minutes have passed since the first train
+  const timeDiff = Math.floor((now - firstTrain) / 60000);
+  const minutesUntilNextTrain = frequencyInMinutes - (timeDiff % frequencyInMinutes);
+  const nextTrain = new Date(now.getTime() + minutesUntilNextTrain * 60000);
+
+  return {
+    nextTrain: nextTrain.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    minutesAway: minutesUntilNextTrain
+  };
+}
