@@ -236,3 +236,12 @@ function getNextTrainTime(firstTrainTime, frequencyInMinutes) {
     minutesAway: minutesUntilNextTrain
   };
 }
+
+
+let myArray = [1, 2, 3];
+myArray.push(4); // Adds 4 to the end of the array
+console.log(myArray); // Output: [1, 2, 3, 4]
+
+let myArray23 = ['a', 'b'];
+myArray.push('c', 'd'); // Adds multiple elements
+console.log(myArray); // Output: ['a', 'b', 'c', 'd']
