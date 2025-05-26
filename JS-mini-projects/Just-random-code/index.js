@@ -245,3 +245,32 @@ console.log(myArray); // Output: [1, 2, 3, 4]
 let myArray23 = ['a', 'b'];
 myArray.push('c', 'd'); // Adds multiple elements
 console.log(myArray); // Output: ['a', 'b', 'c', 'd']
+
+// -----------------------------
+
+const simulateRandomHttpError = () => {
+    const errors = [
+        { code: 400, message: "Bad Request" },
+        { code: 401, message: "Unauthorized" },
+        { code: 403, message: "Forbidden" },
+        { code: 404, message: "Not Found" },
+        { code: 500, message: "Server Error" },
+        { code: 503, message: "Service Unavailable" }
+    ];
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() < 0.3) { // 30% chance of error
+                const error = errors[Math.floor(Math.random() * errors.length)];
+                reject({ status: error.code, message: error.message });
+            } else {
+                resolve({ status: 200, data: "Success!" });
+            }
+        }, 500 + Math.random() * 1000); // Random delay (0.5s-1.5s)
+    });
+};
+
+// Example usage:
+simulateRandomHttpError()
+    .then(res => console.log("✅ Success:", res))
+    .catch(err => console.log("❌ Error:", err.status, err.message));
