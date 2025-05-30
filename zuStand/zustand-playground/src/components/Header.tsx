@@ -1,10 +1,11 @@
 import SplitText from "../ReactBits/SplitText/SplitText";
 import ScrambledText from "../ReactBits/ScrambledText/ScrambledText";
+import BearCount from "./BearCount";
 
-const header = () => {
+const Header = () => {
   return (
     <div>
-      <div className="flex items-center justify-center p-10 ">
+      <div className="flex items-center justify-center p-10">
         <SplitText
           text="ZuStand"
           className="text-5xl text-center font-extrabold leading-snug"
@@ -20,7 +21,7 @@ const header = () => {
         />
       </div>
 
-      <div>
+      <div className="flex items-center justify-center gap-[1.2rem]">
         <ScrambledText
           className="scrambled-text-demo mt-6 text-xl md:text-2xl font-semibold bg-white rounded-lg px-6 py-3 shadow-lg border border-orange-300 flex items-center justify-center gap-2"
           radius={120}
@@ -47,9 +48,10 @@ const header = () => {
             🐻
           </span>
         </ScrambledText>
+        <BearCount />
       </div>
     </div>
   );
 };
 
-export default header;
+export default Header;
