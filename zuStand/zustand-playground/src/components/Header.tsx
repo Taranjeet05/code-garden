@@ -46,7 +46,6 @@ const header = () => {
           <span role="img" aria-label="bear">
             🐻
           </span>
-          <span className="ml-2 text-2xl animate-spin">🇮🇳</span>
         </ScrambledText>
       </div>
     </div>
