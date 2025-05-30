@@ -1,7 +1,10 @@
 import { useCounterStore } from "../store/counterStore";
 
 const Counter = () => {
-  const { count, increment, decrement, reset } = useCounterStore();
+  const count = useCounterStore((state) => state.count);
+  const increment = useCounterStore((state) => state.increment);
+  const decrement = useCounterStore((state) => state.decrement);
+  const reset = useCounterStore((state) => state.reset);
 
   return (
     <div className="flex flex-col gap-10 items-center justify-center h-1/2 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 rounded-3xl shadow-2xl p-12">
