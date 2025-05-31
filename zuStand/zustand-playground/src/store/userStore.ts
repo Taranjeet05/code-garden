@@ -11,8 +11,10 @@ type User = {
   id: number;
   name: string;
   email: string;
-  city: string;
-  phone: number;
+  phone: string;
+  address: {
+    city: string;
+  };
 };
 
 type UserStore = {
@@ -33,7 +35,7 @@ export const useUserStore = create<UserStore>()(
           try {
             set({ loading: true, error: null });
             const response = await axios.get(
-              "// https://jsonplaceholder.typicode.com/users"
+              "https://jsonplaceholder.typicode.com/users"
             );
             set({ loading: false, user: response.data });
           } catch (err: unknown) {
