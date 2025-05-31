@@ -12,7 +12,7 @@
 */
 
 import { create } from "zustand";
-import { devtools } from "zustand/middleware";
+import { devtools, persist } from "zustand/middleware";
 
 type CounterStore = {
   count: number;
@@ -22,10 +22,15 @@ type CounterStore = {
 };
 
 export const useCounterStore = create<CounterStore>()(
-  devtools((set) => ({
-    count: 0,
-    increment: () => set((state) => ({ count: state.count + 1 })),
-    decrement: () => set((state) => ({ count: state.count - 1 })),
-    reset: () => set({ count: 0 }),
-  }))
+  devtools(
+    persist(
+      (set) => ({
+        count: 0,
+        increment: () => set((state) => ({ count: state.count + 1 })),
+        decrement: () => set((state) => ({ count: state.count - 1 })),
+        reset: () => set({ count: 0 }),
+      }),
+      { name: "CounterStorage" }
+    )
+  )
 );
