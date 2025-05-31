@@ -12,7 +12,7 @@
 */
 
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { createJSONStorage, devtools, persist } from "zustand/middleware";
 
 type CounterStore = {
   count: number;
@@ -30,7 +30,10 @@ export const useCounterStore = create<CounterStore>()(
         decrement: () => set((state) => ({ count: state.count - 1 })),
         reset: () => set({ count: 0 }),
       }),
-      { name: "CounterStorage" }
+      {
+        name: "CounterStorage",
+        storage: createJSONStorage(() => sessionStorage),
+      }
     )
   )
 );
