@@ -21,6 +21,12 @@ type CounterStore = {
   reset: () => void;
 };
 
+//  * | Feature  | localStorage                     | sessionStorage          |
+//  * | -------- | -------------------------------- | ----------------------- |
+//  * | Scope    | Stays until manually cleared     | Cleared when tab closes |
+//  * | Use Case | Long-term login/session tracking | Temporary session data  |
+//  *
+
 export const useCounterStore = create<CounterStore>()(
   devtools(
     persist(
@@ -30,6 +36,7 @@ export const useCounterStore = create<CounterStore>()(
         decrement: () => set((state) => ({ count: state.count - 1 })),
         reset: () => set({ count: 0 }),
       }),
+
       {
         name: "CounterStorage",
         storage: createJSONStorage(() => sessionStorage),
