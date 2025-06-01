@@ -1,15 +1,27 @@
-import "./App.css";
-import Counter from "./components/Counter";
-import Header from "./components/Header";
-import UserDisplay from "./components/UserDisplay";
+import { Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Links4Pages from "./components/Links4Pages";
+import { routes } from "./data/routesData";
+
 
 function App() {
   return (
-    <div className="bg-cyan-950 text-white h-screen">
-      <Header />
-      <Counter />
-      <UserDisplay />
-    </div>
+    <Router>
+      <div className="bg-cyan-950 text-white h-screen">
+        <Links4Pages />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            {routes.map((route: { path: string; component: React.ComponentType }) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<route.component />}
+              />
+            ))}
+          </Routes>
+        </Suspense>
+      </div>
+    </Router>
   );
 }
 
