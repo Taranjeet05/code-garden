@@ -55,12 +55,12 @@ const Products = () => {
                 <div className="w-40 h-40 flex items-center justify-center mb-4 bg-white rounded-xl shadow-inner overflow-hidden">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={product.title}
                     className="object-contain h-36 w-36 transition-transform duration-300 hover:scale-110"
                   />
                 </div>
                 <h2 className="text-lg font-bold text-blue-800 mb-1 text-center">
-                  {product.name}
+                  {product.title}
                 </h2>
                 <p className="text-gray-700 text-sm mb-2 text-center">
                   {product.description}

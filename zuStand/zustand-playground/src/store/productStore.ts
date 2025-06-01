@@ -4,7 +4,7 @@ import { createJSONStorage, devtools, persist } from "zustand/middleware";
 
 type product = {
   id: number;
-  name: string;
+  title: string;
   description: string;
   category: string;
   price: number;
