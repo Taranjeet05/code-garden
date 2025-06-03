@@ -135,5 +135,31 @@ Tip: Try not to use the built-in methods like .map(), .filter(), or .reduce() in
 
 
 
+
+/*
+You are given an ordered (ascending) array of integers that may include both positive and negative numbers.
+Your task is to turn it into a compact string representation by converting any sequence of three or more consecutive numbers into a start-end range:
+
+Example input array	Expected output string
+[-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9]	"-6,-3-1,3-5,7-9"
+[-3, -2, -1, 2, 10, 15, 16, 18, 19, 20]	"-3--1,2,10,15,16,18-20"
+
+Rules
+Keep order — the output list must reflect the original order.
+
+Single numbers and pairs stay as plain numbers (comma-separated).
+
+Runs of ≥ 3 consecutive numbers become "first-last".
+
+The output is one comma-separated string with no spaces.
+
+
+
 */
 
+
+rangeExtraction([-6,-3,-2,-1,0,1,3,4,5,7,8,9])      // "-6,-3-1,3-5,7-9"
+rangeExtraction([-3,-2,-1,2,10,15,16,18,19,20])     // "-3--1,2,10,15,16,18-20"
+rangeExtraction([1,2,3,4,5])                        // "1-5"
+rangeExtraction([1,3,5,7])                          // "1,3,5,7"
+rangeExtraction([])                                 // ""
