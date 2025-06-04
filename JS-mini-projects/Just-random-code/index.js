@@ -157,6 +157,38 @@ The output is one comma-separated string with no spaces.
 
 */
 
+function rangeExtraction(list) {
+  if (!list.length) return "";
+
+  const parts = [];
+  let start = list[0];      // start of the current run
+  let prev  = list[0];      // previous number while scanning
+
+  for (let i = 1; i <= list.length; i++) {
+    const cur = list[i];    // undefined when i === list.length (sentinel)
+
+    // if the run breaks (gap or end of list) …
+    if (cur !== prev + 1) {
+      const runLen = prev - start + 1;
+
+      if (runLen >= 3) {                 // rule 3
+        parts.push(`${start}-${prev}`);
+      } else if (runLen === 2) {         // rule 2 (pair)
+        parts.push(String(start), String(prev));
+      } else {                           // single number
+        parts.push(String(start));
+      }
+
+      // start a new run at cur (if cur exists)
+      start = cur;
+    }
+
+    prev = cur;
+  }
+
+  return parts.join(",");
+}
+
 
 rangeExtraction([-6,-3,-2,-1,0,1,3,4,5,7,8,9])      // "-6,-3-1,3-5,7-9"
 rangeExtraction([-3,-2,-1,2,10,15,16,18,19,20])     // "-3--1,2,10,15,16,18-20"
