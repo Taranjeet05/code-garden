@@ -55,3 +55,14 @@ if (date1 > date2) {
 }
 
 console.log(date1.getTime() === date2.getTime()); // false
+
+//                                                      Formatting a Date
+
+const now1 = new Date();
+
+console.log(now1.toDateString()); // e.g Sun Jun 15 2025
+console.log(now1.toTimeString()); // e.g 15:52:14 GMT+0200 (Central European Summer Time)
+console.log(now1.toISOString()); // e.g 2025-06-15T13:53:52.547Z
+
+console.log(now1.toLocaleDateString()); // e.g 6/15/2025
+console.log(now1.toLocaleTimeString()); // e.g 3:53:14 PM
