@@ -31,3 +31,13 @@ console.log("Hours :", today.getHours()); // to get Hours
 console.log("Minutes :", today.getMinutes()); // to get Minutes 
 console.log("seconds :", today.getSeconds()); // to get Seconds
 console.log("milliseconds :", today.getMilliseconds()); // to get milliseconds.
+
+//                                                     Setting parts of a Date 
+
+const date = new Date ();
+
+date.setFullYear(2020); // year: 2020
+date.setMonth(10); // Month: November
+date.setDate(10); // date : 10th
+
+console.log(date);
