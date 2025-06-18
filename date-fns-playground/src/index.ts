@@ -2,6 +2,7 @@ import { differenceInDays, format, isValid } from "date-fns";
 import { addDays, subMonths } from "date-fns";
 import { isBefore, isAfter } from "date-fns";
 import { parse } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 
 // Formatting in date-fn
 
@@ -81,3 +82,12 @@ if (isValid(dateStr)) {
 
 const validateDate = new Date(1950, 0, 26);
 console.log("checking the valid Date", validateDate);
+
+// Time Zone
+
+const timeZone = formatInTimeZone(
+  new Date(),
+  "Asia/Tokyo",
+  "yyyy-MM-dd HH:mm:ss"
+);
+console.log(timeZone);
