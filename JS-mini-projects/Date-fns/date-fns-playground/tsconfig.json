@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",          // Modern JavaScript features
+    "module": "NodeNext",          // Outputs ESM (import/export) with Node.js compatibility
+    "moduleResolution": "NodeNext", // Resolves modules like Node.js
+    "outDir": "./dist",          // Output directory
+    "rootDir": "./src",          // Source directory
+    "strict": true,
+    "esModuleInterop": true,     // Better ESM/CJS compatibility
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"]     // Include all TS files in src/
+}

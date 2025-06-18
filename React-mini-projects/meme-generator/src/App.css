@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 12vh;
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+}
+
+header > h1 {
+  color: white;
+}
+
+main {
+  padding: 36px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+}
+
+form > input {
+  flex: 1 1 48%;
+  border-radius: 5px;
+  border: 1px solid #d5d4d8;
+  text-indent: 5px;
+  padding: 10px;
+}
+
+form > button {
+  flex: 1 1 100%;
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.meme {
+  position: relative; 
+  max-width: 600px;
+  margin: 20px auto;
+  overflow: hidden; 
+  border-radius: 10px;
+}
+
+.meme--image {
+  width: 100%;
+  height: 400px; 
+  object-fit: cover; 
+  border-radius: 10px;
+}
+
+.meme-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  text-align: center;
+  width: 90%;
+  pointer-events: none;
+  padding: 5px; 
+  border-radius: 5px; 
+  background: transparent; /* Default transparent background */
+}
+
+.meme-text.show-background {
+  background: rgba(0, 0, 0, 0.5); /* Show background color when text is present */
+}
+
+.meme-text.top {
+  top: 10px; 
+}
+
+.meme-text.bottom {
+  bottom: 10px; 
+}

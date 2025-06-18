@@ -1,0 +1,62 @@
+@import "tailwindcss";
+/*
+:root {
+  --background: #ffffff;
+ --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: poppins;
+}
+*/
+
+:root {
+  /* Colors */
+  --color-purple: hsl(259, 100%, 65%);
+  --color-light-red: hsl(0, 100%, 67%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-off-white: hsl(0, 0%, 94%);
+  --color-light-grey: hsl(0, 0%, 86%);
+  --color-smokey-grey: hsl(0, 1%, 44%);
+  --color-off-black: hsl(0, 0%, 8%);
+
+  /* Font Family */
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+/* Base Styles */
+body {
+  font-family: var(--font-poppins);
+  background-color: var(--color-off-white);
+  min-height: 100vh;
+}
+
+input {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Mobile First Approach */
+@media (min-width: 1440px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

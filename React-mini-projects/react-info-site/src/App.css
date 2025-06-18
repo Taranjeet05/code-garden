@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+/* Light mode styles */
+.light-mode {
+  background-color: #d9fcff;
+  color: black;
+}
+
+.light-mode .nav {
+  border-bottom: grey solid 1px;
+}
+
+.light-mode .nav-items > li {
+  color: black;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.dark-mode .nav {
+  border-bottom: #444 solid 1px;
+}
+
+.dark-mode .nav-items > li {
+  color: white;
+}
+
+/* Button for toggling theme */
+.theme-toggle {
+  background-color: transparent;
+  color: inherit;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px; 
+  margin-right: 50px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Additional styles */
+.img {
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.nav {
+  margin-bottom: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+  margin-right: 20px; 
+  gap: 30px; 
+  font-size: 25px;
+}
+
+.nav-items > li {
+  padding: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.heading {
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.points > li {
+  margin-left: 80px;
+  font-size: 25px;
+  list-style: circle;
+  margin-top: 10px;
+}
+
+.footer-text {
+  margin-left: 80px;
+}

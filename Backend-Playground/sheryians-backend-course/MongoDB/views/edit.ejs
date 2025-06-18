@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="bg-zinc-800 h-screen w-full">
+      <h1 class="text-center p-10 text-yellow-600 text-5xl font-mono">
+        Edit User ✏️
+      </h1>
+      <nav class="ml-25 mb-15">
+        <a href="/read" class="text-yellow-500 hover:text-yellow-200"
+          >Read Users</a
+        >
+      </nav>
+
+      <div class="form">
+        <form
+          action="/update/<%=user._id%>"
+          method="post"
+          class="flex flex-col items-center justify-center p-10 gap-6 text-white"
+        >
+          <!-- Name Input -->
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name"
+            value="<%=user.name%>"
+            class="border border-zinc-700 bg-transparent px-6 py-4 text-xl font-mono outline-none rounded-lg w-96 min-w-[300px] focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
+          />
+
+          <!-- Email Input -->
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            value="<%=user.email%>"
+            class="border border-zinc-700 bg-transparent px-6 py-4 text-xl font-mono outline-none rounded-lg w-96 min-w-[300px] focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
+          />
+
+          <!-- Image URL Input -->
+          <input
+            type="text"
+            name="imageUrl"
+            id="image"
+            placeholder="Image URL"
+            value="<%=user.imageUrl%>"
+            class="border border-zinc-700 bg-transparent px-6 py-4 text-xl font-mono outline-none rounded-lg w-96 min-w-[300px] focus:ring-2 focus:ring-yellow-600 focus:border-transparent"
+          />
+
+          <!-- Submit Button -->
+          <input
+            type="submit"
+            value="Edit User"
+            class="bg-yellow-700 hover:bg-yellow-900 cursor-pointer w-96 min-w-[300px] rounded-lg font-mono text-lg py-2 focus:ring-2 focus:ring-yellow-600"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

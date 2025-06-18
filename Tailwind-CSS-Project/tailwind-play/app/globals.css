@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+   /* 
+   .special-button: 
+   A reusable button class with a gradient background, hover, focus, and active states.
+   - Gradient Background: Smooth gradient from purple to indigo.
+   - Hover Effects: Darker gradient with a subtle scale animation.
+   - Focus State: Outline removed, with a purple focus ring.
+   - Active State: Darker indigo background on click.
+   - Additional Styles:
+     - Padding for spacing
+     - Rounded corners
+     - Bold white text
+     - Shadow for a lifted appearance
+     - Smooth transitions for better UX
+  */
+  .special-button {
+    @apply bg-gradient-to-r from-purple-500 to-indigo-500 
+      hover:from-purple-600 hover:to-indigo-600 
+      focus:outline-none focus:ring-2 focus:ring-purple-300 
+      active:bg-indigo-700 px-6 py-3 rounded-lg text-white font-semibold 
+      shadow-md transition duration-300 ease-in-out transform hover:scale-105;
+  }
+}
