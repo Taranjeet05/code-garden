@@ -76,3 +76,8 @@ if (isValid(dateStr)) {
 } else {
   console.log("Error the dateStr is not valid according to the format");
 }
+
+// validate Dates
+
+const validateDate = new Date(1950, 0, 26);
+console.log("checking the valid Date", validateDate);
