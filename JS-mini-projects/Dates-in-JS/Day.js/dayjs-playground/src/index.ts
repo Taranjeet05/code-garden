@@ -3,11 +3,13 @@ import toArray from "dayjs/plugin/toArray.js";
 import quarterOfYear from "dayjs/plugin/quarterOfYear.js";
 import relativeTime from "dayjs/plugin/relativeTime.js";
 import weekday from "dayjs/plugin/weekday.js";
+import customParseFormat from "dayjs/plugin/customParseFormat.js";
 
 dayjs.extend(toArray);
 dayjs.extend(quarterOfYear);
 dayjs.extend(relativeTime);
 dayjs.extend(weekday);
+dayjs.extend(customParseFormat);
 
 // Demonstrates basic usage of the Dayjs library for date and time manipulation.
 const today: Dayjs = dayjs();
@@ -61,5 +63,19 @@ console.log(today.endOf("year").format("dddd, MMMM-YYYY-DD"));
 const date1: Dayjs = dayjs("2005-01-15");
 const date2: Dayjs = dayjs("2005-11-20");
 
-// Calculate the difference in hours between date1 and date2
+// Calculate the difference in months between date1 and date2
 console.log(date2.diff(date1, "month"));
+
+// Parse a date string with a specific format
+
+const dateString: string = "15-01-2005";
+const parsedDate: Dayjs = dayjs(dateString, "DD-MM-YYYY", true); // true for strict parsing
+
+if (parsedDate.isValid()) {
+  console.log("Parsed date :", parsedDate.format("YYYY-MM-DD"));
+} else {
+  console.log("Invalid date format");
+  console.log("Please use the format DD-MM-YYYY");
+  console.log("For Example: 15-01-2005");
+}
+
