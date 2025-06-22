@@ -87,4 +87,10 @@ console.log(tenDaysLater.format("dddd, MMM D YYYY"));
 const twoMonthsAgo = dayjs().subtract(2, "month");
 console.log(twoMonthsAgo.format("dddd, MMM D YYYY"));
 
+// Compare Dates
 
+const date11 = dayjs("2005-01-15");
+const date22 = dayjs("2005-11-10");
+
+console.log(date11.isBefore(date22)); // true
+console.log(date11.isAfter(date22)); // false
