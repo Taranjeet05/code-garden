@@ -79,3 +79,12 @@ if (parsedDate.isValid()) {
   console.log("For Example: 15-01-2005");
 }
 
+// Add / Subtract Time
+
+const tenDaysLater = dayjs().add(10, "day");
+console.log(tenDaysLater.format("dddd, MMM D YYYY"));
+
+const twoMonthsAgo = dayjs().subtract(2, "month");
+console.log(twoMonthsAgo.format("dddd, MMM D YYYY"));
+
+
