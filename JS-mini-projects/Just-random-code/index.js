@@ -43,3 +43,21 @@ fruits.forEach((fruit) => {
 });
 
 console.log(fruitMap);
+
+// Group cities by country using Map.
+const cities = [
+  { name: "New York", country: "USA" },
+  { name: "Los Angeles", country: "USA" },
+  { name: "Tokyo", country: "Japan" },
+  { name: "Osaka", country: "Japan" },
+  { name: "London", country: "UK" },
+];
+// create a Map to group cities by country
+const cityMap = new Map(); // key : country, value: array of the cities based on the country given.
+cities.forEach((city) => {
+  const country = city.country;
+  const group = cityMap.get(country) || [];
+  group.push(city.name);
+  cityMap.set(country, group);
+});
+console.log(cityMap);
