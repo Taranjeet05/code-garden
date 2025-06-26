@@ -61,3 +61,25 @@ cities.forEach((city) => {
   cityMap.set(country, group);
 });
 console.log(cityMap);
+
+const india = [
+  { name: "Amritsar", state: "Punjab" },
+  { name: "Chandigarh", state: "Punjab" },
+  { name: "Delhi", state: "Delhi" },
+  { name: "Mumbai", state: "Maharashtra" },
+  { name: "Pune", state: "Maharashtra" },
+  { name: "Jaipur", state: "Rajasthan" },
+  { name: "Patna", state: "Bihar" },
+  { name: "Nagpur", state: "Maharashtra" },
+  { name: "Surat", state: "Gujarat" },
+  { name: "Rajkot", state: "Gujarat" },
+];
+
+const indiaMap = new Map(); // key: state, value: array of cities in that state
+india.forEach((city) => {
+  const state = city.state;
+  const group = indiaMap.get(state) || [];
+  group.push(city.name);
+  indiaMap.set(state, group);
+});
+console.log(indiaMap);
