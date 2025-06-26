@@ -23,3 +23,23 @@ console.log(ageOfPerson.get("John"));
 ageOfPerson.forEach((value, key) => {
   console.log(`${key} is ${value} years old`);
 });
+
+// Group fruits by their color using Map.
+const fruits = [
+  { name: "Banana", color: "Yellow" },
+  { name: "Apple", color: "Red" },
+  { name: "Grapes", color: "Green" },
+  { name: "Strawberry", color: "Red" },
+];
+
+const fruitMap = new Map(); // Key: color, Value: array of fruit names
+
+// Fill the Map
+fruits.forEach((fruit) => {
+  const color = fruit.color;
+  const group = fruitMap.get(color) || [];
+  group.push(fruit.name);
+  fruitMap.set(color, group);
+});
+
+console.log(fruitMap);
