@@ -7,8 +7,11 @@ import {
   isBefore,
   isAfter,
   parse,
+  startOfDay,
+  startOfToday,
 } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
+import { parseISO } from "date-fns";
 
 const today: Date = new Date();
 
@@ -62,3 +65,13 @@ const tokyoTime = formatInTimeZone(
   "yyyy-MM-dd HH:mm:ss"
 );
 console.log(`Tokyo time: ${tokyoTime}`);
+
+
+// checking some date-fns-tz functionality
+const currentDate = startOfToday();
+console.log(currentDate);
+
+// Example usage of parseISO
+const isoString = "2025-06-15T10:30:00Z";
+const parsedIsoDate  = parseISO(isoString);
+console.log("Parsed ISO date:", parsedIsoDate);
