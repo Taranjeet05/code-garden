@@ -18,3 +18,29 @@ const users = [
 const userNames = users.map((user) => user.name);
 
 console.log(userNames);
+
+// opp in js
+
+class car {
+  constructor(brand, year) {
+    this.brand = brand;
+    this.year = year;
+  }
+  hook() {
+    console.log(`This is a ${this.brand} car from ${this.year}.`);
+  }
+}
+
+const myCar = new car("BMW", 2020);
+myCar.hook();
+
+console.log(myCar instanceof car); // true
+console.log(myCar instanceof Object); // true
+console.log(myCar instanceof Array); // false
+console.log(myCar instanceof Function); // false
+console.log(myCar instanceof String); // false
+console.log(myCar instanceof Number); // false
+console.log(myCar instanceof Boolean); // false
+
+console.log(myCar);
+
