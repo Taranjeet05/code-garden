@@ -44,3 +44,24 @@ console.log(myCar instanceof Boolean); // false
 
 console.log(myCar);
 
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks 🐶`);
+  }
+}
+
+const dog = new Dog("Buddy");
+dog.speak(); // Buddy barks 🐶
+
+console.log(dog);
+console.log(dog.speak());
