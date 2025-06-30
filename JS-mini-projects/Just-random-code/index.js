@@ -65,3 +65,13 @@ dog.speak(); // Buddy barks 🐶
 
 console.log(dog);
 console.log(dog.speak());
+
+// Filter in js
+
+const numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const events = numberArray.filter((number) => number % 2 === 0);
+
+console.log(events);
+
+
