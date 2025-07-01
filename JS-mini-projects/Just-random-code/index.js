@@ -13,3 +13,14 @@
 // clearInterval()
 
 // Conditional logic
+
+let timeLeft = 10;
+const timer = setInterval(() => {
+    if (timeLeft > 0) {
+        console.log(timeLeft + ' seconds remaining');
+        timeLeft--;
+    } else {
+        console.log("⏰ Time's up!");
+        clearInterval(timer);
+    }
+}, 1000);
