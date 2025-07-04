@@ -5,4 +5,14 @@ for (let i = arr.length - 1; i >= 0; i--) {
   reversedArr.push(arr[i]);
 }
 
-console.log(reversedArr); 
+console.log(reversedArr);
+
+const numbers = [1, 2, 3, 4, 4, 5];
+const unique = [];
+
+for (let i = 0; i < numbers.length; i++) {
+  if (!unique.includes(numbers[i])) unique.push(numbers[i]);
+}
+
+console.log(unique);
+
