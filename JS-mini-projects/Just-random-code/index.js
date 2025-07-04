@@ -16,3 +16,14 @@ for (let i = 0; i < numbers.length; i++) {
 
 console.log(unique);
 
+// ****
+
+const user = {
+  name: "joe",
+  age: 20,
+  country: "India",
+};
+
+const count = Object.keys(user).length;
+
+console.log(count);
