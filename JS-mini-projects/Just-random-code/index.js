@@ -27,4 +27,11 @@ const user = {
 const count = Object.keys(user).length;
 
 console.log(count);
-f
+
+const car = { brand: "Toyota", year: 2020 };
+
+car.year = 2024;
+car.color = "red";
+
+console.log(car);
+
