@@ -8,7 +8,11 @@ import "./App.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <div className="bg-gray-500 min-h-screen">
+        <MainLayout />
+      </div>
+    ),
     children: [
       {
         path: "/",
