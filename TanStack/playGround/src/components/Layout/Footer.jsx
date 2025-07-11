@@ -2,11 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex justify-center items-center">
-      <h3 className="text-green-400 hover:text-green-300">
+    <footer className="flex justify-center items-center">
+      <p className="text-green-400 hover:text-green-300 text-lg">
         PlayGround @LearningTanStack
-      </h3>
-    </div>
+      </p>
+    </footer>
   );
 };
 
