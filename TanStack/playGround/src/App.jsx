@@ -3,6 +3,7 @@ import MainLayout from "./components/Layout/MainLayout";
 import Home from "./Pages/Home";
 import FetchOld from "./Pages/FetchOld";
 import FetchRq from "./Pages/FetchRq";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -30,8 +31,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>;
+    </QueryClientProvider>
+  );
 }
 
 export default App;
