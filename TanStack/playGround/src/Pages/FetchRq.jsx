@@ -2,14 +2,14 @@ import { fetchPosts } from "../Api/Api";
 import { useQuery } from "@tanstack/react-query";
 
 const FetchRq = () => {
-  const { data : res, isLoading, isError } = useQuery({
+  const { data : res, isPending, isError } = useQuery({
     queryKey: ["posts"], // it kind a work like useState
     queryFn: fetchPosts, // it kind of work like useEffect
   });
 
   const data = res?.data || []; // res.data is the posts data returned from the API
 
-  if (isLoading) {
+  if (isPending) {
     return (
       <div>
         <h2 className="text-white font-bold text-6xl flex items-center justify-center my-40 animate-bounce">
