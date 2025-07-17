@@ -5,6 +5,8 @@ const FetchRq = () => {
   const { data : res, isPending, isError } = useQuery({
     queryKey: ["posts"], // it kind a work like useState
     queryFn: fetchPosts, // it kind of work like useEffect
+    // gcTime: 10000, // garbage collection time, after which the data will be removed from cache 
+    // staleTime: 10000, // time after which the data will be considered stale and reFetched. 
   });
 
   const data = res?.data || []; // res.data is the posts data returned from the API
