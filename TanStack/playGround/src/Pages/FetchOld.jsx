@@ -55,7 +55,7 @@ const FetchOld = () => {
         ))}
       </ul>
       {posts.length === 0 && (
-        <p className="text-center text-gray-400">No posts found.</p>
+        <p className="text-center text-white">No posts found.</p>
       )}
     </div>
   );
