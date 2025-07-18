@@ -1,10 +1,17 @@
-import { fetchPosts } from "../Api/Api";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { deletePost, fetchPosts } from "../Api/Api";
+import {
+  keepPreviousData,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const FetchRq = () => {
   const [pageNumber, setPageNumber] = useState(0);
+  const queryClient = useQueryClient();
+
   const {
     data: res,
     isPending,
@@ -17,6 +24,19 @@ const FetchRq = () => {
     // refetchInterval: 10000, // refetch the data every 10 seconds
     // refetchIntervalInBackground: true, // refetch the data even when the tab is in the background
     placeholderData: keepPreviousData, // hold the previous data until new one fetch for the pagination which will increase the user experience
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id) => deletePost(id),
+    onSuccess: (data, id) => {
+      console.log(data, id);
+      queryClient.setQueryData(["posts", pageNumber], (oldData) => {
+        return {
+          ...oldData,
+          data: oldData?.data?.filter((post) => post.id !== id),
+        };
+      });
+    },
   });
 
   const data = res?.data || []; // res.data is the posts data returned from the API
@@ -46,15 +66,21 @@ const FetchRq = () => {
       <h2 className="text-3xl font-semibold text-center mb-6">Posts</h2>
       <ul className="list-none p-0">
         {data?.map(({ id, title, body }) => (
-          <NavLink to={`/rq/${id}`} key={id}>
-            <li className="bg-gray-300 mb-4 p-4 rounded-md shadow-sm">
+          <li key={id} className="bg-gray-300 mb-4 p-4 rounded-md shadow-sm">
+            <NavLink to={`/rq/${id}`}>
               <p>{id}</p>
               <h3 className="text-lg font-medium mb-2 text-gray-800">
                 {title}
               </h3>
               <p className="text-gray-600">{body}</p>
-            </li>
-          </NavLink>
+            </NavLink>
+            <button
+              onClick={() => deleteMutation.mutate(id)}
+              className="bg-red-600 hover:bg-red-700 hover:tracking-widest hover:cursor-pointer rounded-lg text-white font-bold py-2 px-5 mt-5"
+            >
+              Delete
+            </button>
+          </li>
         ))}
       </ul>
       {data.length === 0 && (
