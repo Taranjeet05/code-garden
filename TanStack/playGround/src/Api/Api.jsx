@@ -18,7 +18,7 @@ export const fetchPosts = async (pageNumber) => {
 
 export const fetchIndividualPost = async (id) => {
   try {
-    const res = await api.get(`posts/${id}`);
+    const res = await api.get(`/posts/${id}`);
     return res;
   } catch (error) {
     console.log("Error Fetching individual post:", error.message);
@@ -27,3 +27,13 @@ export const fetchIndividualPost = async (id) => {
 
 // ..pagination
 //! https://jsonplaceholder.typicode.com/posts?_start=1&_limit=3
+
+// to delete a post
+
+export const deletePost = async (id) => {
+  try {
+    return api.delete(`/posts/${id}`);
+  } catch (error) {
+    console.log("Error to delete a post", error.message);
+  }
+};
