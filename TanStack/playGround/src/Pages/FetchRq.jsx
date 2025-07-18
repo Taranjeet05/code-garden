@@ -1,14 +1,19 @@
 import { fetchPosts } from "../Api/Api";
 import { useQuery } from "@tanstack/react-query";
+import { NavLink } from "react-router-dom";
 
 const FetchRq = () => {
-  const { data : res, isPending, isError } = useQuery({
+  const {
+    data: res,
+    isPending,
+    isError,
+  } = useQuery({
     queryKey: ["posts"], // it kind a work like useState
     queryFn: fetchPosts, // it kind of work like useEffect
-    // gcTime: 10000, // garbage collection time, after which the data will be removed from cache 
-    // staleTime: 10000, // time after which the data will be considered stale and reFetched. 
-    refetchInterval: 10000, // refetch the data every 10 seconds
-    refetchIntervalInBackground: true, // refetch the data even when the tab is in the background
+    // gcTime: 10000, // garbage collection time, after which the data will be removed from cache
+    // staleTime: 10000, // time after which the data will be considered stale and reFetched.
+    // refetchInterval: 10000, // refetch the data every 10 seconds
+    // refetchIntervalInBackground: true, // refetch the data even when the tab is in the background
   });
 
   const data = res?.data || []; // res.data is the posts data returned from the API
@@ -38,10 +43,14 @@ const FetchRq = () => {
       <h2 className="text-3xl font-semibold text-center mb-6">Posts</h2>
       <ul className="list-none p-0">
         {data?.map(({ id, title, body }) => (
-          <li key={id} className="bg-gray-300 mb-4 p-4 rounded-md shadow-sm">
-            <h3 className="text-lg font-medium mb-2 text-gray-800">{title}</h3>
-            <p className="text-gray-600">{body}</p>
-          </li>
+          <NavLink to={`/rq/${id}`} key={id}>
+            <li className="bg-gray-300 mb-4 p-4 rounded-md shadow-sm">
+              <h3 className="text-lg font-medium mb-2 text-gray-800">
+                {title}
+              </h3>
+              <p className="text-gray-600">{body}</p>
+            </li>
+          </NavLink>
         ))}
       </ul>
       {data.length === 0 && (
