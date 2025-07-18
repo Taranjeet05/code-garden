@@ -15,3 +15,12 @@ export const fetchPosts = async () => {
     return [];
   }
 };
+
+export const fetchIndividualPost = async (id) => {
+  try {
+    const res = await api.get(`posts/${id}`);
+    return res;
+  } catch (error) {
+    console.log("Error Fetching individual post:", error.message);
+  }
+};
