@@ -24,3 +24,6 @@ export const fetchIndividualPost = async (id) => {
     console.log("Error Fetching individual post:", error.message);
   }
 };
+
+// ..pagination
+//! https://jsonplaceholder.typicode.com/posts?_start=1&_limit=3
