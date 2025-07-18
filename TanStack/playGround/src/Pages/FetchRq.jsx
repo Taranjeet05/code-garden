@@ -28,8 +28,7 @@ const FetchRq = () => {
 
   const deleteMutation = useMutation({
     mutationFn: (id) => deletePost(id),
-    onSuccess: (data, id) => {
-      console.log(data, id);
+    onSuccess: (_data, id) => {
       queryClient.setQueryData(["posts", pageNumber], (oldData) => {
         return {
           ...oldData,
