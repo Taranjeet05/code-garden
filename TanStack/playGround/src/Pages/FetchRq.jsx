@@ -1,19 +1,22 @@
 import { fetchPosts } from "../Api/Api";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const FetchRq = () => {
+  const [pageNumber, setPageNumber] = useState(0);
   const {
     data: res,
     isPending,
     isError,
   } = useQuery({
-    queryKey: ["posts"], // it kind a work like useState
-    queryFn: fetchPosts, // it kind of work like useEffect
+    queryKey: ["posts", pageNumber], // it kind a work like useState
+    queryFn: () => fetchPosts(pageNumber), // it kind of work like useEffect
     // gcTime: 10000, // garbage collection time, after which the data will be removed from cache
     // staleTime: 10000, // time after which the data will be considered stale and reFetched.
     // refetchInterval: 10000, // refetch the data every 10 seconds
     // refetchIntervalInBackground: true, // refetch the data even when the tab is in the background
+    placeholderData: keepPreviousData, // hold the previous data until new one fetch for the pagination which will increase the user experience
   });
 
   const data = res?.data || []; // res.data is the posts data returned from the API
@@ -45,6 +48,7 @@ const FetchRq = () => {
         {data?.map(({ id, title, body }) => (
           <NavLink to={`/rq/${id}`} key={id}>
             <li className="bg-gray-300 mb-4 p-4 rounded-md shadow-sm">
+              <p>{id}</p>
               <h3 className="text-lg font-medium mb-2 text-gray-800">
                 {title}
               </h3>
@@ -56,6 +60,27 @@ const FetchRq = () => {
       {data.length === 0 && (
         <p className="text-center text-white">No posts found.</p>
       )}
+
+      <div className="flex justify-center items-center gap-6 mt-10">
+        <button
+          onClick={() => setPageNumber((prev) => prev - 3)}
+          disabled={pageNumber === 0 ? true : false}
+          className="px-5 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 disabled:bg-indigo-900 transition"
+        >
+          ⬅️ Prev
+        </button>
+
+        <h2 className="text-xl font-semibold text-white">
+          Page: <span className="text-yellow-300">{pageNumber / 3 + 1}</span>
+        </h2>
+
+        <button
+          onClick={() => setPageNumber((prev) => prev + 3)}
+          className="px-5 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition"
+        >
+          Next ➡️
+        </button>
+      </div>
     </div>
   );
 };
