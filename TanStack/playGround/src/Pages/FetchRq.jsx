@@ -79,6 +79,9 @@ const FetchRq = () => {
             >
               Delete
             </button>
+            <button className="ml-3.5 bg-yellow-600 hover:bg-yellow-700 hover:tracking-widest hover:cursor-pointer rounded-lg text-white font-bold py-2 px-5 mt-5">
+              Update
+            </button>
           </li>
         ))}
       </ul>
