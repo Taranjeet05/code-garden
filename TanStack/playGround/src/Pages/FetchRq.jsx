@@ -1,4 +1,4 @@
-import { deletePost, fetchPosts } from "../Api/Api";
+import { deletePost, fetchPosts, updatePost } from "../Api/Api";
 import {
   keepPreviousData,
   useMutation,
@@ -33,6 +33,26 @@ const FetchRq = () => {
         return {
           ...oldData,
           data: oldData?.data?.filter((post) => post.id !== id),
+        };
+      });
+    },
+  });
+
+  const updateMutation = useMutation({
+    mutationFn: (id) => updatePost(id),
+    onSuccess: (apiData, postId) => {
+      console.log(apiData, postId);
+
+      queryClient.setQueryData(["posts", pageNumber], (oldData) => {
+        if (!oldData || !oldData.data) return oldData;
+
+        return {
+          ...oldData,
+          data: oldData.data.map((curPost) => {
+            return curPost.id === postId
+              ? { ...curPost, title: apiData.data.title }
+              : curPost;
+          }),
         };
       });
     },
@@ -79,7 +99,10 @@ const FetchRq = () => {
             >
               Delete
             </button>
-            <button className="ml-3.5 bg-yellow-600 hover:bg-yellow-700 hover:tracking-widest hover:cursor-pointer rounded-lg text-white font-bold py-2 px-5 mt-5">
+            <button
+              onClick={() => updateMutation.mutate(id)}
+              className="ml-3.5 bg-yellow-600 hover:bg-yellow-700 hover:tracking-widest hover:cursor-pointer rounded-lg text-white font-bold py-2 px-5 mt-5"
+            >
               Update
             </button>
           </li>
