@@ -37,3 +37,11 @@ export const deletePost = async (id) => {
     console.log("Error to delete a post", error.message);
   }
 };
+
+export const updatePost = async (id) => {
+  try {
+    return api.patch(`/posts/${id}`, { title: "I have updated" });
+  } catch (error) {
+    console.log("Error updating the post", error.message);
+  }
+};
