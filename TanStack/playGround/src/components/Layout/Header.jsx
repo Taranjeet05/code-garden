@@ -43,6 +43,18 @@ const Header = () => {
                 FetchRq
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/infinite"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-green-400 font-bold underline"
+                    : "text-gray-300 hover:text-green-200"
+                }
+              >
+                InfiniteScroll
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </div>
