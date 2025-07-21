@@ -87,11 +87,11 @@ const InfiniteScroll = () => {
         ))}
       </div>
       <div ref={ref} className="mt-4">
-        {isFetchingNextPage && (
-          <div className="text-center mt-4">
-            <h2 className="text-gray-500">Loading more users...</h2>
-          </div>
-        )}
+        {isFetchingNextPage
+          ? "loading more..."
+          : hasNextPage
+          ? "Scroll down to load more"
+          : "No more users to load."}
       </div>
     </div>
   );
