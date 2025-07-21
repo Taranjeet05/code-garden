@@ -1,10 +1,31 @@
-import './App.css'
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainLayout from "./components/layout/MainLayout";
+import Home from "./pages/Home";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <div>
+          <MainLayout />
+        </div>
+      ),
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+      ],
+    },
+  ]);
 
   return (
-    <p className='text-center underline text-5xl font-mono'>Hello,Testing</p>
-  )
+    <>
+      <RouterProvider router={router}></RouterProvider>
+    </>
+  );
 }
 
-export default App
+export default App;
