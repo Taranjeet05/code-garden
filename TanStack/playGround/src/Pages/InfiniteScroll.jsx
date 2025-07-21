@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchUsers } from "../Api/Api";
+import { useInView } from "react-intersection-observer";
 
 const InfiniteScroll = () => {
   const {
@@ -18,23 +19,16 @@ const InfiniteScroll = () => {
     },
   });
 
+  const { ref, inView } = useInView({
+    threshold: 1, // Trigger when 100% of the target is visible
+  });
+
   // Effect to handle infinite scrolling
   useEffect(() => {
-    const handleScroll = () => {
-      const bottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 1;
-
-      if (bottom && hasNextPage) {
-        fetchNextPage();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [hasNextPage, fetchNextPage]);
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage, fetchNextPage]);
 
   // If no data is available, show a message
   if (!data || data.pages.length === 0) {
@@ -92,11 +86,13 @@ const InfiniteScroll = () => {
           </div>
         ))}
       </div>
-      {isFetchingNextPage && (
-        <div className="text-center mt-4">
-          <h2 className="text-gray-500">Loading more users...</h2>
-        </div>
-      )}
+      <div ref={ref} className="mt-4">
+        {isFetchingNextPage && (
+          <div className="text-center mt-4">
+            <h2 className="text-gray-500">Loading more users...</h2>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
