@@ -45,3 +45,14 @@ export const updatePost = async (id) => {
     console.log("Error updating the post", error.message);
   }
 };
+
+export const fetchUsers = async (pageParams = 1) => {
+  try {
+    const res = await api.get(
+      `https://api.github.com/users?per_page=10&page=${pageParams}`
+    );
+    return res.data;
+  } catch (error) {
+    console.log("Error fetching users", error.message);
+  }
+};
