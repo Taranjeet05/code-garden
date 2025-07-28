@@ -3,11 +3,29 @@ import React, { useEffect, useState } from "react";
 const UseEffect = () => {
   const [name, setName] = useState("");
   const [count, setCount] = useState(0);
+  const [showTime, setShowTime] = useState(false);
+  const [timer, setTimer] = useState(0);
 
   function incrementCount() {
     setCount((prevCount) => prevCount + 1);
   }
 
+  const startTimer = () => {
+    if (!showTime) {
+      // Start timer
+      const intervalId = setInterval(() => {
+        setTimer((prevTimer) => prevTimer + 1);
+      }, 1000);
+      // Store intervalId in state if you want to clear it later
+      window.timerInterval = intervalId;
+    } else {
+      // Stop timer
+      clearInterval(window.timerInterval);
+      setTimer(0);
+    }
+    setShowTime((prevShowTime) => !prevShowTime);
+  };
+  
   // This effect will run when the component mounts
   useEffect(() => {
     console.log("Page loaded 🟩");
@@ -23,6 +41,15 @@ const UseEffect = () => {
   useEffect(() => {
     console.log("Count Changed 🔴", count);
   }, [count]);
+
+  useEffect(() => {
+    if (showTime) {
+      console.log("Timer started 🟨", showTime);
+    }
+    return () => {
+      console.log("Timer Stopped 🟥", showTime);
+    };
+  }, [showTime]);
 
   return (
     <div className="p-10 mt-5">
@@ -44,8 +71,12 @@ const UseEffect = () => {
         </button>
       </div>
       <div>
-        <button className="bg-blue-500 text-white font-bold px-4 py-2 rounded">
-          Start Timer
+        <p className="my-14 font-bold text-5xl ml-16">{timer}</p>
+        <button
+          className="bg-blue-500 text-white font-bold px-4 py-2 rounded"
+          onClick={startTimer}
+        >
+          {showTime ? "Stop Timer" : "Start Timer"}
         </button>
       </div>
       <div className="mt-5">
