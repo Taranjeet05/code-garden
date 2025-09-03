@@ -11,3 +11,29 @@ console.log(oppositeNumber(-1));
 console.log(oppositeNumber(-2005));
 console.log(oppositeNumber(1008));
 console.log(oppositeNumber(2025));
+
+// Problem:
+// You are given an array of consecutive letters (all lowercase or all uppercase) with exactly one letter missing. Return the missing letter.
+
+/*
+Example to understand charCodeAt:
+*/
+
+const findMissingLetter = (array) => {
+  for (let i = 1; i < array.length; i++) {
+    const prev = array[i - 1].charCodeAt(0);
+    const cur = array[i].charCodeAt(0);
+    if (cur - prev !== 1) {
+      return String.fromCharCode(prev + 1);
+    }
+  }
+  return null;
+};
+
+// test
+
+console.log(findMissingLetter(["a", "b", "c", "e"]));
+console.log(findMissingLetter(["a", "z", "c", "e"]));
+console.log(findMissingLetter(["a", "b", "c", "d", "k"]));
+console.log(findMissingLetter(["x", "y", "z"]));
+console.log(findMissingLetter(["1", "2", "3", "5"]));
