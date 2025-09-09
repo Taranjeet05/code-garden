@@ -1,19 +1,48 @@
 import express from "express";
-import { Server } from "http";
 import dotenv from "dotenv";
+import { createServer } from "http";
+import { Server } from "socket.io";
+import cors from "cors";
+
 
 dotenv.config();
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-const PORT = process.env.PORT;
-
-const server = new Server(app);
-const io = new Server(server, {});
-
-app.get("/", (res, req) => {
-  req.send("Hello from the Socket.io");
+const server = createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
 });
 
-app.listen(PORT, () => {
-  console.log(`App is running on http://localhost:${PORT}`);
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
+app.get("/", (req, res) => {
+  res.send("Hello from the Socket.io");
+});
+
+io.on("connection", (socket) => {
+  console.log("User connected:", socket.id);
+
+  socket.on("message", (data) => {
+    console.log(data);
+    io.emit("message", data);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected", socket.id);
+  });
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
