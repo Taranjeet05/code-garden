@@ -4,7 +4,6 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors";
 
-
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -34,12 +33,12 @@ io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
   socket.on("message", (data) => {
-    console.log(data);
-    io.emit("message", data);
+    console.log("Message received:", data);
+    io.emit("receive-message", data);
   });
 
   socket.on("disconnect", () => {
-    console.log("User disconnected", socket.id);
+    console.log("User disconnected:", socket.id);
   });
 });
 
