@@ -32,9 +32,14 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
-  socket.on("message", (data) => {
-    console.log("Message received:", data);
-    io.emit("receive-message", data);
+  socket.on("message", ({ message, room }) => {
+    console.log("Message received:", message, room);
+    socket.to(room).emit("receive-message", { message, sender: room });
+  });
+
+  socket.on("join-room", (room) => {
+    console.log(room);
+    socket.join(room);
   });
 
   socket.on("disconnect", () => {
