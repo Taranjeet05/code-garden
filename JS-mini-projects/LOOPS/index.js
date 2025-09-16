@@ -136,3 +136,20 @@ for (let i = 1; i <= 100; i++) {
 
   if (count === 5) break;
 }
+
+// Q13 Write a loop to calculate the factorial of a given number
+//Example: factorial(5) = 5 × 4 × 3 × 2 × 1 = 120
+
+function factorial(n) {
+  let result = 1;
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+
+  for (let i = n; i >= 2; i--) {
+    result *= i;
+  }
+
+  return result;
+}
+console.log(factorial(7));
