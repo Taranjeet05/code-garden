@@ -77,3 +77,11 @@ pp.textContent = "Hello, This is a paragraph in a div. OHH yeah";
 
 div.append(img2, pp);
 document.body.append(div);
+
+// select the first item in a list and delete it from the DOM.
+
+const ul = document.querySelector("ul");
+
+const li01 = document.querySelector("li");
+
+ul.removeChild(li01);
