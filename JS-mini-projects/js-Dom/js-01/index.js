@@ -1,9 +1,15 @@
-let h1 = document.createElement('h1')
-h1.innerText = 'Dom is easy to flex'
+// task 1 = select the heading of a page by ID and change its text to
+// 'Welcome to Sheryians'
 
-let div = document.createElement('div');
-div.appendChild(h1);
+const h1 = document.querySelector("#id");
 
-document.body.append(div)
+h1.innerText = "Welcome to Sheryians coding school";
 
-div.classList.add('ping')
+// task 2 = select all <li> elements and print their text using a loop.
+
+let liList = document.querySelectorAll('li');
+
+for (let i = 0; i < liList.length; i++){
+    console.log(liList[i].textContent)
+}
+
