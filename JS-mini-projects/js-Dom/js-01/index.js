@@ -1,6 +1,7 @@
 // task 1 = select the heading of a page by ID and change its text to
 // 'Welcome to Sheryians'
 
+
 const h1 = document.querySelector("#id");
 
 h1.innerText = "Welcome to Sheryians coding school";
@@ -39,3 +40,16 @@ document
 
 // remove the disabled attribute from a button.
 document.querySelector("button").removeAttribute("disabled");
+
+
+// what does createElement() do ? what's returned ? 
+
+let h1element = document.createElement('h1');
+
+h1element.textContent = 'Create Element Done'
+
+document.body.appendChild(h1element)
+
+// remove an element using removeChild() ?
+
+document.body.removeChild(document.querySelector('img'))
