@@ -71,7 +71,9 @@ img2.setAttribute(
   "https://images.unsplash.com/photo-1710225358761-4f5891df657d?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 );
 
-pp.textContent = "Hello, This is a paragraph in a div. OHH yeah"
+img2.classList.add("placeholder");
 
-div.append(img2, pp)
-document.body.append(div)
+pp.textContent = "Hello, This is a paragraph in a div. OHH yeah";
+
+div.append(img2, pp);
+document.body.append(div);
