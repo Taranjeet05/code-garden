@@ -1,12 +1,13 @@
-let input = document.querySelector("input");
-let h3 = document.querySelector("h3");
-let sel = document.querySelector("select");
+const h1 = document.querySelector("h1");
 
-input.addEventListener("input", (e) => {
-  console.log(e.target.value);
-});
-
-sel.addEventListener("change", (e) => {
-  console.log(e.target.value);
-  h3.textContent = `${e.target.value} Device Selected`;
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Backspace") {
+    h1.textContent = "🙈";
+  } else if (e.key === "Enter") {
+    h1.textContent = "💥";
+  } else if (e.key === " ") {
+    h1.textContent = "🛰️";
+  } else {
+    h1.textContent = e.key;
+  }
 });

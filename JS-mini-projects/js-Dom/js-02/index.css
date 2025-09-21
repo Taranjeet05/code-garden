@@ -1,11 +1,28 @@
-body {
-  background: black;
-  color: white;
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: "Gilroy";
 }
 
-.green {
-  color: green;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
-.yellow {
-  color: yellow;
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #222;
+}
+
+h1 {
+    color: #555;
+    font-weight: 400;
+    font-size: 10rem;
+    user-select: none;
 }
