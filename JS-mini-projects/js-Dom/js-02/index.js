@@ -1,19 +1,12 @@
-let h1 = document.querySelector("h1");
-let p = document.querySelector("p");
+let input = document.querySelector("input");
+let h3 = document.querySelector("h3");
+let sel = document.querySelector("select");
 
-h1.addEventListener("click", () => {
-  h1.style.color = "red";
+input.addEventListener("input", (e) => {
+  console.log(e.target.value);
 });
 
-p.addEventListener("click", () => {
-  p.classList.add("green");
-  p.classList.remove("yellow");
+sel.addEventListener("change", (e) => {
+  console.log(e.target.value);
+  h3.textContent = `${e.target.value} Device Selected`;
 });
-
-p.addEventListener("dblclick", () => {
-  p.classList.add("yellow");
-  p.classList.remove("green");
-});
-
-
-console.dir(p);
