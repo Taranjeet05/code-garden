@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+body {
+  overflow: hidden;
+  position: relative;
+}
+
+#random {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
