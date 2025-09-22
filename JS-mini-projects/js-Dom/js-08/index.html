@@ -4,29 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    <title>Forms and Validation</title>
+    <title>Email & Password Validator</title>
   </head>
   <body>
-    <div id="main">
-      <form>
-        <input type="text" name="name" id="name" placeholder="Name" />
-        <input type="text" name="email" id="email" placeholder="Email" />
-        <input
-          type="text"
-          name="password"
-          id="password"
-          placeholder="Password"
-        />
-        <select name="gender" id="gender">
-          <option selected disabled>Choose You Gender</option>
-          <option value="">Male</option>
-          <option value="">Female</option>
-          <option value="">Others</option>
-        </select>
-        <textarea name="about-you" id="about-you"></textarea>
-        <input type="submit" value="Submit" />
+    <div class="container">
+      <h1>Sign Up</h1>
+      <form autocapitalize="off" id="signupForm">
+        <div class="input-group">
+          <input type="text" id="email" placeholder="Enter your email" />
+          <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="input-group">
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+          />
+          <span class="error" id="passwordError"></span>
+        </div>
+
+        <button type="submit">Submit</button>
       </form>
+
+      <div class="validation-rules">
+        <h3>Password must contain:</h3>
+        <ul>
+          <li id="length">At least 8 characters</li>
+          <li id="uppercase">One uppercase letter</li>
+          <li id="lowercase">One lowercase letter</li>
+          <li id="number">One number</li>
+          <li id="special">One special character</li>
+        </ul>
+      </div>
     </div>
-    <script src="index.js" defer></script>
+    <script src="index.js"></script>
   </body>
 </html>
