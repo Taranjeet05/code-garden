@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Forms and Validation</title>
+  </head>
+  <body>
+    <div id="main">
+      <form>
+        <input type="text" name="name" id="name" placeholder="Name" />
+        <input type="text" name="email" id="email" placeholder="Email" />
+        <input
+          type="text"
+          name="password"
+          id="password"
+          placeholder="Password"
+        />
+        <select name="gender" id="gender">
+          <option selected disabled>Choose You Gender</option>
+          <option value="">Male</option>
+          <option value="">Female</option>
+          <option value="">Others</option>
+        </select>
+        <textarea name="about-you" id="about-you"></textarea>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <script src="index.js" defer></script>
+  </body>
+</html>
