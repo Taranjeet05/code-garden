@@ -5,6 +5,11 @@ const header = document.querySelector("header");
 
 const main = document.querySelector("#main");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+  savedNotes.forEach((note) => addNoteToDom(note.title, note.message));
+});
+
 titleInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
@@ -39,6 +44,15 @@ const submitForm = () => {
     return;
   }
 
+  addNoteToDom(title, message);
+
+  savedNoteToLocalStorage(title, message);
+
+  form.reset();
+  titleInput.focus();
+};
+
+const addNoteToDom = (title, message) => {
   const note = document.createElement("div");
   note.classList.add("note");
 
@@ -52,7 +66,10 @@ const submitForm = () => {
 
   note.append(h2, p);
   main.appendChild(note);
+};
 
-  form.reset();
-  titleInput.focus();
+const savedNoteToLocalStorage = (title, message) => {
+  const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+  savedNotes.push({ title, message }); // new notes to array
+  localStorage.setItem("notes", JSON.stringify(savedNotes));
 };
