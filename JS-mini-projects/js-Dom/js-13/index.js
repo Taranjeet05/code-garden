@@ -28,6 +28,9 @@ const submitForm = () => {
   const title = titleInput.value.trim();
   const message = messageTextarea.value.trim();
 
+  const oldSpan = header.querySelector("span");
+  if (oldSpan) oldSpan.remove();
+
   if (title.length < 3 || message.length < 3) {
     let span = document.createElement("span");
     span.style.color = "red";
