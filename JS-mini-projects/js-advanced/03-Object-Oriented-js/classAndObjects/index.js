@@ -111,3 +111,26 @@ a1.write(`Hello for the Admin, Happy coding to all of you`);
 
 t1.checkRole(); // user
 a1.checkRole(); // admin
+
+// *************
+
+// !--- Prototypal inheritance vs classical inheritance 
+// CLASSICAL INHERITANCE has been already use above that basically using of extend thing
+//  to inheritance from some thing like, we use extend User in Admin Class.
+
+// !-- prototypal inheritance
+// passing or inherit props/methods to another object
+
+let coffee = {
+    color : 'black',
+    drink : function() {
+        console.log('Nice')
+    }
+}
+
+let coffee2 = Object.create(coffee);
+
+console.log(coffee2);
+
+coffee2.taste = 'yummy';
+coffee2.drink();
