@@ -1,3 +1,4 @@
+// !-- Es6 classes constructor, methods and extends, super
 class Video {
   constructor(title, duration, channelName, views, textColor) {
     this.title = title;
@@ -9,9 +10,9 @@ class Video {
 
   erase() {
     document.querySelectorAll("h1").forEach((elem) => {
-        if(elem.style.color === this.textColor) {
-            elem.remove()
-        }
+      if (elem.style.color === this.textColor) {
+        elem.remove();
+      }
     });
   }
 
@@ -38,26 +39,68 @@ const video2 = new Video(
   "white"
 );
 
-const video3 = new Video(
-  "DSA",
-  "12 Hour",
-  "BINGO",
-  "1 M",
-  "green"
+const video3 = new Video("DSA", "12 Hour", "BINGO", "1 M", "green");
+
+video1.write("10 days surviving in Amazon");
+video1.write("10 days surviving in Amazon");
+video1.write("10 days surviving in Amazon");
+video1.write("10 days surviving in Amazon");
+video2.write("Advance JS, OOPS");
+video2.write("Advance JS, OOPS");
+video2.write("Advance JS, OOPS");
+video2.write("Advance JS, OOPS");
+video3.write("Data Structure and algorithm");
+video3.write("Data Structure and algorithm");
+video3.write("Data Structure and algorithm");
+video3.write("Data Structure and algorithm");
+
+video1.erase();
+video2.erase();
+video3.erase();
+
+// !-- Extends, and Super
+
+class User {
+  constructor(name, address, userName, email) {
+    this.name = name;
+    this.address = address;
+    this.userName = userName;
+    this.email = email;
+    this.role = "user";
+  }
+
+  write(text) {
+    const p = document.createElement("p");
+    p.textContent = `${this.userName} : ${text}`;
+    document.body.appendChild(p);
+  }
+}
+class Admin extends User {
+  constructor(name, address, userName, email) {
+    super(name, address, userName, email);
+    this.role = "admin";
+  }
+
+  remove() {
+    document.querySelectorAll("p").forEach((el) => {
+      el.remove();
+    });
+  }
+}
+
+const t1 = new User("Joe Doe", "New Delhi", "Joe_05.", "joe@zoho.com");
+const t2 = new User(
+  "Mark Henry",
+  "london",
+  "Henry._Mark",
+  "henrymark205@zoho.com"
 );
 
+t1.write("This is my first Post");
+t2.write("Good Morning,");
 
-video1.write("10 days surviving in Amazon");
-video1.write("10 days surviving in Amazon");
-video1.write("10 days surviving in Amazon");
-video1.write("10 days surviving in Amazon");
-video2.write("Advance JS, OOPS");
-video2.write("Advance JS, OOPS");
-video2.write("Advance JS, OOPS");
-video2.write("Advance JS, OOPS");
-video3.write('Data Structure and algorithm')
-video3.write('Data Structure and algorithm')
-video3.write('Data Structure and algorithm')
-video3.write('Data Structure and algorithm')
+const a1 = new Admin("zoi", "Berlin", "zoi_01", "admin@zoho.com");
+const a2 = new Admin("zoi", "Berlin", "zoi_01", "admin@zoho.com");
+a1.write(`Hello for the Admin, Happy coding to all of you`)
 
-video3.erase();
+// a1.remove()
