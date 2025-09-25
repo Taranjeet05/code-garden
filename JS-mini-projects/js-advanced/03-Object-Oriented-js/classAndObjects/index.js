@@ -69,6 +69,10 @@ class User {
     this.role = "user";
   }
 
+  checkRole() {
+    console.log(`you are: ${this.role}`);
+  }
+
   write(text) {
     const p = document.createElement("p");
     p.textContent = `${this.userName} : ${text}`;
@@ -101,6 +105,9 @@ t2.write("Good Morning,");
 
 const a1 = new Admin("zoi", "Berlin", "zoi_01", "admin@zoho.com");
 const a2 = new Admin("zoi", "Berlin", "zoi_01", "admin@zoho.com");
-a1.write(`Hello for the Admin, Happy coding to all of you`)
+a1.write(`Hello for the Admin, Happy coding to all of you`);
 
 // a1.remove()
+
+t1.checkRole(); // user
+a1.checkRole(); // admin
