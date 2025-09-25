@@ -8,13 +8,15 @@ function CreatePencil (name, price,color,company) {
     this.price = price;
     this.color = color;
     this.company = company;
-    this.write = function(text){
+    
+}
+
+CreatePencil.prototype.write = function(text){
         let h1 = document.createElement('h1');
         h1.textContent = text
-        h1.style.color = color
+        h1.style.color = this.color
         document.body.append(h1);
     }
-}
 
 let pencil1 = new CreatePencil('Nat', 10 ,'orange', 'Nat raj');
 let pencil2 = new CreatePencil('Doom', 10 ,'white', 'Nat raj');
@@ -32,3 +34,5 @@ pencil3.write(`${pencil3.name} : Fast, Comfortable, and affordable within ${penc
 // by a constructor, so that they don’t get duplicated in every instance.
 
 CreatePencil.prototype.madeIn ='Made in India with Love'
+
+console.log('+++++++++++',pencil1);
