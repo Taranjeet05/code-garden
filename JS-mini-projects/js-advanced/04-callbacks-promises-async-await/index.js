@@ -9,7 +9,7 @@ time(function random() {
   console.log("hey");
 });
 
-// callBack HELL_:
+// callBack HELL_: 
 
 // this function is not what we have it is somewhere else
 function fetchProfile(userName, cb) {
@@ -27,10 +27,21 @@ const allData = (id, cb) => {
     cb({ _id: id, post: ["post1, post2, post3, post4"] });
   }, 3000);
 };
+const savedPosts = (id, cb) => {
+  console.log("fetching saved posts....");
+  setTimeout(() => {
+    cb({ _id: id, savedPost: ["Hello", "HII", "Saved"] });
+  }, 4000);
+};
 
+// !-- HELL
 // this what we write to get the data
 fetchProfile("Joe patel", (profileData) => {
+  console.log(profileData);
   allData(profileData._id, (posts) => {
     console.log("Posts:", posts);
+    savedPosts(profileData._id, (savedPosts) => {
+      console.log("savedPosts:", savedPosts);
+    });
   });
 });
