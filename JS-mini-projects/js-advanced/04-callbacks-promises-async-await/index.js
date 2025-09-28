@@ -9,7 +9,7 @@ time(function random() {
   console.log("hey");
 });
 
-// callBack HELL_: 
+// callBack HELL_:
 
 // this function is not what we have it is somewhere else
 function fetchProfile(userName, cb) {
@@ -45,3 +45,22 @@ fetchProfile("Joe patel", (profileData) => {
     });
   });
 });
+
+console.log("***********************************************");
+
+// promises :
+// we create a promises and promises has 2 states resolve or reject and we need
+/// to write code for both of the state
+
+let pr = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    let randomNumber = Math.floor(Math.random() * 10);
+    if (randomNumber > 5)
+      resolve({ message: "resolved", number: randomNumber });
+    else reject({ message: "rejected", number: randomNumber });
+  }, 5000);
+});
+
+pr.then((val) => console.log("resolve with", val)).catch((err) =>
+  console.log("rejected with", err)
+);
