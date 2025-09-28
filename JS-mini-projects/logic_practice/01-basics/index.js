@@ -82,3 +82,65 @@ findSmallNumberAmongThree(0, 8, -7); //-7
 findSmallNumberAmongThree(7.6, 1.2, -2.2); //-2.2
 findSmallNumberAmongThree(-9.99, 2, -8.2); //-9.99
 
+// return reverse of a string
+
+const reverseStr = (str) => {
+  const reverse = str.split("").reverse().join("");
+  console.log("String reversed ✨:", reverse);
+};
+reverseStr("Hello my name is ");
+
+// reverse string using for loop
+
+const reverseStringWithLoop = (str) => {
+  let reverse = "";
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reverse += str[i];
+  }
+
+  return reverse;
+};
+
+console.log(
+  "reverse str with loop 💥:>",
+  reverseStringWithLoop("reverse String with Loop")
+);
+
+// count vowels in a string
+
+const checkVowels = (str) => {
+  const vowels = ["a", "e", "i", "o", "u"];
+  const lowerStr = str.toLowerCase();
+  let count = 0;
+
+  for (let i = 0; i < lowerStr.length; i++) {
+    if (vowels.includes(lowerStr[i])) {
+      count++;
+    }
+  }
+
+  console.log(`Number of vowels in "${str}" is:`, count);
+  return count;
+};
+
+checkVowels("WELCOME"); //3
+checkVowels("This will check the vowels in a string"); //9
+
+// count each vowels separately :
+const checkEachVowelSeparately = (str) => {
+  const lower = str.toLowerCase();
+  let a = 0, e = 0, i = 0, o = 0, u = 0;
+
+  for (let index = 0; index < lower.length; index++) {
+    if (lower[index] === 'a') a++;
+    else if (lower[index] === 'e') e++;
+    else if (lower[index] === 'i') i++;
+    else if (lower[index] === 'o') o++;
+    else if (lower[index] === 'u') u++;
+  }
+
+  console.log(`a: ${a}, e: ${e}, i: ${i}, o: ${o}, u: ${u}`);
+};
+
+checkEachVowelSeparately("OpenAI");
