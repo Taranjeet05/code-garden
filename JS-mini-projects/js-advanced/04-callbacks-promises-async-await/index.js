@@ -58,9 +58,21 @@ let pr = new Promise((resolve, reject) => {
     if (randomNumber > 5)
       resolve({ message: "resolved", number: randomNumber });
     else reject({ message: "rejected", number: randomNumber });
-  }, 5000);
+  }, 1000);
 });
 
 pr.then((val) => console.log("resolve with", val)).catch((err) =>
   console.log("rejected with", err)
 );
+
+// Async / Await
+const abcd = async () => {
+  try {
+    let val = await pr;
+    console.log(val);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+abcd();
