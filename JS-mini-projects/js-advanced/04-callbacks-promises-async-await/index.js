@@ -1,0 +1,36 @@
+// callback if you are sending a function to another function in a parameter,
+/// then the parameter function called as a callback
+
+function time(random) {
+  setTimeout(random, 1000);
+}
+
+time(function random() {
+  console.log("hey");
+});
+
+// callBack HELL_:
+
+// this function is not what we have it is somewhere else
+function fetchProfile(userName, cb) {
+  console.log("fetching profile data.......");
+
+  setTimeout(() => {
+    console.log(`Profile fetched of user ${userName}`);
+    cb({ _id: 108, userName, age: 26, email: "jowpatel@gmai.com" });
+  }, 2000);
+}
+const allData = (id, cb) => {
+  console.log("fetching all posts.....");
+
+  setTimeout(() => {
+    cb({ _id: id, post: ["post1, post2, post3, post4"] });
+  }, 3000);
+};
+
+// this what we write to get the data
+fetchProfile("Joe patel", (profileData) => {
+  allData(profileData._id, (posts) => {
+    console.log("Posts:", posts);
+  });
+});
