@@ -130,17 +130,34 @@ checkVowels("This will check the vowels in a string"); //9
 // count each vowels separately :
 const checkEachVowelSeparately = (str) => {
   const lower = str.toLowerCase();
-  let a = 0, e = 0, i = 0, o = 0, u = 0;
+  let a = 0,
+    e = 0,
+    i = 0,
+    o = 0,
+    u = 0;
 
   for (let index = 0; index < lower.length; index++) {
-    if (lower[index] === 'a') a++;
-    else if (lower[index] === 'e') e++;
-    else if (lower[index] === 'i') i++;
-    else if (lower[index] === 'o') o++;
-    else if (lower[index] === 'u') u++;
+    if (lower[index] === "a") a++;
+    else if (lower[index] === "e") e++;
+    else if (lower[index] === "i") i++;
+    else if (lower[index] === "o") o++;
+    else if (lower[index] === "u") u++;
   }
 
   console.log(`a: ${a}, e: ${e}, i: ${i}, o: ${o}, u: ${u}`);
 };
 
 checkEachVowelSeparately("OpenAI");
+
+// Multiplication table(5);
+
+const tableOf5 = () => {
+  // 5 * 1 = 5
+
+  for (let i = 1; i <= 10; i++) {
+    let ans = 5 * i;
+    console.log(`5 * ${i} = ${ans} `);
+  }
+};
+
+tableOf5();
