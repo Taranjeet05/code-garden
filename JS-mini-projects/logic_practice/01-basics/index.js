@@ -161,3 +161,20 @@ const tableOf5 = () => {
 };
 
 tableOf5();
+
+// sum of digit
+
+const sumOfDigit = (num) => {
+  const split = num.toString().split("");
+  let sum = 0;
+
+  for (let i = 0; i < split.length; i++) {
+    sum += Number(split[i]);
+  }
+  console.log("sum:", sum);
+  return sum;
+};
+
+sumOfDigit(150); // 6
+sumOfDigit(2005); // 7
+sumOfDigit(12456); // 18
