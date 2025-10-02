@@ -178,3 +178,18 @@ const sumOfDigit = (num) => {
 sumOfDigit(150); // 6
 sumOfDigit(2005); // 7
 sumOfDigit(12456); // 18
+
+const getCount = (str) => {
+  const split = str.toString().split("");
+  console.log(split);
+
+  let sum = 0;
+
+  for (let i = 0; i < split.length; i++) {
+    sum++;
+  }
+  console.log("Sum of getCount:", sum);
+  return sum;
+};
+
+getCount("Hello, this  is the ");
