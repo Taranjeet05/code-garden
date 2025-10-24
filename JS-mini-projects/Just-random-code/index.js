@@ -49,7 +49,7 @@ class Library {
     );
     if (found) {
       console.log(`Found: ${found.title}, by ${found.author}`);
-      return found
+      return found;
     } else {
       console.log(`Not found any Book related to search query`);
       return null;
