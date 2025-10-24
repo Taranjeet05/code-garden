@@ -48,7 +48,7 @@ class Library {
       (book) => book.title.toLowerCase() === title.toLowerCase()
     );
     if (found) {
-      console.log(`Found: ${found.title}, by${found.author}`);
+      console.log(`Found: ${found.title}, by ${found.author}`);
       return found
     } else {
       console.log(`Not found any Book related to search query`);
