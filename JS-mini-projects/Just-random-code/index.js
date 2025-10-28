@@ -69,3 +69,50 @@ acc2.checkBalance();
 
 const searchAcc = myBank.findAccount("1001");
 if (searchAcc) searchAcc.checkBalance();
+
+// *****************************************************************************************
+
+// Parent Class
+class Animal {
+  constructor(name, sound) {
+    this.name = name;
+    this.sound = sound;
+  }
+
+  makeSound() {
+    console.log(`🐾 ${this.name} makes a sound: ${this.sound}`);
+  }
+}
+
+// Child Class 1
+class Dog extends Animal {
+  makeSound() {
+    console.log(`🐶 ${this.name} barks: ${this.sound}`);
+  }
+
+  fetch() {
+    console.log(`🎾 ${this.name} runs to fetch the ball!`);
+  }
+}
+
+// Child Class 2
+class Cat extends Animal {
+  makeSound() {
+    console.log(`🐱 ${this.name} meows: ${this.sound}`);
+  }
+
+  scratch() {
+    console.log(`😾 ${this.name} is scratching the sofa!`);
+  }
+}
+
+// Create Objects
+const dog1 = new Dog("Buddy", "Woof Woof");
+const cat1 = new Cat("Misty", "Meow Meow");
+
+// Call Methods
+dog1.makeSound();
+dog1.fetch();
+
+cat1.makeSound();
+cat1.scratch();
