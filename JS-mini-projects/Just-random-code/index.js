@@ -116,3 +116,53 @@ dog1.fetch();
 
 cat1.makeSound();
 cat1.scratch();
+
+// *****************************************************************************************
+
+// Base Class
+class Vehicle {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+
+  displayInfo() {
+    console.log(`🚗 Vehicle Info: ${this.brand} ${this.model}`);
+  }
+}
+
+// Subclass 1
+class Car extends Vehicle {
+  constructor(brand, model, doors) {
+    super(brand, model); // calls parent constructor
+    this.doors = doors;
+  }
+
+  displayInfo() {
+    console.log(
+      `🚘 Car Info: ${this.brand} ${this.model} with ${this.doors} doors.`
+    );
+  }
+}
+
+// Subclass 2
+class Bike extends Vehicle {
+  constructor(brand, model, hasCarrier) {
+    super(brand, model);
+    this.hasCarrier = hasCarrier;
+  }
+
+  displayInfo() {
+    const carrierStatus = this.hasCarrier ? "has a carrier" : "no carrier";
+    console.log(
+      `🏍️ Bike Info: ${this.brand} ${this.model} and it ${carrierStatus}.`
+    );
+  }
+}
+
+// Example Usage
+const car1 = new Car("BMW", "X5", 4);
+const bike1 = new Bike("Yamaha", "R15", false);
+
+car1.displayInfo(); // 🚘 Car Info: BMW X5 with 4 doors.
+bike1.displayInfo(); // 🏍️ Bike Info: Yamaha R15 and it no carrier.
