@@ -166,3 +166,74 @@ const bike1 = new Bike("Yamaha", "R15", false);
 
 car1.displayInfo(); // 🚘 Car Info: BMW X5 with 4 doors.
 bike1.displayInfo(); // 🏍️ Bike Info: Yamaha R15 and it no carrier.
+
+
+// *****************************************************************************************
+
+// Base Class
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  getDetails() {
+    console.log(`👤 Name: ${this.name}, Age: ${this.age}`);
+  }
+}
+
+// Subclass: Student
+class Student extends Person {
+  #grades = []; // private property (encapsulation)
+
+  constructor(name, age, studentId) {
+    super(name, age);
+    this.studentId = studentId;
+  }
+
+  addGrade(grade) {
+    if (grade < 0 || grade > 100) {
+      console.log("❌ Invalid grade. Please enter between 0 and 100.");
+      return;
+    }
+    this.#grades.push(grade);
+  }
+
+  calculateAverage() {
+    if (this.#grades.length === 0) {
+      console.log(`${this.name} has no grades yet.`);
+      return 0;
+    }
+    const avg =
+      this.#grades.reduce((sum, grade) => sum + grade, 0) / this.#grades.length;
+    console.log(`📊 ${this.name}'s Average Grade: ${avg.toFixed(2)}%`);
+    return avg;
+  }
+
+  getDetails() {
+    console.log(`🎓 Student: ${this.name}, Age: ${this.age}, ID: ${this.studentId}`);
+  }
+}
+
+// Subclass: Teacher
+class Teacher extends Person {
+  constructor(name, age, subject) {
+    super(name, age);
+    this.subject = subject;
+  }
+
+  getDetails() {
+    console.log(`👩‍🏫 Teacher: ${this.name}, Age: ${this.age}, Subject: ${this.subject}`);
+  }
+}
+
+// Example Usage
+const student1 = new Student("Taranjeet Singh", 19, "STU101");
+student1.addGrade(90);
+student1.addGrade(85);
+student1.addGrade(95);
+student1.getDetails();
+student1.calculateAverage();
+
+const teacher1 = new Teacher("Julia Meyer", 30, "Mathematics");
+teacher1.getDetails();
