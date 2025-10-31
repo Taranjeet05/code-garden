@@ -237,3 +237,79 @@ student1.calculateAverage();
 
 const teacher1 = new Teacher("Julia Meyer", 30, "Mathematics");
 teacher1.getDetails();
+
+// *****************************************************************************************
+
+// 🎬 Movie Class
+class Movie {
+  constructor(title, duration, totalSeats) {
+    this.title = title;
+    this.duration = duration; // in minutes
+    this.availableSeats = totalSeats;
+  }
+
+  bookSeat() {
+    if (this.availableSeats > 0) {
+      this.availableSeats--;
+      console.log(
+        `🎟️ Ticket booked for "${this.title}". Seats left: ${this.availableSeats}`
+      );
+    } else {
+      console.log(`❌ "${this.title}" is sold out!`);
+    }
+  }
+
+  getInfo() {
+    console.log(
+      `🎥 Movie: ${this.title}, Duration: ${this.duration} mins, Seats Left: ${this.availableSeats}`
+    );
+  }
+}
+
+// 🏢 Theater Class (Composition: Theater has many Movies)
+class Theater {
+  constructor(name) {
+    this.name = name;
+    this.movies = []; // list of Movie objects
+  }
+
+  addMovie(movie) {
+    this.movies.push(movie);
+    console.log(`🍿 "${movie.title}" added to ${this.name} theater.`);
+  }
+
+  listMovies() {
+    console.log(`🎞️ Movies currently showing in ${this.name}:`);
+    this.movies.forEach((movie) => movie.getInfo());
+  }
+
+  bookTicket(title) {
+    const found = this.movies.find(
+      (movie) => movie.title.toLowerCase() === title.toLowerCase()
+    );
+    if (found) {
+      found.bookSeat();
+    } else {
+      console.log(`❌ No movie found with title "${title}".`);
+    }
+  }
+}
+
+// Example Usage
+const theater = new Theater("Cineplex Frankfurt");
+
+const movie1 = new Movie("Avengers: Endgame", 180, 3);
+const movie2 = new Movie("Interstellar", 160, 2);
+
+theater.addMovie(movie1);
+theater.addMovie(movie2);
+
+theater.listMovies();
+
+theater.bookTicket("Avengers: Endgame");
+theater.bookTicket("Avengers: Endgame");
+theater.bookTicket("Avengers: Endgame");
+theater.bookTicket("Avengers: Endgame"); // Sold out ❌
+
+theater.bookTicket("Interstellar");
+theater.listMovies();
