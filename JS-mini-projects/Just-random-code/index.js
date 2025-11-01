@@ -36,7 +36,9 @@ class Bank {
   createAccount(ownerName, accountNumber) {
     const newAccount = new BankAccount(ownerName, accountNumber);
     this.accounts.push(newAccount);
-    console.log(`✅ Account created for ${ownerName} (A/C No: ${accountNumber}).`);
+    console.log(
+      `✅ Account created for ${ownerName} (A/C No: ${accountNumber}).`
+    );
     return newAccount;
   }
 
@@ -167,7 +169,6 @@ const bike1 = new Bike("Yamaha", "R15", false);
 car1.displayInfo(); // 🚘 Car Info: BMW X5 with 4 doors.
 bike1.displayInfo(); // 🏍️ Bike Info: Yamaha R15 and it no carrier.
 
-
 // *****************************************************************************************
 
 // Base Class
@@ -211,7 +212,9 @@ class Student extends Person {
   }
 
   getDetails() {
-    console.log(`🎓 Student: ${this.name}, Age: ${this.age}, ID: ${this.studentId}`);
+    console.log(
+      `🎓 Student: ${this.name}, Age: ${this.age}, ID: ${this.studentId}`
+    );
   }
 }
 
@@ -223,7 +226,9 @@ class Teacher extends Person {
   }
 
   getDetails() {
-    console.log(`👩‍🏫 Teacher: ${this.name}, Age: ${this.age}, Subject: ${this.subject}`);
+    console.log(
+      `👩‍🏫 Teacher: ${this.name}, Age: ${this.age}, Subject: ${this.subject}`
+    );
   }
 }
 
@@ -313,3 +318,100 @@ theater.bookTicket("Avengers: Endgame"); // Sold out ❌
 
 theater.bookTicket("Interstellar");
 theater.listMovies();
+
+// *****************************************************************************************
+
+// 🌐 Base Device Class
+class Device {
+  constructor(name, location) {
+    this.name = name;
+    this.location = location;
+    this.isOn = false;
+  }
+
+  turnOn() {
+    this.isOn = true;
+    console.log(`🔌 ${this.name} in ${this.location} is now ON`);
+  }
+
+  turnOff() {
+    this.isOn = false;
+    console.log(`⚡ ${this.name} in ${this.location} is now OFF`);
+  }
+}
+
+// 💡 Light Class (inherits Device)
+class Light extends Device {
+  constructor(name, location, brightness = 50) {
+    super(name, location);
+    this.brightness = brightness;
+  }
+
+  turnOn() {
+    super.turnOn();
+    console.log(`💡 The light is glowing at ${this.brightness}% brightness.`);
+  }
+}
+
+// 🌬️ Fan Class (inherits Device)
+class Fan extends Device {
+  constructor(name, location, speed = 1) {
+    super(name, location);
+    this.speed = speed;
+  }
+
+  turnOn() {
+    super.turnOn();
+    console.log(`🌪️ The fan is spinning at speed level ${this.speed}.`);
+  }
+}
+
+// 🌡️ Thermostat Class (inherits Device)
+class Thermostat extends Device {
+  constructor(name, location, temperature = 22) {
+    super(name, location);
+    this.temperature = temperature;
+  }
+
+  turnOn() {
+    super.turnOn();
+    console.log(`🌡️ Thermostat set to ${this.temperature}°C.`);
+  }
+}
+
+// 🏠 SmartHome Class (Composition)
+class SmartHome {
+  constructor(owner) {
+    this.owner = owner;
+    this.devices = [];
+  }
+
+  addDevice(device) {
+    this.devices.push(device);
+    console.log(`✅ Added ${device.name} to ${this.owner}'s Smart Home.`);
+  }
+
+  turnOnAllDevices() {
+    console.log(`🔈 Turning on all devices for ${this.owner}...`);
+    this.devices.forEach((device) => device.turnOn());
+  }
+
+  turnOffAllDevices() {
+    console.log(`🔇 Turning off all devices for ${this.owner}...`);
+    this.devices.forEach((device) => device.turnOff());
+  }
+}
+
+// Example Usage
+const myHome = new SmartHome("Taranjeet Singh");
+
+const livingRoomLight = new Light("Ceiling Light", "Living Room", 70);
+const bedroomFan = new Fan("Ceiling Fan", "Bedroom", 3);
+const hallThermostat = new Thermostat("Thermostat", "Hall", 24);
+
+myHome.addDevice(livingRoomLight);
+myHome.addDevice(bedroomFan);
+myHome.addDevice(hallThermostat);
+
+myHome.turnOnAllDevices(); // All devices ON (Polymorphism)
+myHome.turnOffAllDevices(); // All devices OFF
