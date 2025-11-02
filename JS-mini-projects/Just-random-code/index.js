@@ -415,3 +415,132 @@ myHome.addDevice(hallThermostat);
 
 myHome.turnOnAllDevices(); // All devices ON (Polymorphism)
 myHome.turnOffAllDevices(); // All devices OFF
+
+
+// *****************************************************************************************
+
+
+// 🎶 Song Class
+class Song {
+  constructor(title, artist, duration) {
+    this.title = title;
+    this.artist = artist;
+    this.duration = duration; // in seconds
+  }
+
+  getDetails() {
+    return `${this.title} by ${this.artist} (${this.duration}s)`;
+  }
+}
+
+// 🎧 Playlist Class (Composition: Playlist contains many songs)
+class Playlist {
+  constructor(name) {
+    this.name = name;
+    this.songs = [];
+  }
+
+  addSong(song) {
+    this.songs.push(song);
+    console.log(`🎵 Added "${song.title}" to playlist "${this.name}".`);
+  }
+
+  removeSong(title) {
+    const index = this.songs.findIndex(
+      (song) => song.title.toLowerCase() === title.toLowerCase()
+    );
+    if (index !== -1) {
+      const removed = this.songs.splice(index, 1);
+      console.log(`❌ Removed "${removed[0].title}" from playlist "${this.name}".`);
+    } else {
+      console.log(`⚠️ Song "${title}" not found in playlist "${this.name}".`);
+    }
+  }
+
+  listSongs() {
+    if (this.songs.length === 0) {
+      console.log(`📂 Playlist "${this.name}" is empty.`);
+      return;
+    }
+    console.log(`🎼 Songs in "${this.name}":`);
+    this.songs.forEach((song, i) =>
+      console.log(`${i + 1}. ${song.getDetails()}`)
+    );
+  }
+}
+
+// ▶️ MusicPlayer Class
+class MusicPlayer {
+  constructor() {
+    this.currentSongIndex = 0;
+    this.isPlaying = false;
+    this.currentPlaylist = null;
+  }
+
+  loadPlaylist(playlist) {
+    this.currentPlaylist = playlist;
+    this.currentSongIndex = 0;
+    console.log(`📀 Loaded playlist "${playlist.name}".`);
+  }
+
+  play() {
+    if (!this.currentPlaylist || this.currentPlaylist.songs.length === 0) {
+      console.log("❌ No playlist loaded or empty playlist!");
+      return;
+    }
+    this.isPlaying = true;
+    const currentSong = this.currentPlaylist.songs[this.currentSongIndex];
+    console.log(`▶️ Now playing: ${currentSong.getDetails()}`);
+  }
+
+  pause() {
+    if (this.isPlaying) {
+      this.isPlaying = false;
+      console.log("⏸️ Music paused.");
+    } else {
+      console.log("⚠️ No song is currently playing.");
+    }
+  }
+
+  skip() {
+    if (!this.currentPlaylist) {
+      console.log("❌ No playlist loaded!");
+      return;
+    }
+    this.currentSongIndex++;
+    if (this.currentSongIndex >= this.currentPlaylist.songs.length) {
+      console.log("🏁 End of playlist reached.");
+      this.isPlaying = false;
+      this.currentSongIndex = 0;
+    } else {
+      this.play();
+    }
+  }
+
+  showCurrentSong() {
+    if (!this.currentPlaylist) {
+      console.log("⚠️ No playlist loaded.");
+      return;
+    }
+    const currentSong = this.currentPlaylist.songs[this.currentSongIndex];
+    console.log(`🎶 Currently selected: ${currentSong.getDetails()}`);
+  }
+}
+
+// Example Usage
+const song1 = new Song("Perfect", "Ed Sheeran", 240);
+const song2 = new Song("Shape of You", "Ed Sheeran", 233);
+const song3 = new Song("Senorita", "Shawn Mendes", 207);
+
+const playlist = new Playlist("Taranjeet's Favorites");
+playlist.addSong(song1);
+playlist.addSong(song2);
+playlist.addSong(song3);
+playlist.listSongs();
+
+const player = new MusicPlayer();
+player.loadPlaylist(playlist);
+player.play();
+player.skip();
+player.pause();
+player.showCurrentSong();
