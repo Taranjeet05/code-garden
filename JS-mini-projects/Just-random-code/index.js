@@ -544,3 +544,66 @@ player.play();
 player.skip();
 player.pause();
 player.showCurrentSong();
+
+// *****************************************************************************************
+
+// 🧍 Base Character Class
+class Character {
+  constructor(name, health = 100, level = 1) {
+    this.name = name;
+    this.health = health;
+    this.level = level;
+  }
+
+  takeDamage(amount) {
+    this.health -= amount;
+    if (this.health <= 0) {
+      this.health = 0;
+      console.log(`💀 ${this.name} has been defeated!`);
+    } else {
+      console.log(`⚔️ ${this.name} took ${amount} damage. Remaining health: ${this.health}`);
+    }
+  }
+
+  showStatus() {
+    console.log(`👤 ${this.name} - Health: ${this.health}, Level: ${this.level}`);
+  }
+}
+
+// 🗡️ Warrior Subclass
+class Warrior extends Character {
+  attack() {
+    console.log(`🗡️ ${this.name} swings a sword!`);
+  }
+
+  showStatus() {
+    console.log(`🛡️ Warrior: ${this.name}, Health: ${this.health}, Level: ${this.level}`);
+  }
+}
+
+// 🔮 Mage Subclass
+class Mage extends Character {
+  castSpell() {
+    console.log(`✨ ${this.name} casts a powerful spell!`);
+  }
+
+  showStatus() {
+    console.log(`🔮 Mage: ${this.name}, Health: ${this.health}, Level: ${this.level}`);
+  }
+}
+
+// Example Usage
+const hero = new Warrior("Arjun", 120, 5);
+const wizard = new Mage("Merlin", 80, 7);
+
+hero.showStatus();
+wizard.showStatus();
+
+hero.attack();
+wizard.castSpell();
+
+wizard.takeDamage(30);
+hero.takeDamage(50);
+
+hero.showStatus();
+wizard.showStatus();
