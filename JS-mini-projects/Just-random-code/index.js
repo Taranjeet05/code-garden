@@ -416,9 +416,7 @@ myHome.addDevice(hallThermostat);
 myHome.turnOnAllDevices(); // All devices ON (Polymorphism)
 myHome.turnOffAllDevices(); // All devices OFF
 
-
 // *****************************************************************************************
-
 
 // 🎶 Song Class
 class Song {
@@ -451,7 +449,9 @@ class Playlist {
     );
     if (index !== -1) {
       const removed = this.songs.splice(index, 1);
-      console.log(`❌ Removed "${removed[0].title}" from playlist "${this.name}".`);
+      console.log(
+        `❌ Removed "${removed[0].title}" from playlist "${this.name}".`
+      );
     } else {
       console.log(`⚠️ Song "${title}" not found in playlist "${this.name}".`);
     }
@@ -561,12 +561,16 @@ class Character {
       this.health = 0;
       console.log(`💀 ${this.name} has been defeated!`);
     } else {
-      console.log(`⚔️ ${this.name} took ${amount} damage. Remaining health: ${this.health}`);
+      console.log(
+        `⚔️ ${this.name} took ${amount} damage. Remaining health: ${this.health}`
+      );
     }
   }
 
   showStatus() {
-    console.log(`👤 ${this.name} - Health: ${this.health}, Level: ${this.level}`);
+    console.log(
+      `👤 ${this.name} - Health: ${this.health}, Level: ${this.level}`
+    );
   }
 }
 
@@ -577,7 +581,9 @@ class Warrior extends Character {
   }
 
   showStatus() {
-    console.log(`🛡️ Warrior: ${this.name}, Health: ${this.health}, Level: ${this.level}`);
+    console.log(
+      `🛡️ Warrior: ${this.name}, Health: ${this.health}, Level: ${this.level}`
+    );
   }
 }
 
@@ -588,7 +594,9 @@ class Mage extends Character {
   }
 
   showStatus() {
-    console.log(`🔮 Mage: ${this.name}, Health: ${this.health}, Level: ${this.level}`);
+    console.log(
+      `🔮 Mage: ${this.name}, Health: ${this.health}, Level: ${this.level}`
+    );
   }
 }
 
@@ -607,3 +615,76 @@ hero.takeDamage(50);
 
 hero.showStatus();
 wizard.showStatus();
+
+/************************************ */
+
+// 🎬 Base Class
+class User {
+  #watchedMovies = [];
+
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+
+  watchMovie(movieTitle) {
+    this.#watchedMovies.push(movieTitle);
+    console.log(`🍿 ${this.name} is watching "${movieTitle}"`);
+  }
+
+  showProfile() {
+    console.log(`👤 User: ${this.name} | 📧 Email: ${this.email}`);
+  }
+
+  getWatchedMovies() {
+    return [...this.#watchedMovies];
+  }
+}
+
+// 💡 Free User Class
+class FreeUser extends User {
+  constructor(name, email) {
+    super(name, email);
+    this.limit = 2;
+  }
+
+  watchMovie(movieTitle) {
+    const watched = this.getWatchedMovies();
+    if (watched.length < this.limit) {
+      super.watchMovie(movieTitle);
+    } else {
+      console.log(`⚠️ Movie limit reached! Upgrade to Premium to watch more.`);
+    }
+  }
+}
+
+// 💎 Premium User Class
+class PremiumUser extends User {
+  constructor(name, email) {
+    super(name, email);
+  }
+
+  watchMovie(movieTitle) {
+    console.log(`🎥 ${this.name} (Premium) is enjoying "${movieTitle}" in HD!`);
+  }
+
+  downloadMovie(movieTitle) {
+    console.log(`⬇️ ${this.name} downloaded "${movieTitle}"`);
+  }
+}
+
+// 🧪 Example Usage
+const freeUser = new FreeUser("John", "john@example.com");
+const premiumUser = new PremiumUser("Alice", "alice@example.com");
+
+freeUser.showProfile();
+premiumUser.showProfile();
+
+freeUser.watchMovie("Interstellar");
+freeUser.watchMovie("Inception");
+freeUser.watchMovie("Tenet"); // Limit exceeded
+
+premiumUser.watchMovie("Avatar");
+premiumUser.downloadMovie("Avatar");
+
+console.log(freeUser.getWatchedMovies());
