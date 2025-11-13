@@ -57,27 +57,21 @@ console.log(`Breed: ${myDog.breed}, Name: ${myDog.name}, Age: ${myDog.age}`);
 // BankAccount (base class)
 
 // Private property: #balance (use encapsulation)
-
 // Properties: accountNumber, ownerName
 
 // Methods:
-
 // deposit(amount) → adds to balance
-
 // withdraw(amount) → subtracts from balance if enough funds
-
 // getBalance() → returns the balance
 
+// *****
 // SavingsAccount (subclass of BankAccount)
-
 // Property: interestRate
-
 // Method: addInterest() → adds interest to balance
 
+// *****
 // CurrentAccount (subclass of BankAccount)
-
 // Property: overdraftLimit
-
 // Override withdraw(amount) to allow overdraft
 
 // Then, create objects of SavingsAccount and CurrentAccount and perform some transactions.
