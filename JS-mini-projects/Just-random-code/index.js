@@ -111,6 +111,8 @@ class SavingsAccount extends BankAccount {
 
   addInterest() {
     const interest = this.getBalance() * (this.interestRate / 100);
+    console.log(`Interest Added : ${interest}`);
   }
 }
+
 
