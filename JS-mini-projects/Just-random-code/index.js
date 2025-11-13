@@ -102,3 +102,15 @@ class BankAccount {
     return this.#balance;
   }
 }
+
+class SavingsAccount extends BankAccount {
+  constructor(accountNumber, ownerName, balance, interestRate) {
+    super(accountNumber, ownerName, balance);
+    this.interestRate = interestRate;
+  }
+
+  addInterest() {
+    const interest = this.getBalance() * (this.interestRate / 100);
+  }
+}
+
