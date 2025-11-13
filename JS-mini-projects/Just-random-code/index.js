@@ -86,7 +86,7 @@ class BankAccount {
 
   deposit(amount) {
     this.#balance += amount;
-    console.log(`${amount} Deposited. New Balance${this.#balance}`);
+    console.log(`${amount} Deposited. New Balance ${this.#balance}`);
   }
 
   withdraw(amount) {
@@ -131,3 +131,14 @@ class CurrentAccount extends BankAccount {
     }
   }
 }
+
+// testing
+
+const mySaving = new SavingsAccount("S1008", "JOE", 5000, 10);
+mySaving.deposit(1000);
+mySaving.withdraw(500);
+mySaving.withdraw(500);
+
+const myCurrent = new CurrentAccount("JJ18", "Micheal", 500, 200);
+myCurrent.withdraw(600);
+myCurrent.withdraw(200);
