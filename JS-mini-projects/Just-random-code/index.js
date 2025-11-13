@@ -115,4 +115,19 @@ class SavingsAccount extends BankAccount {
   }
 }
 
+class CurrentAccount extends BankAccount {
+  constructor(accountNumber, ownerName, balance, overdraftLimit) {
+    super(accountNumber, ownerName, balance);
+    this.overdraftLimit = overdraftLimit;
+  }
 
+  withdraw(amount) {
+    if (amount > this.getBalance() + this.overdraftLimit) {
+      console.log(`Overdraft limit exceeded 🤯`);
+    } else {
+      const newBalance = this.getBalance() - amount;
+      super.deposit(-amount);
+      console.log(`${amount} Withdraw. New balance: ${this.getBalance()}`);
+    }
+  }
+}
