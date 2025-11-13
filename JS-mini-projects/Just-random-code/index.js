@@ -50,7 +50,6 @@ myDog.eat();
 myDog.bark();
 console.log(`Breed: ${myDog.breed}, Name: ${myDog.name}, Age: ${myDog.age}`);
 
-
 // /**************************************************************************** */
 //  Create a bank system with the following classes:
 
@@ -76,3 +75,30 @@ console.log(`Breed: ${myDog.breed}, Name: ${myDog.name}, Age: ${myDog.age}`);
 
 // Then, create objects of SavingsAccount and CurrentAccount and perform some transactions.
 
+class BankAccount {
+  #balance; // private properties
+
+  constructor(accountNumber, ownerName, balance = 0) {
+    this.accountNumber = accountNumber;
+    this.ownerName = ownerName;
+    this.#balance = balance;
+  }
+
+  deposit(amount) {
+    this.#balance += amount;
+    console.log(`${amount} Deposited. New Balance${this.#balance}`);
+  }
+
+  withdraw(amount) {
+    if (amount > this.#balance) {
+      console.log(`Insufficient Balance ~_~`);
+    } else {
+      this.#balance -= amount;
+      console.log(`${amount} Withdraw. New Balance${this.#balance}`);
+    }
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
