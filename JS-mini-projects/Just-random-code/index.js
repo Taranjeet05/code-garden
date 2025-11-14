@@ -142,3 +142,27 @@ mySaving.withdraw(500);
 const myCurrent = new CurrentAccount("JJ18", "Micheal", 500, 200);
 myCurrent.withdraw(600);
 myCurrent.withdraw(200);
+
+
+/**************************************************************************** */
+
+// Question:
+
+// Create an abstract class Shape with:
+// A method calculateArea() (but do NOT implement it in the parent class)
+// A method describe() → logs "This is a shape."
+
+// Then create two subclasses:
+// 1️⃣ Circle
+// Property: radius
+// Implement calculateArea() for a circle
+// Formula: π * radius * radius
+
+// 2️⃣ Rectangle
+// Properties: width, height
+// Implement calculateArea() for a rectangle
+// Formula: width * height
+
+// Finally:
+// Create one Circle and one Rectangle.
+// Call describe() and calculateArea() for each.
