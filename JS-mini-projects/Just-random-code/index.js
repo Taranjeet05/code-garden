@@ -203,3 +203,12 @@ class Rectangle extends Shape {
     return this.width * this.height;
   }
 }
+
+// testing
+const circle = new Circle(5);
+circle.describe();
+console.log('circle Area:', circle.calculateArea());
+
+const rectangle = new Rectangle(4, 8);
+rectangle.describe();
+console.log("Rectangle Area:", rectangle.calculateArea());
