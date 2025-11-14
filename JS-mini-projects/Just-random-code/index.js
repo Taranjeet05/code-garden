@@ -143,7 +143,6 @@ const myCurrent = new CurrentAccount("JJ18", "Micheal", 500, 200);
 myCurrent.withdraw(600);
 myCurrent.withdraw(200);
 
-
 /**************************************************************************** */
 
 // Question:
@@ -166,3 +165,19 @@ myCurrent.withdraw(200);
 // Finally:
 // Create one Circle and one Rectangle.
 // Call describe() and calculateArea() for each.
+
+class Shape {
+  constructor() {
+    if (new.target === Shape) {
+      throw new Error(`Cannot instantiate abstract class Shape directly`);
+    }
+  }
+  calculateArea() {
+    throw new Error(`CalculateArea() must be implemented in subclass`);
+  }
+
+  describe() {
+    console.log(`This is a Shape`);
+  }
+}
+
