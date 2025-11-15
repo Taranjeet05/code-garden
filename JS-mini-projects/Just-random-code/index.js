@@ -212,3 +212,37 @@ console.log('circle Area:', circle.calculateArea());
 const rectangle = new Rectangle(4, 8);
 rectangle.describe();
 console.log("Rectangle Area:", rectangle.calculateArea());
+
+/******************************************************************* */
+
+// 🧩 OOP Question (Advanced: Composition + Strategy Pattern + Polymorphism)
+// Question:
+
+// You are building a notification system.
+// Create the following:
+
+// 1️⃣ Create an abstract class Notification
+// send(message) → abstract method
+// Throws error if someone tries to instantiate Notification directly.
+
+// 2️⃣ Create three notification strategy classes:
+// EmailNotification
+// Implements send(message)
+// Logs: "Sending EMAIL: [message]"
+// SMSNotification
+// Implements send(message)
+// Logs: "Sending SMS: [message]"
+// PushNotification
+// Implements send(message)
+// Logs: "Sending PUSH: [message]"
+
+// 3️⃣ Create a class NotificationManager
+// Property: strategy (the notification method to use)
+// Method: setStrategy(strategy)
+// Method: notify(message) → uses the selected strategy to send message.
+
+// 4️⃣ Test the flow
+// Create a NotificationManager
+// Change strategies (email → sms → push)
+// Send messages each time
+
