@@ -265,3 +265,10 @@ class EmailNotification extends Notification {
     console.log(`Sending EMAIL: ${message}`);
   }
 }
+
+// Strategy 2: SMS
+class SMSNotification extends Notification {
+  send(message) {
+    console.log(`Sending SMS: ${message}`);
+  }
+}
