@@ -259,3 +259,9 @@ class Notification {
   }
 }
 
+// Strategy 1: Email
+class EmailNotification extends Notification {
+  send(message) {
+    console.log(`Sending EMAIL: ${message}`);
+  }
+}
