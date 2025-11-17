@@ -279,3 +279,22 @@ class PushNotification extends Notification {
     console.log(`Sending PUSH: ${message}`);
   }
 }
+
+// Context (Manager)
+class NotificationManager {
+  constructor(strategy) {
+    this.strategy = strategy;
+  }
+
+  setStrategy(strategy) {
+    this.strategy = strategy;
+  }
+
+  notify(message) {
+    if (!this.strategy) {
+      console.log("No notification strategy selected ❌");
+      return;
+    }
+    this.strategy.send(message);
+  }
+}
