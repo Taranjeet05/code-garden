@@ -272,3 +272,10 @@ class SMSNotification extends Notification {
     console.log(`Sending SMS: ${message}`);
   }
 }
+
+// Strategy 3: Push
+class PushNotification extends Notification {
+  send(message) {
+    console.log(`Sending PUSH: ${message}`);
+  }
+}
