@@ -246,3 +246,16 @@ console.log("Rectangle Area:", rectangle.calculateArea());
 // Change strategies (email → sms → push)
 // Send messages each time
 
+// Abstract class
+class Notification {
+  constructor() {
+    if (new.target === Notification) {
+      throw new Error("Cannot instantiate abstract class Notification.");
+    }
+  }
+
+  send(message) {
+    throw new Error("send() must be implemented in subclass.");
+  }
+}
+
