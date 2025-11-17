@@ -298,3 +298,13 @@ class NotificationManager {
     this.strategy.send(message);
   }
 }
+
+// Testing
+const manager = new NotificationManager(new EmailNotification());
+manager.notify("Welcome to our platform!");
+
+manager.setStrategy(new SMSNotification());
+manager.notify("Your OTP is 12345");
+
+manager.setStrategy(new PushNotification());
+manager.notify("You have a new message!");
