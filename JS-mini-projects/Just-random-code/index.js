@@ -370,3 +370,14 @@ class User {
     );
   }
 }
+
+// SubClass Admin
+class Admin extends User {
+  constructor(name, email) {
+    super(name, email, "Admin");
+  }
+
+  accessAdminPanel() {
+    console.log(`Admin panel accessed ✨✨✅`);
+  }
+}
