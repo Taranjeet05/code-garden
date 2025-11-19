@@ -381,3 +381,15 @@ class Admin extends User {
     console.log(`Admin panel accessed ✨✨✅`);
   }
 }
+
+// subClass Customer
+
+class Customer extends User {
+  constructor(name, email) {
+    super(name, email, "Customer");
+  }
+
+  purchase(item) {
+    console.log(`Customer purchased: ${item}`);
+  }
+}
