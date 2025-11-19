@@ -207,7 +207,7 @@ class Rectangle extends Shape {
 // testing
 const circle = new Circle(5);
 circle.describe();
-console.log('circle Area:', circle.calculateArea());
+console.log("circle Area:", circle.calculateArea());
 
 const rectangle = new Rectangle(4, 8);
 rectangle.describe();
@@ -350,3 +350,23 @@ manager.notify("You have a new message!");
 // A guest
 
 // Call their role-specific methods
+
+// Base User Class
+class User {
+  #role; //private
+  constructor(name, email, role) {
+    this.name = name;
+    this.email = email;
+    this.#role = role;
+  }
+
+  getRole() {
+    return this.#role;
+  }
+
+  describe() {
+    console.log(
+      `Name:${this.name}, Email:${this.email} and Role:${this.getRole()}`
+    );
+  }
+}
