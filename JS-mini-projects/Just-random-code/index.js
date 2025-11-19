@@ -405,3 +405,25 @@ class Guest extends User {
     console.log(`Guest is viewing the content 🎑`);
   }
 }
+
+class UserFactory {
+  constructor(type, name, email) {
+    this.type = type;
+    this.name = name;
+    this.email = email;
+  }
+
+  static createUser(type, name, email) {
+    switch (type.toLowerCase()) {
+      case "admin":
+        return new Admin(name, email);
+      case "customer":
+        return new Customer(name, email);
+      case "guest":
+        return new Guest(name, email);
+      default:
+        throw new Error(`Invalid user type`);
+    }
+  }
+}
+
