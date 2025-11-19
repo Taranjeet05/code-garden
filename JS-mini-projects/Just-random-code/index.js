@@ -393,3 +393,15 @@ class Customer extends User {
     console.log(`Customer purchased: ${item}`);
   }
 }
+
+// subClass Guest
+
+class Guest extends User {
+  constructor(name, email) {
+    super(name, email, "Guest");
+  }
+
+  viewContent() {
+    console.log(`Guest is viewing the content 🎑`);
+  }
+}
