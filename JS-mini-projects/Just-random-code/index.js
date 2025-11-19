@@ -308,3 +308,45 @@ manager.notify("Your OTP is 12345");
 
 manager.setStrategy(new PushNotification());
 manager.notify("You have a new message!");
+
+/****************************************************************************** */
+
+// 🧩 OOP Question (Advanced: Factory Pattern + Static Methods + Polymorphism + Encapsulation)
+// Question:
+// You are building a User Management System.
+// Create the following:
+
+// 1️⃣ Base class: User
+// Private property: #role
+// Properties: name, email
+// Constructor takes name, email, role
+// Method: getRole() → returns #role
+// Method: describe() → logs:
+// "Name: [name], Email: [email], Role: [role]"
+
+// 2️⃣ Subclasses:
+// Admin
+// Extra method: accessAdminPanel() → logs "Admin panel accessed ✔️"
+// Customer
+// Extra method: purchase(item) → logs "Customer purchased: [item]"
+
+// Guest
+// Extra method: viewContent() → logs "Guest is viewing content"
+
+// 3️⃣ Create a UserFactory class with a static method:
+// createUser(type, name, email)
+
+// Returns:
+// new Admin(name, email)
+// new Customer(name, email)
+// new Guest(name, email)
+// Throws error if type is unknown.
+
+// 4️⃣ Test the flow:
+
+// Create 3 users using the factory:
+// An admin
+// A customer
+// A guest
+
+// Call their role-specific methods
