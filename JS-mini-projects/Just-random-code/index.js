@@ -427,3 +427,15 @@ class UserFactory {
   }
 }
 
+// testing
+const admin = UserFactory.createUser("admin", "Bob", "bob@test.com");
+admin.describe();
+admin.accessAdminPanel();
+
+const customer = UserFactory.createUser("customer", "Singh", "singh@test.com");
+customer.describe();
+customer.purchase("Rog Laptop");
+
+const guest = UserFactory.createUser("guest", "leo", "leo@test.com");
+guest.describe();
+guest.viewContent();
