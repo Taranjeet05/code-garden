@@ -440,7 +440,6 @@ const guest = UserFactory.createUser("guest", "leo", "leo@test.com");
 guest.describe();
 guest.viewContent();
 
-
 //************************************************************************************** */
 
 // OOP Question (Advanced: Payment Processing System)
@@ -475,3 +474,15 @@ guest.viewContent();
 // Logs: "Order total: $[amount]"
 // Calls this.paymentGateway.pay(amount)
 
+// Abstract class PaymentGateway
+class PaymentGateway {
+  constructor() {
+    if (new.target === PaymentGateway) {
+      throw new Error("Cannot instantiate abstract Class PaymentGateway");
+    }
+  }
+
+  pay(amount) {
+    throw new Error("Pay () must be implemented by Subclass");
+  }
+}
