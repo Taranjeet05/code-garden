@@ -439,3 +439,39 @@ customer.purchase("Rog Laptop");
 const guest = UserFactory.createUser("guest", "leo", "leo@test.com");
 guest.describe();
 guest.viewContent();
+
+
+//************************************************************************************** */
+
+// OOP Question (Advanced: Payment Processing System)
+// Problem:
+
+// You are building a Payment Processing System.
+
+// Create the following:
+
+// 1️⃣ Abstract class PaymentGateway
+// Method: pay(amount) → abstract (must be overridden)
+// Constructor throws an error if someone tries to instantiate directly.
+
+// 2️⃣ Create three payment gateway strategies:
+// CreditCardPayment
+// Implements pay(amount)
+// Logs:
+// "Processing CREDIT CARD payment of $[amount]"
+// PayPalPayment
+// Implements pay(amount)
+// Logs:
+// "Processing PAYPAL payment of $[amount]"
+// CryptoPayment
+// Implements pay(amount)
+// Logs:
+// "Processing CRYPTO payment of $[amount]"
+
+// 3️⃣ Create a class Order
+// Properties: amount, paymentGateway
+// Method: setPaymentGateway(gateway) → switch payment method dynamically
+// Method: processPayment()
+// Logs: "Order total: $[amount]"
+// Calls this.paymentGateway.pay(amount)
+
