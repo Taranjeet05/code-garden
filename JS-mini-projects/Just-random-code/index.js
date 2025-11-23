@@ -501,3 +501,9 @@ class PayPalPayment extends PaymentGateway {
     console.log(`Processing PAYPAL Payment of ${amount}`);
   }
 }
+
+class CryptoPayment extends PaymentGateway {
+  pay(amount) {
+    console.log(`Processing CRYPTO Payment of ${amount}`);
+  }
+}
