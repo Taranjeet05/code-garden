@@ -494,3 +494,10 @@ class CreditCardPayment extends PaymentGateway {
     console.log(`Processing CREDIT CARD Payment of ${amount}`);
   }
 }
+
+// strategy 2 Paypal ::
+class PayPalPayment extends PaymentGateway {
+  pay(amount) {
+    console.log(`Processing PAYPAL Payment of ${amount}`);
+  }
+}
