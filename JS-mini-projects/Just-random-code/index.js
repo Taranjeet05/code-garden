@@ -507,3 +507,21 @@ class CryptoPayment extends PaymentGateway {
     console.log(`Processing CRYPTO Payment of ${amount}`);
   }
 }
+
+// context : Order ::
+
+class Order {
+  constructor(amount, paymentGateway) {
+    this.amount = amount;
+    this.PaymentGateway = paymentGateway;
+  }
+
+  setPaymentGateway(gateway) {
+    this.paymentGateway = gateway;
+  }
+
+  processPayment() {
+    console.log(`Order Total :: ${this.amount}`);
+    this.paymentGateway.pay(this.amount);
+  }
+}
