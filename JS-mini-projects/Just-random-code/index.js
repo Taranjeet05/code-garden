@@ -525,3 +525,13 @@ class Order {
     this.paymentGateway.pay(this.amount);
   }
 }
+
+// testing
+const order = new Order(150, new CreditCardPayment());
+order.processPayment();
+
+order.setPaymentGateway(new PayPalPayment());
+order.processPayment();
+
+order.setPaymentGateway(new CryptoPayment());
+order.processPayment();
