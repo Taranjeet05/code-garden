@@ -486,3 +486,11 @@ class PaymentGateway {
     throw new Error("Pay () must be implemented by Subclass");
   }
 }
+
+// strategy 1 CreditCardPayment ::
+
+class CreditCardPayment extends PaymentGateway {
+  pay(amount) {
+    console.log(`Processing CREDIT CARD Payment of ${amount}`);
+  }
+}
