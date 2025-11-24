@@ -535,3 +535,40 @@ order.processPayment();
 
 order.setPaymentGateway(new CryptoPayment());
 order.processPayment();
+
+//***************************************************************************** */
+
+// OOP Challenge: "Online Course Platform (Polymorphism + Inheritance + Encapsulation)"
+// You are building a small online-course system.
+
+// Requirements
+// You must create 3 classes:
+
+// 1. Base Class: Course
+// Properties:
+// title (string)
+// duration (number, hours)
+// Methods:
+// getInfo() → returns "Course: <title>, Duration: <duration> hours"
+
+// 2. Subclass: VideoCourse
+// Additional property:
+// videoCount
+// Overrides:
+// getInfo()
+// → return "Video Course: <title>, <videoCount> videos, <duration> hours"
+
+// 3. Subclass: TextCourse
+// Additional property:
+// pageCount
+// Overrides:
+// getInfo()
+// → return "Text Course: <title>, <pageCount> pages, <duration> hours"
+
+// 4. Write a function printCourseDetails(course)
+// This function must:
+// Accept any course type
+// Print the correct info (polymorphism)
+
+// ⭐ BONUS
+// Create an array of mixed courses and loop through it using the polymorphic function.
