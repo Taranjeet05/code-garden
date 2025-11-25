@@ -597,3 +597,16 @@ class VideoCourse extends Course {
     return `Video Course: ${this.title}, ${this.videoCount} videos, ${this.duration} hours`;
   }
 }
+
+// subClass :: TextCourse
+
+class TextCourse extends Course {
+  constructor(title, duration, pageCount) {
+    super(title, duration);
+    this.pageCount = pageCount;
+  }
+
+  getInfo() {
+    return `Text Course: ${this.title}, ${this.pageCount} pages, ${this.duration} hours`;
+  }
+}
