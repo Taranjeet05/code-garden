@@ -615,3 +615,10 @@ class TextCourse extends Course {
 function printCourseDetails(course) {
   console.log(course.getInfo());
 }
+
+// test
+const Video = new VideoCourse("JavaScript Mastery", 10, 15);
+const text = new TextCourse("SCSS Deep Dive", 15, 400);
+
+printCourseDetails(Video);
+printCourseDetails(text);
