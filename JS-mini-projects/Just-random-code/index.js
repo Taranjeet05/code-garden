@@ -587,7 +587,7 @@ class Course {
 
 // subClass :: VideoCourse
 
-class VideoCourse {
+class VideoCourse extends Course {
   constructor(title, duration, videoCount) {
     super(title, duration);
     this.videoCount = videoCount;
