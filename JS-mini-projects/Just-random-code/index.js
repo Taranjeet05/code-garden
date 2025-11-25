@@ -513,7 +513,7 @@ class CryptoPayment extends PaymentGateway {
 class Order {
   constructor(amount, paymentGateway) {
     this.amount = amount;
-    this.PaymentGateway = paymentGateway;
+    this.paymentGateway = paymentGateway;
   }
 
   setPaymentGateway(gateway) {
@@ -521,12 +521,12 @@ class Order {
   }
 
   processPayment() {
-    console.log(`Order Total :: ${this.amount}`);
+    console.log(`Order total: $${this.amount}`);
     this.paymentGateway.pay(this.amount);
   }
 }
 
-// testing
+// Testing
 const order = new Order(150, new CreditCardPayment());
 order.processPayment();
 
