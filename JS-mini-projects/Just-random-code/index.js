@@ -610,3 +610,8 @@ class TextCourse extends Course {
     return `Text Course: ${this.title}, ${this.pageCount} pages, ${this.duration} hours`;
   }
 }
+
+// Polymorphism :: function
+function printCourseDetails(course) {
+  console.log(course.getInfo());
+}
