@@ -572,3 +572,15 @@ order.processPayment();
 
 // ⭐ BONUS
 // Create an array of mixed courses and loop through it using the polymorphic function.
+
+// Base Class
+class Course {
+  constructor(title, duration) {
+    this.title = title;
+    this.duration = duration;
+  }
+
+  getInfo() {
+    return `Course: ${this.title}, Duration: ${this.duration} hours`;
+  }
+}
