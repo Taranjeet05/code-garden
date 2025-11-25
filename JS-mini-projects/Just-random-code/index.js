@@ -584,3 +584,16 @@ class Course {
     return `Course: ${this.title}, Duration: ${this.duration} hours`;
   }
 }
+
+// subClass :: VideoCourse
+
+class VideoCourse {
+  constructor(title, duration, videoCount) {
+    super(title, duration);
+    this.videoCount = videoCount;
+  }
+
+  getInfo() {
+    return `Video Course: ${this.title}, ${this.videoCount} videos, ${this.duration} hours`;
+  }
+}
