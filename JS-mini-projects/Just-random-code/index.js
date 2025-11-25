@@ -622,3 +622,13 @@ const text = new TextCourse("SCSS Deep Dive", 15, 400);
 
 printCourseDetails(Video);
 printCourseDetails(text);
+
+// Mixed Array for Testing
+
+const Courses = [
+  new VideoCourse("React Basics", 8, 32),
+  new TextCourse("CSS Handbook", 4, 90),
+  new Course("AI Concepts", 3),
+];
+
+Courses.map((course) => printCourseDetails(course));
