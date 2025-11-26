@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+main section {
+  height: 100%;
+  flex-grow: 1;
+  background: rgb(49, 5, 5);
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  cursor: pointer;
+}
+main section:hover {
+  flex-grow: 3;
+}
+main section:nth-child(1) {
+  background-image: url(./images/IronMan.jpg);
+}
+main section:nth-child(2) {
+  background-image: url(./images/Loki.jpg);
+}
+main section:nth-child(3) {
+  background-image: url(./images/SpiderMan.jpg);
+}
+main section:nth-child(4) {
+  background-image: url(./images/CaptainAmerica.jpg);
+}
+main section:nth-child(5) {
+  background-image: url(./images/DeadPool.jpg);
+}/*# sourceMappingURL=style.css.map */
