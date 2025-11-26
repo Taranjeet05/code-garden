@@ -1,0 +1,130 @@
+@import "button";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  background-color: azure;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr;
+
+  grid-template-areas:
+    "header header"
+    "section aside";
+
+  header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 3rem;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      a {
+        text-decoration: none;
+        color: black;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+      a:nth-child(1) {
+        color: green;
+      }
+    }
+    button {
+      @include button;
+    }
+  }
+
+  section {
+    grid-area: section;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 7rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 1.5rem;
+
+    h3 {
+      background-color: green;
+      padding: 0.5rem 2rem;
+      border-radius: 1.5rem;
+      color: white;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: gray;
+    }
+
+    section {
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5rem;
+        padding-bottom: 4rem;
+
+        button:nth-child(1) {
+          @include button;
+        }
+        button:nth-child(2) {
+          @include button(white, green);
+        }
+      }
+    }
+  }
+
+  aside {
+    grid-area: aside;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 60%;
+      width: 50%;
+      clip-path: polygon(
+        0% 15%,
+        15% 15%,
+        15% 0%,
+        85% 0%,
+        85% 15%,
+        100% 15%,
+        100% 85%,
+        85% 85%,
+        85% 100%,
+        15% 100%,
+        15% 85%,
+        0% 85%
+      );
+    }
+  }
+}
