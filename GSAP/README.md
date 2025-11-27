@@ -15,4 +15,4 @@ A completed project demonstrating animation techniques using tweening concepts.
 
 ## 002 - Timeline
 
-Coming soon... Learning about timelines in GSAP.
+Learned about timelines in GSAP.

@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  color: white;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding-left: 2rem;
+  gap: 2rem;
+}
+main .shapes {
+  height: 30%;
+  width: 100%;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 2rem;
+}
+main .shapes div {
+  width: 5%;
+  height: 20%;
+  background-color: green;
+  border-radius: 2rem;
+}
+main .shapes .box {
+  background-color: orange;
+}
+main .shapes .circle {
+  background-color: whitesmoke;
+}
+main .shapes .box2 {
+  background-color: green;
+}
+main .buttons-section {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+main .buttons-section #play {
+  padding: 0.8rem 3rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: white;
+  background-color: blue;
+  border: 0.2rem solid blue;
+  border-color: blue;
+  outline: none;
+}
+main .buttons-section #pause {
+  padding: 0.8rem 3rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: white;
+  background-color: red;
+  border: 0.2rem solid rgb(214, 85, 85);
+  border-color: rgb(214, 85, 85);
+  outline: none;
+}
+main .buttons-section #resume {
+  padding: 0.8rem 3rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: white;
+  background-color: rgb(23, 119, 143);
+  border: 0.2rem solid rgb(103, 177, 196);
+  border-color: rgb(103, 177, 196);
+  outline: none;
+}
+main .buttons-section #reverse {
+  padding: 0.8rem 3rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: white;
+  background-color: rgb(114, 13, 97);
+  border: 0.2rem solid rgb(189, 78, 156);
+  border-color: rgb(189, 78, 156);
+  outline: none;
+}
+main .buttons-section #restart {
+  padding: 0.8rem 3rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: white;
+  background-color: rgb(60, 87, 9);
+  border: 0.2rem solid rgb(61, 139, 50);
+  border-color: rgb(61, 139, 50);
+  outline: none;
+}/*# sourceMappingURL=style.css.map */

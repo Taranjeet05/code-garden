@@ -1,0 +1,13 @@
+@mixin button($text-color: white, $bg-color: blue, $border-color: blue) {
+  padding: 0.8rem 3rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform:uppercase;
+  color: $text-color;
+  background-color: $bg-color;
+  border: 0.2rem solid $border-color;
+  border-color: $border-color;
+  outline: none;
+}
