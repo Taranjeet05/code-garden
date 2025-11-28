@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: "#page1",
       start: "2% top",
       end: "+=3000",
-      markers: true,
       scrub: 2,
       pin: true,
     },
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       x: -1600,
-    //   duration: 3,
     }
   );
 });
