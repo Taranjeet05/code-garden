@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  scrollbar-width: none;
+}
+
+#page1 {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 20% 80%;
+  grid-template-areas:
+    "heading heading"
+    "text pics";
+
+  h1 {
+    grid-area: heading;
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  #text {
+    grid-area: text;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      color: white;
+      writing-mode: vertical-lr;
+      text-orientation: upright;
+      font-weight: 800;
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-family: "Science Gothic", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+  }
+  #pics {
+    grid-area: pics;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 1rem;
+
+    img {
+      width: 80%;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 1;
+    }
+  }
+}
+
