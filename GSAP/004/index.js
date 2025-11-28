@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: ".display2",
       start: "40% 70%",
       end: "20% 20%",
-      markers: true,
       scrub: 1,
     },
   });
