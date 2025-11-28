@@ -79,6 +79,29 @@ restart.addEventListener("click", () => gtl.restart());
 - **Interactive Controls:** Creating UI-controlled animations
 - **Timing & Easing:** Working with advanced easings and position parameters
 - **Project Organization:** Structuring clean, scalable animation code
+ - **Project Organization:** Structuring clean, scalable animation code
+
+### 003 - Staggering
+
+**Stagger with a small project**
+
+#### Concepts Learned
+
+- `stagger` – start multiple tweens with small offsets to create cascading animations
+- Targeting groups of elements and controlling delays per item (number, function, or object)
+- Combining `stagger` with easing for more organic motion
+
+#### Code Example
+
+```javascript
+gsap.to('.dot', { y: -100, duration: 1, stagger: 0.15, ease: 'power2.out' });
+```
+
+#### Project
+
+**003 & Project** – A small demo that animates a set of elements (e.g., `.dot`) using `stagger` to create a ripple/cascade effect.
+
+This exercise demonstrates how `stagger` simplifies sequencing many similar tweens and makes group animations feel more natural.
 
 ## 🚀 Getting Started
 
