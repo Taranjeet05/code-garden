@@ -2,63 +2,22 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollToPlugin);
 
-  //section 1
-  document
-    .querySelector("a[href='#section1']")
-    .addEventListener("click", (e) => {
+  // ScrollSmoother
+
+  let smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 2,
+    effect: true,
+  });
+
+  // smooth scroll for the Nav Links::
+
+  document.querySelectorAll(".nav__link").forEach((link) => {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
-
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: "#section1",
-          //   offsetY: -200,
-        },
-      });
+      const target = link.getAttribute("href");
+      smoother.scrollTo(target, true);
     });
-
-  //section 2
-  document
-    .querySelector("a[href='#section2']")
-    .addEventListener("click", (e) => {
-      e.preventDefault();
-
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: "#section2",
-          //   offsetY: -200,
-        },
-      });
-    });
-
-  //section 3
-  document
-    .querySelector("a[href='#section3']")
-    .addEventListener("click", (e) => {
-      e.preventDefault();
-
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: "#section3",
-          //   offsetY: -200,
-        },
-      });
-    });
-
-  //section 4
-  document
-    .querySelector("a[href='#section4']")
-    .addEventListener("click", (e) => {
-      e.preventDefault();
-
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: "#section4",
-          //   offsetY: -200,
-        },
-      });
-    });
+  });
 });
