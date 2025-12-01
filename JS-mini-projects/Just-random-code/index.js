@@ -632,3 +632,46 @@ const Courses = [
 ];
 
 Courses.map((course) => printCourseDetails(course));
+
+/******************************************************************* */
+
+// OOP Challenge: “Employee Payment System”
+// Requirements
+
+// Your task: create a system that calculates salary for different kinds of employees.
+
+// 1. Abstract Class: Employee
+// Properties:
+// name
+// baseSalary
+// Methods:
+// calculatePay() → must be overridden (throw error if called directly)
+// getInfo() → returns "Employee: <name>, Base Salary: <baseSalary>"
+
+// Since JS doesn’t have real abstract classes, simulate it manually.
+
+// 2. Subclass: FullTimeEmployee
+// Additional:
+// bonus
+// calculatePay() → return baseSalary + bonus
+
+// 3. Subclass: PartTimeEmployee
+// Additional:
+// hourlyRate
+// hoursWorked
+// calculatePay() → return hourlyRate * hoursWorked
+
+// 4. Subclass: Intern
+// Interns get a fixed stipend, not salary.
+// Additional:
+// stipend
+// calculatePay() → return stipend
+
+// 5. Write a function printPaySlip(employee)
+// Should print:
+// <name> earns <calculatedPay> this month.
+
+// Use polymorphism.
+
+// ⭐ BONUS
+// Create an employee list containing full-time, part-time, and interns → loop + print payslip.
