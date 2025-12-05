@@ -675,3 +675,23 @@ Courses.map((course) => printCourseDetails(course));
 
 // ⭐ BONUS
 // Create an employee list containing full-time, part-time, and interns → loop + print payslip.
+
+// Abstract Base Class
+class Employee {
+  constructor(name, baseSalary) {
+    if (new.target === Employee) {
+      throw new Error("Cannot instantiate abstract class Employee");
+    }
+
+    this.name = name;
+    this.baseSalary = baseSalary;
+  }
+
+  calculatePay() {
+    throw new Error("calculatePay() must be implemented by subclass");
+  }
+
+  getInfo() {
+    return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
+  }
+}
