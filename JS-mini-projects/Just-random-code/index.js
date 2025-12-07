@@ -677,6 +677,7 @@ Courses.map((course) => printCourseDetails(course));
 // Create an employee list containing full-time, part-time, and interns → loop + print payslip.
 
 // Abstract Base Class
+// Abstract Base Class
 class Employee {
   constructor(name, baseSalary) {
     if (new.target === Employee) {
@@ -695,3 +696,54 @@ class Employee {
     return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
   }
 }
+
+// Full-time employee
+class FullTimeEmployee extends Employee {
+  constructor(name, baseSalary, bonus) {
+    super(name, baseSalary);
+    this.bonus = bonus;
+  }
+
+  calculatePay() {
+    return this.baseSalary + this.bonus;
+  }
+}
+
+// Part-time employee
+class PartTimeEmployee extends Employee {
+  constructor(name, hourlyRate, hoursWorked) {
+    super(name, 0); // base not used
+    this.hourlyRate = hourlyRate;
+    this.hoursWorked = hoursWorked;
+  }
+
+  calculatePay() {
+    return this.hourlyRate * this.hoursWorked;
+  }
+}
+
+// Intern
+class Intern extends Employee {
+  constructor(name, stipend) {
+    super(name, 0); // base not used
+    this.stipend = stipend;
+  }
+
+  calculatePay() {
+    return this.stipend;
+  }
+}
+
+// Polymorphic Function
+function printPaySlip(employee) {
+  console.log(`${employee.name} earns ${employee.calculatePay()} this month.`);
+}
+
+// Test data
+const employees = [
+  new FullTimeEmployee("Alice", 3000, 500),
+  new PartTimeEmployee("Bob", 20, 80),
+  new Intern("Charlie", 600)
+];
+
+employees.forEach(e => printPaySlip(e));
