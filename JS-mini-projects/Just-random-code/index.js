@@ -747,3 +747,56 @@ const employees = [
 ];
 
 employees.forEach(e => printPaySlip(e));
+
+/******************************************************************* */
+
+// OOP Challenge: “Library Management System”
+// Requirements:
+
+// You need to create a library system with different types of items.
+
+// 1. Base Class: LibraryItem
+
+// Properties:
+
+// title
+
+// author
+
+// year
+
+// Methods:
+
+// getInfo() → returns "Title: <title>, Author: <author>, Year: <year>"
+
+// checkout() → abstract method (throw error if called directly)
+
+// 2. Subclass: Book
+
+// Additional property: pages
+
+// Implement checkout() → logs "Book '<title>' has been checked out 📖"
+
+// 3. Subclass: Magazine
+
+// Additional property: issueNumber
+
+// Implement checkout() → logs "Magazine '<title>' Issue #<issueNumber> has been checked out 📰"
+
+// 4. Subclass: DVD
+
+// Additional property: duration (in minutes)
+
+// Implement checkout() → logs "DVD '<title>' of duration <duration> minutes has been checked out 🎬"
+
+// 5. Polymorphic function borrowItem(item)
+
+// Accepts any library item
+
+// Calls checkout() method
+
+// 6. BONUS
+
+// Create an array of mixed items (Book, Magazine, DVD)
+
+// Loop through array and call borrowItem() on each
