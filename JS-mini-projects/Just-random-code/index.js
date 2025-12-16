@@ -743,10 +743,10 @@ function printPaySlip(employee) {
 const employees = [
   new FullTimeEmployee("Alice", 3000, 500),
   new PartTimeEmployee("Bob", 20, 80),
-  new Intern("Charlie", 600)
+  new Intern("Charlie", 600),
 ];
 
-employees.forEach(e => printPaySlip(e));
+employees.forEach((e) => printPaySlip(e));
 
 /******************************************************************* */
 
@@ -756,47 +756,105 @@ employees.forEach(e => printPaySlip(e));
 // You need to create a library system with different types of items.
 
 // 1. Base Class: LibraryItem
-
 // Properties:
-
 // title
-
 // author
-
 // year
 
 // Methods:
-
 // getInfo() → returns "Title: <title>, Author: <author>, Year: <year>"
-
 // checkout() → abstract method (throw error if called directly)
 
 // 2. Subclass: Book
-
 // Additional property: pages
-
 // Implement checkout() → logs "Book '<title>' has been checked out 📖"
 
 // 3. Subclass: Magazine
-
 // Additional property: issueNumber
-
 // Implement checkout() → logs "Magazine '<title>' Issue #<issueNumber> has been checked out 📰"
 
 // 4. Subclass: DVD
-
 // Additional property: duration (in minutes)
-
 // Implement checkout() → logs "DVD '<title>' of duration <duration> minutes has been checked out 🎬"
 
 // 5. Polymorphic function borrowItem(item)
-
 // Accepts any library item
-
 // Calls checkout() method
 
 // 6. BONUS
-
 // Create an array of mixed items (Book, Magazine, DVD)
-
 // Loop through array and call borrowItem() on each
+
+// Base Class
+class LibraryItem {
+  constructor(title, author, year) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+  }
+
+  getInfo() {
+    return `Title: ${title}, Author: ${this.author}, Year: ${this.year}`;
+  }
+
+  // Abstract method
+  checkout() {
+    throw new Error("Checkout must be implement in subclass");
+  }
+}
+
+// SubClass :: Book
+
+class Book extends LibraryItem {
+  constructor(title, author, year, pages) {
+    super(title, author, year);
+    this.pages = pages;
+  }
+
+  checkout() {
+    console.log(`Book '${this.title}' has been checked out 📖`);
+  }
+}
+
+// SubClass :: Magazine
+
+class Magazine extends LibraryItem {
+  constructor(title, author, year, issueNumber) {
+    super(title, author, year);
+    this.issueNumber = issueNumber;
+  }
+
+  checkout() {
+    console.log(
+      `Magazine '${this.title}' Issue #<issueNumber> has been checked out 📰`
+    );
+  }
+}
+
+// SubClass :: DVD
+
+class DVD extends LibraryItem {
+  constructor(title, author, year, duration) {
+    super(title, author, year);
+    this.duration = duration; // in min
+  }
+
+  checkout() {
+    console.log(
+      `DVD '${this.title}' of duration <duration> minutes has been checked out 🎬`
+    );
+  }
+}
+
+// polymorphic function
+
+function borrowItem(item) {
+  item.checkout();
+}
+
+const item = [
+  new Book("JS Basics", "Alice", 2022, 300), // title, author, year, pages
+  new Magazine("Tech Today", "Bob", 2023, 12), // title, author, year, issueNumber
+  new DVD("Inception", "Christopher Nolan", 2010, 148), // title, author, year, duration
+];
+
