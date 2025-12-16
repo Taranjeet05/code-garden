@@ -860,3 +860,45 @@ const items = [
 ];
 
 items.forEach(borrowItem);
+
+/****************************************************************************************************************** */
+
+
+// 🧩 OOP Challenge: “Shopping Cart System”
+// Problem Statement
+
+// You are building a shopping cart for an e-commerce app.
+
+// 1️⃣ Class: Product
+// Properties:
+// id
+// name
+// price
+
+// Method:
+// getInfo() → returns "Product: <name>, Price: <price>"
+
+// 2️⃣ Class: CartItem
+// Properties:
+// product (instance of Product)
+// quantity
+
+// Method:
+// getTotalPrice() → product.price * quantity
+
+// 3️⃣ Class: ShoppingCart
+// Private property:
+// #items (array of CartItem)
+
+// Methods:
+// addProduct(product, quantity)
+// removeProduct(productId)
+// getTotalAmount() → sum of all cart items
+// printCart() → logs all items and total price
+
+// 4️⃣ Test the Flow
+// Create products
+// Add products to cart
+// Remove one product
+// Print cart and total
+
