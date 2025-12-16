@@ -863,7 +863,6 @@ items.forEach(borrowItem);
 
 /****************************************************************************************************************** */
 
-
 // 🧩 OOP Challenge: “Shopping Cart System”
 // Problem Statement
 
@@ -902,3 +901,76 @@ items.forEach(borrowItem);
 // Remove one product
 // Print cart and total
 
+class Product {
+  constructor(id, name, price) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+  }
+
+  getInfo() {
+    return `Product: ${this.name}, Price: ${this.price}`;
+  }
+}
+
+// SubClass CartItem
+
+class CartItem {
+  constructor(product, quantity) {
+    this.product = product;
+    this.quantity = quantity;
+  }
+
+  getTotalPrice() {
+    return this.product * this.quantity;
+  }
+}
+
+// SubClass :: ShoppingCart
+
+class ShoppingCart {
+  #items = [];
+
+  addProduct(product, quantity) {
+    const existingItem = this.#items.find(
+      (item) => item.product.id === product.id
+    );
+
+    if (existingItem) {
+      existingItem.quantity += quantity;
+    } else {
+      this.#items.push(new CartItem(product, quantity));
+    }
+  }
+
+  removeProduct(productId) {
+    this.#items = this.#items.filter((item) => item.product.id !== productId);
+  }
+
+  getTotalAmount() {
+    return this.#items.reduce((total, item) => total + item.getTotalPrice(), 0);
+  }
+
+  printCart() {
+    console.log("🛒 Shopping Cart:");
+    this.#items.forEach((item) => {
+      console.log(
+        `${item.product.name} x ${item.quantity} = ${item.getTotalPrice()}`
+      );
+    });
+    console.log("Total:", this.getTotalAmount());
+  }
+}
+
+// test
+
+const p1 = new Product(1, "Laptop", 1000); // id, name, price
+const p2 = new Product(2, "Mouse", 50); // id, name, price
+
+const cart = new ShoppingCart();
+
+cart.addProduct(p1, 1); // product, quantity
+cart.addProduct(p2, 3); // product, quantity
+cart.addProduct(p1, 1); // product, quantity
+
+console.log(cart)
