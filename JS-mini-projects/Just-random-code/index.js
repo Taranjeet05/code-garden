@@ -852,9 +852,11 @@ function borrowItem(item) {
   item.checkout();
 }
 
-const item = [
+// test
+const items = [
   new Book("JS Basics", "Alice", 2022, 300), // title, author, year, pages
   new Magazine("Tech Today", "Bob", 2023, 12), // title, author, year, issueNumber
   new DVD("Inception", "Christopher Nolan", 2010, 148), // title, author, year, duration
 ];
 
+items.forEach(borrowItem);
