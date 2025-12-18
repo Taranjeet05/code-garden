@@ -974,3 +974,70 @@ cart.addProduct(p2, 3); // product, quantity
 cart.addProduct(p1, 1); // product, quantity
 
 console.log(cart)
+
+/************************************************************************************************************************ */
+
+// 🧩 MEGA OOP CHALLENGE: “Food Delivery System”
+// 🚀 OOP Concepts Covered
+
+// ✔ Encapsulation
+// ✔ Abstraction
+// ✔ Inheritance
+// ✔ Polymorphism
+// ✔ Composition
+// ✔ Strategy Pattern
+// ✔ Factory Pattern
+// ✔ Static Methods
+// ✔ Method Overriding
+// ✔ Dependency Injection
+
+// 🧠 Problem Statement
+
+// You are building a Food Delivery App.
+
+// 1️⃣ Abstract Class: PaymentMethod
+// Method: pay(amount) → abstract
+// Cannot be instantiated directly
+
+// 2️⃣ Payment Strategies
+// CardPayment
+// UPIPayment
+// CashPayment
+
+// Each must implement pay(amount).
+
+// 3️⃣ Class: Restaurant
+// Properties:
+// name
+// menu (array of items { id, name, price })
+
+// Method:
+// getItemById(id)
+
+// 4️⃣ Class: OrderItem
+// Properties:
+// item
+// quantity
+
+// Method:
+// getPrice()
+
+// 5️⃣ Class: Order
+// Private:
+// #items
+// Properties:
+// restaurant
+// paymentMethod
+
+// Methods:
+// addItem(item, quantity)
+// setPaymentMethod(method)
+// getTotal()
+// checkout()
+
+// 6️⃣ Factory Class: PaymentFactory
+// Static Method:
+// createPayment(type)
+
+// 7️⃣ Polymorphic Function
+// processOrder(order) → works with any payment method
