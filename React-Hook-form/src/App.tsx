@@ -8,21 +8,40 @@ import {
 import DatePicker from "react-datepicker";
 import fakeApi from "./api/api";
 import type { FormData } from "./types";
+import { useEffect } from "react";
+import { useWatch } from "react-hook-form";
 
 function App() {
   const {
     handleSubmit,
-    getValues,
     control,
     register,
     formState: { errors, isSubmitting },
     setError,
-  } = useForm<FormData>();
+    setValue,
+  } = useForm<FormData>({
+    defaultValues: {
+      subscribe: false,
+      hobbies: [{ name: "" }],
+    },
+  });
 
   const { fields, append, remove } = useFieldArray({
     control, // control props comes from useForm (optional: if you are using FormProvider)
     name: "hobbies", // unique name for your Field Array
   });
+
+  const subscribe = useWatch({
+    control,
+    name: "subscribe",
+    defaultValue: false,
+  });
+
+  useEffect(() => {
+    if (!subscribe) {
+      setValue("referral", "");
+    }
+  }, [subscribe, setValue]);
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
@@ -187,7 +206,7 @@ function App() {
           <input type="checkbox" {...register("subscribe")} />
         </div>
 
-        {getValues("subscribe") && (
+        {subscribe && (
           <div>
             <label>Referral Source</label>
             <input
