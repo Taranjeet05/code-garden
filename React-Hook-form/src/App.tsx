@@ -7,9 +7,10 @@ import {
 } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import fakeApi from "./api/api";
-import type { FormData } from "./types";
 import { useEffect } from "react";
 import { useWatch } from "react-hook-form";
+import { formSchema, type FormData } from "./zod/z.validations";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 function App() {
   const {
@@ -21,9 +22,21 @@ function App() {
     setValue,
   } = useForm<FormData>({
     defaultValues: {
-      subscribe: false,
+      firstName: "",
+      lastName: "",
+      email: "",
+      age: 18,
+      gender: "Male",
+      address: {
+        city: "",
+        state: "",
+      },
       hobbies: [{ name: "" }],
+      startDate: new Date(),
+      subscribe: false,
+      referral: "",
     },
+    resolver: zodResolver(formSchema),
   });
 
   const { fields, append, remove } = useFieldArray({
@@ -64,9 +77,7 @@ function App() {
       >
         <div>
           <label>First Name</label>
-          <input
-            {...register("firstName", { required: "First Name is required" })}
-          />
+          <input {...register("firstName")} />
           {errors.firstName && (
             <p style={{ color: "orangered" }}>{errors.firstName.message}</p>
           )}
@@ -74,9 +85,7 @@ function App() {
 
         <div>
           <label>Last Name</label>
-          <input
-            {...register("lastName", { required: "Last Name is required" })}
-          />
+          <input {...register("lastName")} />
           {errors.lastName && (
             <p style={{ color: "orangered" }}>{errors.lastName.message}</p>
           )}
@@ -84,15 +93,7 @@ function App() {
 
         <div>
           <label>Email</label>
-          <input
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^\S+@\S+$/i,
-                message: "Invalid email address",
-              },
-            })}
-          />
+          <input {...register("email")} />
           {errors.email && (
             <p style={{ color: "orangered" }}>{errors.email.message}</p>
           )}
@@ -100,19 +101,7 @@ function App() {
 
         <div>
           <label>Age</label>
-          <input
-            {...register("age", {
-              required: "Age is required",
-              min: {
-                value: 18,
-                message: "Should be at least 18 years old",
-              },
-              max: {
-                value: 99,
-                message: "Should not be more that 99 years old",
-              },
-            })}
-          />
+          <input {...register("age", { valueAsNumber: true })} />
           {errors.age && (
             <p style={{ color: "orangered" }}>{errors.age.message}</p>
           )}
@@ -120,15 +109,11 @@ function App() {
 
         <div>
           <label>Gender</label>
-          <select
-            {...register("gender", {
-              required: "Gender is required",
-            })}
-          >
+          <select {...register("gender")}>
             <option value="">Select...</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
           {errors.gender && (
             <p style={{ color: "orangered" }}>{errors.gender.message}</p>
@@ -137,22 +122,12 @@ function App() {
 
         <div>
           <label>Address</label>
-          <input
-            {...register("address.city", {
-              required: "City is required",
-            })}
-            placeholder="City"
-          />
+          <input {...register("address.city")} placeholder="City" />
           {errors.address?.city && (
             <p style={{ color: "orangered" }}>{errors.address.city.message}</p>
           )}
 
-          <input
-            {...register("address.state", {
-              required: "State is required",
-            })}
-            placeholder="State"
-          />
+          <input {...register("address.state")} placeholder="State" />
           {errors.address?.state && (
             <p style={{ color: "orangered" }}>{errors.address.state.message}</p>
           )}
@@ -178,9 +153,7 @@ function App() {
           {fields.map((hobby, index) => (
             <div key={hobby.id}>
               <input
-                {...register(`hobbies.${index}.name`, {
-                  required: "Hobbies are required",
-                })}
+                {...register(`hobbies.${index}.name`)}
                 placeholder="Hobby Name"
               />
               {errors.hobbies?.[index]?.name && (
