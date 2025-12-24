@@ -1097,3 +1097,32 @@ class OrderItem {
   }
 }
 
+// Order
+class Order {
+  #items;
+  constructor(restaurant) {
+    this.restaurant = restaurant;
+    this.paymentMethod = null;
+  }
+
+  addItem(item, quantity) {
+    this.#items.push(new OrderItem(item, quantity));
+  }
+
+  setPaymentMethod(method) {
+    this.paymentMethod = method;
+  }
+
+  getTotal() {
+    return this.#items.reduce((total, item) => total + item.getPrice(), 0);
+  }
+
+  checkout() {
+    if (!this.paymentMethod) {
+      console.log("❌ No payment method selected");
+      return;
+    }
+    const total = this.getTotal();
+    this.paymentMethod.pay(total);
+  }
+}
