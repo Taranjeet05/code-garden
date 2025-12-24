@@ -1085,3 +1085,15 @@ class Restaurant {
     return this.menu.find((item) => item.id === id);
   }
 }
+
+// OrderItem
+class OrderItem {
+  constructor(item, quantity) {
+    this.item = item;
+    this.quantity = quantity;
+  }
+  getPrice() {
+    return this.item.price * this.quantity;
+  }
+}
+
