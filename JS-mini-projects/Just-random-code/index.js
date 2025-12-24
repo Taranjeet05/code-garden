@@ -973,7 +973,7 @@ cart.addProduct(p1, 1); // product, quantity
 cart.addProduct(p2, 3); // product, quantity
 cart.addProduct(p1, 1); // product, quantity
 
-console.log(cart)
+console.log(cart);
 
 /************************************************************************************************************************ */
 
@@ -1041,3 +1041,36 @@ console.log(cart)
 
 // 7️⃣ Polymorphic Function
 // processOrder(order) → works with any payment method
+
+class PaymentMethod {
+  constructor() {
+    if (new.target === PaymentMethod)
+      throw new Error("Cannot instantiate abstract class PaymentMethod");
+  }
+
+  pay(amount) {
+    throw new Error("Pay() must be implemented");
+  }
+}
+
+// Payment strategies
+// CardPayment
+
+class CardPayment extends PaymentMethod {
+  pay(amount) {
+    console.log(`Paid ${amount} using Card`);
+  }
+}
+// UPIPayment
+class UPIPayment extends PaymentMethod {
+  pay(amount) {
+    console.log(`Paid ${amount} Using UPI`);
+  }
+}
+// CashPayment
+class CashPayment extends PaymentMethod {
+  pay(amount) {
+    console.log(`Paid ${amount} using CashPayment`);
+  }
+}
+
