@@ -1098,11 +1098,13 @@ class OrderItem {
 }
 
 // Order
-class Order {
+class FoodOrder {
   #items;
+
   constructor(restaurant) {
     this.restaurant = restaurant;
     this.paymentMethod = null;
+    this.#items = []; // ✅ important
   }
 
   addItem(item, quantity) {
@@ -1114,7 +1116,7 @@ class Order {
   }
 
   getTotal() {
-    return this.#items.reduce((total, item) => total + item.getPrice(), 0);
+    return this.#items.reduce((t, i) => t + i.getPrice(), 0);
   }
 
   checkout() {
@@ -1122,8 +1124,7 @@ class Order {
       console.log("❌ No payment method selected");
       return;
     }
-    const total = this.getTotal();
-    this.paymentMethod.pay(total);
+    this.paymentMethod.pay(this.getTotal());
   }
 }
 
@@ -1147,3 +1148,17 @@ class PaymentFactory {
 function processOrder(order) {
   order.checkout();
 }
+
+// 🔥 TEST FLOW
+const restaurant = new Restaurant("Spicy Hub", [
+  { id: 1, name: "Burger", price: 120 },
+  { id: 2, name: "Pizza", price: 250 },
+]);
+
+const foodOrder = new FoodOrder(restaurant);
+
+foodOrder.addItem(restaurant.getItemById(1), 2);
+foodOrder.addItem(restaurant.getItemById(2), 1);
+
+foodOrder.setPaymentMethod(PaymentFactory.createPayment("upi"));
+processOrder(foodOrder);
