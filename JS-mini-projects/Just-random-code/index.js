@@ -1074,3 +1074,14 @@ class CashPayment extends PaymentMethod {
   }
 }
 
+// Restaurant
+class Restaurant {
+  constructor(name, menu) {
+    this.name = name;
+    this.menu = menu;
+  }
+
+  getItemById(id) {
+    return this.menu.find((item) => item.id === id);
+  }
+}
