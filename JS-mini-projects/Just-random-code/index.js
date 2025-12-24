@@ -1142,3 +1142,8 @@ class PaymentFactory {
     }
   }
 }
+
+// Polymorphic Function
+function processOrder(order) {
+  order.checkout();
+}
