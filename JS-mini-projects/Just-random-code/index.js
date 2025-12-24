@@ -1126,3 +1126,19 @@ class Order {
     this.paymentMethod.pay(total);
   }
 }
+
+// Payment Factory class
+class PaymentFactory {
+  static createPayment(type) {
+    switch (type) {
+      case "card":
+        return new CardPayment();
+      case "upi":
+        return new UPIPayment();
+      case "cash":
+        return new CashPayment();
+      default:
+        throw new Error("Invalid payment type");
+    }
+  }
+}
