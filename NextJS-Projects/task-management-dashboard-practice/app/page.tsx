@@ -44,6 +44,13 @@ export default function Home() {
     localStorage.setItem("tasks", JSON.stringify(updated));
   };
 
+  const deleteTask = (id: string) => {
+    const updated = tasks.filter((task) => task.id !== id);
+    setTasks(updated);
+    localStorage.setItem("task", JSON.stringify(updated));
+    toast.success("Task deleted Successfully");
+  };
+
   return (
     <main className="max-w-7xl mx-auto p-7 space-y-8">
       <section>
@@ -55,7 +62,7 @@ export default function Home() {
 
       <section className="space-y-6">
         <TaskFilter value={selectedFilter} onChange={setSelectedFilter} />
-        <TaskList tasks={filteredTasks} onToggleStatus={toggleTaskStatus} />
+        <TaskList tasks={filteredTasks} onToggleStatus={toggleTaskStatus} onDelete={deleteTask} />
       </section>
     </main>
   );

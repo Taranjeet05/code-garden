@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button";
 export default function TaskList({
   tasks,
   onToggleStatus,
+  onDelete,
 }: {
   tasks: Task[];
   onToggleStatus: (id: string) => void;
+  onDelete: (id: string) => void;
 }) {
   if (tasks.length === 0) {
     return (
@@ -49,10 +51,19 @@ export default function TaskList({
           <Button
             onClick={() => onToggleStatus(task.id)}
             variant={task.completed ? "outline" : "default"}
-            className="mt-6 w-full"
+            className="mt-6 w-full cursor-pointer"
           >
             {task.completed ? "Reopen Task" : "Complete Task"}
           </Button>
+          {task.completed && (
+            <Button
+              variant={"destructive"}
+              className="mt-6 w-full cursor-pointer"
+              onClick={() => onDelete(task.id)}
+            >
+              Delete
+            </Button>
+          )}
         </div>
       ))}
     </div>
