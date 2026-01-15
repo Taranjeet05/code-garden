@@ -7,8 +7,10 @@ import { v4 as uuidv4 } from "uuid";
 import TaskForm from "@/components/TaskForm";
 import TaskFilter from "@/components/TaskFilter";
 import TaskList from "@/components/TaskList";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const TASKS_PER_PAGE = 6;
   const [tasks, setTasks] = useState<Task[]>(() => {
     if (typeof window === "undefined") return [];
 
@@ -19,6 +21,7 @@ export default function Home() {
       return [];
     }
   });
+  const [visibleCount, setVisibleCount] = useState(TASKS_PER_PAGE);
 
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
 
@@ -27,6 +30,10 @@ export default function Home() {
       ? tasks
       : tasks.filter((t) => t.priority === selectedFilter);
   }, [selectedFilter, tasks]);
+
+  const visibleTasks = useMemo(() => {
+    return filteredTasks.slice(0, visibleCount);
+  }, [filteredTasks, visibleCount]);
 
   const addTask = (data: Omit<Task, "id" | "completed">) => {
     const newTask: Task = { ...data, id: uuidv4(), completed: false };
@@ -47,7 +54,11 @@ export default function Home() {
   const deleteTask = (id: string) => {
     const updated = tasks.filter((task) => task.id !== id);
     setTasks(updated);
-    localStorage.setItem("task", JSON.stringify(updated));
+    localStorage.setItem("tasks", JSON.stringify(updated));
+
+    if (visibleCount > updated.length) {
+      setVisibleCount(TASKS_PER_PAGE);
+    }
     toast.success("Task deleted Successfully");
   };
 
@@ -62,7 +73,22 @@ export default function Home() {
 
       <section className="space-y-6">
         <TaskFilter value={selectedFilter} onChange={setSelectedFilter} />
-        <TaskList tasks={filteredTasks} onToggleStatus={toggleTaskStatus} onDelete={deleteTask} />
+        <TaskList
+          tasks={visibleTasks}
+          onToggleStatus={toggleTaskStatus}
+          onDelete={deleteTask}
+        />
+
+        {visibleCount < filteredTasks.length && (
+          <div className="flex justify-center">
+            <Button
+              variant="outline"
+              onClick={() => setVisibleCount((prev) => prev + TASKS_PER_PAGE)}
+            >
+              Show More
+            </Button>
+          </div>
+        )}
       </section>
     </main>
   );
