@@ -1,7 +1,9 @@
+import Form from "@/components/Form";
+
 export default function Home() {
   return (
     <div>
-      <p>hello</p>
+      <Form />
     </div>
   );
 }
