@@ -6,7 +6,7 @@ export const userSchema = z.object({
   userName: z
     .string()
     .min(3, "Username must be at least 3 characters")
-    .max(10, "Username must be at most 10 characters"),
+    .max(20, "Username must be at most 20 characters"),
   email: z.string().email("Must be a valid Email"),
   phone: z
     .string()
@@ -19,6 +19,7 @@ export const userSchema = z.object({
   lastName: z.string().min(3, "Last name must be at least 3 character long."),
   age: z
     .number()
+    .int()
     .min(1, "Age must be at least 1")
     .max(150, "Age must be less than 150 years Old"),
   gender: z.enum(["male", "female", "other"]),
@@ -30,19 +31,16 @@ export const userSchema = z.object({
     street: z
       .string()
       .min(3, "Must not be less than 3 Characters long")
-      .max(100, "Must not be more than 20 characters long"),
+      .max(100, "Must not be more than 100 characters long"),
     state: z
       .string()
       .min(3, "Must be at least 3 Character long")
-      .max(50, "Must not more than 20 characters long"),
+      .max(50, "Must not more than 50 characters long"),
     country: z
       .string()
       .min(3, "Must be more than 3 characters long")
-      .max(50, "Must be less than 20 characters long"),
-    pin: z
-      .string()
-      .length(6, "PIN code must be exactly 6 digits")
-      .regex(/^\d+$/, "PIN must contain only numbers"),
+      .max(50, "Must be less than 50 characters long"),
+    pin: z.string().regex(/^\d+$/, "PIN must contain only numbers"),
   }),
 });
 
