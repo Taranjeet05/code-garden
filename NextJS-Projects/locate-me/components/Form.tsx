@@ -97,36 +97,16 @@ const Form = () => {
           </div>
         </div>
 
-        {/* row 5: Location (Lat/Lng) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="space-y-2">
-            <Label htmlFor="lat">
-              Latitude <span className="text-red-500">*</span>
-            </Label>
-            <Input
-              id="lat"
-              type="number"
-              step="any"
-              placeholder="40.7128"
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="lng">
-              Longitude <span className="text-red-500">*</span>
-            </Label>
-            <Input
-              id="lng"
-              type="number"
-              step="any"
-              placeholder="-74.0060"
-              required
-            />
-          </div>
+        {/* Row 5: Street Address (Full Width) */}
+        <div className="space-y-2">
+          <Label htmlFor="street">
+            Street Address <span className="text-red-500">*</span>
+          </Label>
+          <Input id="street" placeholder="123 Main St, Apartment 4B" required />
         </div>
 
-        {/* row 6: State & Country */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* Row 6: State, Country, and PIN Code */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="space-y-2">
             <Label htmlFor="state">
               State <span className="text-red-500">*</span>
@@ -138,6 +118,12 @@ const Form = () => {
               Country <span className="text-red-500">*</span>
             </Label>
             <Input id="country" placeholder="United States" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="pinCode">
+              PIN / Zip Code <span className="text-red-500">*</span>
+            </Label>
+            <Input id="pinCode" placeholder="90210" required />
           </div>
         </div>
 
