@@ -34,8 +34,15 @@ const Form = () => {
     },
   });
 
-  const handleFormSubmit = (data: UserFormData) => {
-    console.log("User Data", data);
+  const handleFormSubmit = async (data: UserFormData) => {
+    const res = await fetch("/api/geocode", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data.address),
+    });
+
+    const location = await res.json();
+    console.log("User Data", { ...data, location });
   };
 
   return (
