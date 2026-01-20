@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
-import { User, UserFormData, userFormSchema } from "@/types/userSchema";
+import { UserFormData, userFormSchema } from "@/types/userSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
