@@ -11,20 +11,26 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
-import { UserFormData, userFormSchema } from "@/types/userSchema";
+import { User, UserFormData, userFormSchema } from "@/types/userSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
+
+type GeoLocation = {
+  lat: number;
+  lng: number;
+};
 
 const Form = () => {
   const {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm<UserFormData>({
     resolver: zodResolver(userFormSchema),
     defaultValues: {
-      gender: undefined,
       address: {
         street: "",
         state: "",
@@ -35,20 +41,36 @@ const Form = () => {
   });
 
   const handleFormSubmit = async (data: UserFormData) => {
-    const res = await fetch("/api/geocode", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data.address),
-    });
+    try {
+      const res = await fetch("/api/geocode", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data.address),
+      });
 
-    const location = await res.json();
-    const userDataWithLocation = {
-      ...data,
-      location,
-    };
-    console.log("User Data with Location:", userDataWithLocation);
+      if (!res.ok) throw new Error("Geocode failed");
 
-    localStorage.setItem("user", JSON.stringify(userDataWithLocation));
+      const location: GeoLocation = await res.json();
+
+      if (!location?.lat || !location?.lng) {
+        throw new Error("Invalid location data");
+      }
+
+      const userDataWithLocation = {
+        id: uuidv4(),
+        ...data,
+        location,
+      };
+
+      const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+      localStorage.setItem(
+        "users",
+        JSON.stringify([...existingUsers, userDataWithLocation]),
+      );
+      reset();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
