@@ -42,7 +42,13 @@ const Form = () => {
     });
 
     const location = await res.json();
-    console.log("User Data", { ...data, location });
+    const userDataWithLocation = {
+      ...data,
+      location,
+    };
+    console.log("User Data with Location:", userDataWithLocation);
+
+    localStorage.setItem("user", JSON.stringify(userDataWithLocation));
   };
 
   return (
