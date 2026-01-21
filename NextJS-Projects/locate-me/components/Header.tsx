@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MapPin, Users, Home } from "lucide-react";
+import { MapPin, Users, Home, Map } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
@@ -11,6 +11,7 @@ const Header = () => {
   const navItems = [
     { name: "Home", href: "/", icon: Home },
     { name: "Users", href: "/users", icon: Users },
+    { name: "Map", href: "/map", icon: Map },
   ];
 
   return (
