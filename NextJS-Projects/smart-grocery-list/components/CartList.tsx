@@ -53,7 +53,7 @@ const CartList = () => {
                   className="flex items-center justify-between p-4 hover:bg-muted/50 transition-colors"
                 >
                   <div className="sm:space-y-5 space-y-2.5">
-                    <h3 className="font-semibold text-3xl sm:text-4xl leading-none">
+                    <h3 className="font-semibold text-3xl sm:text-4xl leading-none uppercase">
                       {item.name}
                     </h3>
                     <div className="flex items-center gap-3">
