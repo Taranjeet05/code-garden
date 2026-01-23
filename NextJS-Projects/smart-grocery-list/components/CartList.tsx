@@ -29,7 +29,7 @@ const CartList = () => {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-4 bg-slate-900 min-h-[calc(100vh-64px)]">
       <Card className="w-full max-w-5xl mx-auto shadow-lg mt-4">
         <CardHeader className="border-b bg-muted/20">
           <div className="flex items-center gap-2">
