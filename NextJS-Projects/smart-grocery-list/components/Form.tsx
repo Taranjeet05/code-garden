@@ -17,11 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import {
-  GroceryFormData,
-  groceryFormSchema,
-  GroceryItem,
-} from "@/types/grocerySchema";
+import { GroceryFormData, groceryFormSchema } from "@/types/grocerySchema";
 import { Button } from "./ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { v4 as uuidv4 } from "uuid";
