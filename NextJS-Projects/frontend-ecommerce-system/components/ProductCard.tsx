@@ -3,12 +3,24 @@ import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Product } from "@/Hook/useProducts";
 import { Eye, ShoppingCart, Star } from "lucide-react";
 import { Button } from "./ui/button";
+import { useCartStore } from "@/Hook/useCartStore";
+import { toast } from "sonner";
 
 interface ProductCardProp {
   product: Product;
 }
 
 const ProductCard = ({ product }: ProductCardProp) => {
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAdd = () => {
+    addToCart(product);
+
+    toast.success(`${product.title.substring(0, 20)}... added to cart`, {
+      description: "You can view your items in the cart page.",
+    });
+  };
+
   return (
     <Card className="group h-full flex flex-col overflow-hidden border-slate-200 hover:shadow-lg transition-shadow duration-300">
       {/* Image Section */}
@@ -55,7 +67,10 @@ const ProductCard = ({ product }: ProductCardProp) => {
 
       {/* Actions Section */}
       <CardFooter className="p-4 pt-0 gap-2">
-        <Button className="flex-1 gap-2 bg-blue-600 hover:bg-blue-700">
+        <Button
+          onClick={handleAdd}
+          className="flex-1 gap-2 bg-blue-600 hover:bg-blue-700"
+        >
           <ShoppingCart size={16} /> Add
         </Button>
         <Button variant="outline" size="icon" className="shrink-0">
