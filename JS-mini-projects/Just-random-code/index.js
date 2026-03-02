@@ -46,3 +46,24 @@ const array1 = [12, 13, 14, 15, 20, 55, 5, 6];
 const array2 = [144, 169, 196, 225, 400, 3025, 25, 36];
 
 console.log(comp(array1, array2));
+
+
+// ❓ Question
+
+// Write a function that checks whether array2 contains the squares of all numbers in array1.
+
+// Order does not matter
+
+// Frequency does matter
+
+// Return true or false
+
+// Example
+// array1 = [1, 2, 3]
+// array2 = [1, 4, 9]      // true
+
+// array1 = [1, 2, 2]
+// array2 = [1, 4, 4]      // true
+
+// array1 = [1, 2, 2]
+// array2 = [1, 4]         // false
