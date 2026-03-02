@@ -47,7 +47,6 @@ const array2 = [144, 169, 196, 225, 400, 3025, 25, 36];
 
 console.log(comp(array1, array2));
 
-
 // ❓ Question
 
 // Write a function that checks whether array2 contains the squares of all numbers in array1.
@@ -67,3 +66,16 @@ console.log(comp(array1, array2));
 
 // array1 = [1, 2, 2]
 // array2 = [1, 4]         // false
+
+const compare = (arr1, arr2) => {
+  if (!arr1 || !arr2) return false;
+  if (arr1.length !== arr2.length) return false;
+  const squared = arr1.map((n) => n * n).sort((a, b) => a - b);
+  const sorted = [...arr2].sort((a, b) => a - b);
+  return squared.every((value, index) => value === sorted[index]);
+};
+
+const arr1 = [1, 2, 2];
+const arr2 = [2, 2, 2];
+
+console.log(compare(arr1, arr2));
