@@ -1,14 +1,13 @@
-// Reverse a String
-// Goal: Write a function that takes a string and returns it reversed.
+// Phase 1: Syntax & Logic Warm-Up (Days 1–5)
+// Do not touch complex data structures yet. Focus strictly on core JavaScript mechanics and problem decomposition using basic loops and conditionals.
 
-// Example: reverseString("hello") should return "olleh".
+// Topics to Review:
 
-// Hint: You can convert the string into an array of characters (.split('')), reverse the array (.reverse()), and join it back together (.join('')).
+// Primitive vs. Reference types, Scope (closures, hoisting), and Arrow functions.
 
-const reverseString  = (str) => {
-    const split = str.split('').reverse().join('');
-    return split;
-}
+// Array Methods (crucial for DSA): .map(), .filter(), .reduce(), .find(), .sort().
 
-const ans1 = reverseString('hello');
-console.log(ans1)
+// Basic String manipulation methods (split, join, substring, indexOf).
+
+// Actionable Practice: Solve 15 to 20 very easy problems on platforms like LeetCode or HackerRank 
+// (e.g., Reverse a String, Palindrome Check, FizzBuzz, Two Sum). Focus entirely on typing out solutions without looking up syntax.
