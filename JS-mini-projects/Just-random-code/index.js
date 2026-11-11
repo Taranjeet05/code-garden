@@ -12,17 +12,3 @@
 // Actionable Practice: Solve 15 to 20 very easy problems on platforms like LeetCode or HackerRank 
 // (e.g., Reverse a String, Palindrome Check, FizzBuzz, Two Sum). Focus entirely on typing out solutions without looking up syntax.
 
-
-function isPalindrome(s) {
-    // 1. Convert to lowercase and remove all non-alphanumeric characters
-    const cleaned = s.toLowerCase().replace(/[^a-z0-9]/g, '');
-    
-    // 2. Reverse the cleaned string and compare it to the original cleaned string
-    const reversed = cleaned.split('').reverse().join('');
-    
-    return cleaned === reversed;
-}
-
-// Example usage:
-console.log(isPalindrome("A man, a plan, a canal: Panama")); // true
-console.log(isPalindrome("race a car"));                     // false
